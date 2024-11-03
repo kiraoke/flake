@@ -127,7 +127,17 @@
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
   
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+     enable = true;
+     xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+     # If your cursor becomes invisible
+     WLR_NO_HARDWARE_CURSORS = "1";
+     # hint electron apps to use wayland
+     NIXOUS_OZONE_WL = "1";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
