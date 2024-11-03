@@ -87,10 +87,14 @@
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
     audio.enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    jack.enable = true;
     wireplumber.enable = true;
   };
  
@@ -120,6 +124,14 @@
     wget
     kitty
     timeshift
+    (waybar.overrideAttrs (oldAttrs: {
+            mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+      })
+    )
+    mako
+    libnotify
+    swww
+    wofi
   ];
  
   # Set the default editor to vim
@@ -135,9 +147,12 @@
      # If your cursor becomes invisible
      WLR_NO_HARDWARE_CURSORS = "1";
      # hint electron apps to use wayland
-     NIXOUS_OZONE_WL = "1";
+     NIXOS_OZONE_WL = "1";
   };
+  
 
+#  xdg.portal.enable = true;
+#  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
