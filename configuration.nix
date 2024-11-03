@@ -15,12 +15,17 @@
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
 
-  hardware.opengl = {
-     enable = true;
+  #hardware.opengl = {
+   #  enable = true;
 #     driSupport = true;
-     driSupport32Bit = true;
-  };
+  #   driSupport32Bit = true;
+ # };
+  
 
+  hardware.graphics = {
+     enable = true;
+     enable32Bit = true;
+  };
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = false;
