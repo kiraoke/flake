@@ -32,5 +32,9 @@
 
   home.stateVersion = "24.05";
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+  };
+
   programs.home-manager.enable = true;
 }
