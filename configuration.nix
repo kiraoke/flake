@@ -14,7 +14,13 @@
   boot.supportedFilesystems = [ "btrfs" ];
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
- 
+
+  hardware.opengl = {
+     enable = true;
+#     driSupport = true;
+#     driSupport32Bit = true;
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = false;
@@ -62,6 +68,20 @@
   services.displayManager.sddm.wayland.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
  
+  services.xserver.videoDrivers = ["nvidia" "amdgpu"];
+  hardware.nvidia = {
+     modesetting.enable = true;
+     
+     # see arch wiki preserve nvidia video memory
+     powerManagement.enable = true;
+#     powerManagement.finegrained = true;
+
+     open = false; # disable the new nvidia open source drivers
+
+     nvidiaSettings = true;
+     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
  
