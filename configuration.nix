@@ -18,7 +18,7 @@
   hardware.opengl = {
      enable = true;
 #     driSupport = true;
-#     driSupport32Bit = true;
+     driSupport32Bit = true;
   };
 
   # Use the systemd-boot EFI boot loader.
