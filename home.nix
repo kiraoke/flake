@@ -34,6 +34,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = true;
   };
 
   programs.home-manager.enable = true;

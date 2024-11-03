@@ -15,10 +15,10 @@
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;  
 
-#  hardware.graphics = {
-#     enable = true;
-#     enable32Bit = true;
-#  };
+  hardware.graphics = {
+     enable = true;
+     enable32Bit = true;
+  };
 
   # Use the grub-boot EFI boot loader.
   boot.loader = {
@@ -67,19 +67,19 @@
   services.displayManager.sddm.wayland.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
  
- # services.xserver.videoDrivers = ["nvidia" "amdgpu"];
- # hardware.nvidia = {
- #    modesetting.enable = true;
+  services.xserver.videoDrivers = ["nvidia" "amdgpu"];
+  hardware.nvidia = {
+     modesetting.enable = true;
      
      # see arch wiki preserve nvidia video memory
-#     powerManagement.enable = true;
+     powerManagement.enable = true;
 #     powerManagement.finegrained = true; requires prime offload
 
-#     open = false; # disable the new nvidia open source drivers
+     open = false; # disable the new nvidia open source drivers
 
-#    nvidiaSettings = true;
-#     package = config.boot.kernelPackages.nvidiaPackages.stable;
-#  };
+    nvidiaSettings = true;
+     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -140,16 +140,16 @@
   
   programs.hyprland = {
      enable = true;
-#     xwayland.enable = true;
+     xwayland.enable = true;
 #     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
-#  environment.sessionVariables = {
+  environment.sessionVariables = {
      # If your cursor becomes invisible
-#     WLR_NO_HARDWARE_CURSORS = "1";
+     WLR_NO_HARDWARE_CURSORS = "1";
      # hint electron apps to use wayland
-#     NIXOS_OZONE_WL = "1";
-#  };
+     NIXOS_OZONE_WL = "1";
+  };
   
 
 #  xdg.portal.enable = true;
