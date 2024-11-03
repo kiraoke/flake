@@ -89,7 +89,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "storage" "power" "video" "audio"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      floorp
       vscode
     ];
   };
