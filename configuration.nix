@@ -77,7 +77,7 @@
 
      open = false; # disable the new nvidia open source drivers
 
-    nvidiaSettings = true;
+     nvidiaSettings = true;
      package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
@@ -111,9 +111,6 @@
   users.users.aqua = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "storage" "power" "video" "audio"]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      vscode
-    ];
   };
  
   # List packages installed in system profile. To search, run:
