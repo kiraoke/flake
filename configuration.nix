@@ -13,20 +13,14 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "btrfs" ];
   hardware.enableAllFirmware = true;
-  nixpkgs.config.allowUnfree = true;
-
-  #hardware.opengl = {
-   #  enable = true;
-#     driSupport = true;
-  #   driSupport32Bit = true;
- # };
-  
+  nixpkgs.config.allowUnfree = true;  
 
   hardware.graphics = {
      enable = true;
      enable32Bit = true;
   };
-  # Use the systemd-boot EFI boot loader.
+
+  # Use the grub-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = false;
     grub.enable = true;
@@ -79,7 +73,7 @@
      
      # see arch wiki preserve nvidia video memory
      powerManagement.enable = true;
-#     powerManagement.finegrained = true;
+#     powerManagement.finegrained = true; requires prime offload
 
      open = false; # disable the new nvidia open source drivers
 
