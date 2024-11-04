@@ -118,6 +118,7 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
+    zsh
     wget
     kitty
     timeshift
@@ -130,6 +131,9 @@
     swww
     wofi
   ];
+
+   users.defaultUserShell = pkgs.zsh;
+   programs.zsh.enable = true;
  
   # Set the default editor to vim
   programs.neovim.enable = true;

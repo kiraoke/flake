@@ -43,7 +43,7 @@
   fonts.fontconfig = {
      enable = true;
      defaultFonts = {
-        monospace = ["NotoSans"];
+        monospace = ["Noto Nerd Font"];
 	sansSerif = ["NotoSans"];
 	serif = ["NotoSerif"];
      };
@@ -56,6 +56,38 @@
   programs.git = {
     userName = "ingineous";
     userEmail = "ingineousus@gmail.com";
+  };
+
+  programs.zsh  = {
+	enable = true;
+	enableCompletion = true;
+	autosuggestion.enable = true;
+	syntaxHighlighting.enable = true;
+	autocd = true;
+	dotDir = ".config/zsh";
+
+	history = {
+		size = 10000;
+		path = "${config.xdg.dataHome}/zsh/history";
+		ignoreDups = true;
+		share = true;
+		extended = true;
+	};
+
+	oh-my-zsh = {
+		enable = true;
+		plugins = [
+			"git"
+			"zsh-autosuggestions"
+			"zsh-syntax-highlighting"
+		];
+	};
+
+	shellAliases = {
+		saymyname = "echo Heisenberg";
+		"177013" = "xdg-open https://nhentai.to/g/177013";
+		rebuild = "sudo nixos-rebuild switch --flake ~/flake#hoshino --impure";
+	};
   };
 
   home.stateVersion = "24.05";
