@@ -1,10 +1,15 @@
-{config, pkgs, inputs, ...}: {
+{config, pkgs,lib , inputs, ...}: {
   home.username = "aqua";
   home.homeDirectory = "/home/aqua";
+
+#  xdg.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     qt6ct
     qt6.qtwayland
+    nerdfonts
+    noto-fonts
+    fira-code
 
     xdg-desktop-portal-hyprland
 
@@ -13,6 +18,8 @@
 
     # cool tool
     fastfetch
+    cava
+    pipes-rs
 
     # archives
     zip
@@ -33,7 +40,17 @@
     htop
 
     light
+    pywal
   ];
+
+  fonts.fontconfig = {
+     enable = true;
+     defaultFonts = {
+        monospace = ["Firacode"];
+	sansSerif = ["NotoSans"];
+	serif = ["NotoSerif"];
+     };
+  };
   
   programs.floorp = {
 	enable = true;
@@ -45,6 +62,34 @@
   };
 
   home.stateVersion = "24.05";
+
+  programs.kitty = {
+      enable = true;
+      extraConfig = ''
+	font_family NotoSans
+	italic_font auto
+	bold_font auto
+	bold_italic_font auto
+	font_size 11.5
+
+	include ~/.cache/wal/colors-kitty.conf
+
+        # -- window --
+	window_margin_width 10 15
+	window_resize_step_cells 5
+	window_resize_step_lines 2
+	confirm_os_window_close 0
+
+	# -- misc settings --
+	enable_audio_bell no
+	force_ltr no
+	detect_urls yes
+
+	# -- map keys --
+	map f1 launch --cwd=current
+	map f2 launch --cwd=current --type=tab
+      '';
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -278,12 +323,12 @@
 
 	listener = [
 	   {
-	      timeout = 10;
+	      timeout = 1000;
 	      on-timeout = "loginctl lock-session";
 	   }
 
 	   {
-	      timeout = 5;
+	      timeout = 995;
 	      on-timeout = "light -S 5";
 	      on-resume = "light -S 20";
 	   }
@@ -357,7 +402,7 @@
       label = [
         {
 	   monitor = "";
-	   text = "cmd[update:1000] echo '$(data + '%A, %B %d')'";
+	   text = ''cmd[update:1000] echo "$(data + "%A, %B %d")"'';
 	   color = "rgba(215, 130, 147, 0.75)";
 	   font_size = 80;
 	   font_family = "SF Pro Display Bold";
@@ -368,7 +413,7 @@
 
 	 {
 	   monitor = "";
-	   text = "cmd[update:1000] echo '$(date +'%k:%M')'";
+	   text = ''cmd[update:1000] echo "$(date +"%k:%M")"'';
 	   color = "rgba(179, 206, 208, 0.75)";
 	   font_size = 140;
 	   font_family = "SF Pro Display Bold";
@@ -389,6 +434,10 @@
 	 }
      ];
 	 };
+  };
+
+  programs.pywal = {
+	enable = true;
   };
 
   programs.home-manager.enable = true;
