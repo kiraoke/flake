@@ -173,33 +173,26 @@
      };
   };
 
-  programs.fastfetch = {
-	enable = true;
-	settings = {
-	  "$schema"= "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
-	   "logo"= {
-			"source"= "/home/aqua/Pictures/pfp/rubybg.png";
-			"type"= "kitty";
-			"height"= 18;
-			"padding"= {
-				"top"= 2;
-		 }; 
-	};
-  };
-};
+ home.file.".config/fastfetch/config.jsonc".source = /home/aqua/flake/config.jsonc; 	
+#   programs.fastfetch = {
+# 	enable = true;
+# 	settings = {
+# 	 config = inputs.fastfetch.config;
+#   };
+# };
 
-  home.file = {
-	"~/.config/fastfetch/config.jsonc".text = ''
-	    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-		"logo": {
-			"source": "/home/aqua/Pictures/pfp/rubybg.png",
-			"type": "kitty",
-			"height": 18,
-			"padding": {
-				"top": 2
-			}
-	'';
-  };
+#   home.file = {
+# 	"~/.config/fastfetch/config.jsonc".text = ''
+# 	    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+# 		"logo": {
+# 			"source": "/home/aqua/Pictures/pfp/rubybg.png",
+# 			"type": "kitty",
+# 			"height": 18,
+# 			"padding": {
+# 				"top": 2
+# 			}
+# 	'';
+#   };
   
 
   wayland.windowManager.hyprland = {
