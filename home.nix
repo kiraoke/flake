@@ -7,7 +7,6 @@
     qt6.qtwayland
     nerdfonts
     noto-fonts
-    fira-code
 
     xdg-desktop-portal-hyprland
 
@@ -44,7 +43,7 @@
   fonts.fontconfig = {
      enable = true;
      defaultFonts = {
-        monospace = ["Firacode"];
+        monospace = ["NotoSans"];
 	sansSerif = ["NotoSans"];
 	serif = ["NotoSerif"];
      };
