@@ -43,7 +43,7 @@
   fonts.fontconfig = {
      enable = true;
      defaultFonts = {
-        monospace = ["Noto Nerd Font"];
+        monospace = ["JetBrains Mono"];
 	sansSerif = ["NotoSans"];
 	serif = ["NotoSerif"];
      };
@@ -64,7 +64,6 @@
 	autosuggestion.enable = true;
 	syntaxHighlighting.enable = true;
 	autocd = true;
-	dotDir = ".config/zsh";
 
 	history = {
 		size = 10000;
@@ -78,10 +77,30 @@
 		enable = true;
 		plugins = [
 			"git"
-			"zsh-autosuggestions"
-			"zsh-syntax-highlighting"
 		];
 	};
+
+	initExtra = ''
+	   # Enable Powerlevel10k instant prompt
+	   if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+	      source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+		fi
+
+		# source the theme
+		source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+
+
+		# to customize prompt, run `p10k configure` or edit ~/.p10k.zsh
+		[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+	'';
+
+	plugins = [
+		{
+			name = "powerlevel10k";
+			src = pkgs.zsh-powerlevel10k;
+			file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+		}
+	];
 
 	shellAliases = {
 		saymyname = "echo Heisenberg";
@@ -90,12 +109,20 @@
 	};
   };
 
+  programs.fzf = {
+	enable = true;
+	enableZshIntegration = true;
+  };
+
   home.stateVersion = "24.05";
+
+
+  home.file.".p10k.zsh".source = /home/aqua/flake/.p10k.zsh;
 
   programs.kitty = {
       enable = true;
       extraConfig = ''
-	font_family NotoSans
+	font_family Noto Nerd Font
 	italic_font auto
 	bold_font auto
 	bold_italic_font auto
@@ -205,25 +232,6 @@
   };
 
  home.file.".config/fastfetch/config.jsonc".source = /home/aqua/flake/config.jsonc; 	
-#   programs.fastfetch = {
-# 	enable = true;
-# 	settings = {
-# 	 config = inputs.fastfetch.config;
-#   };
-# };
-
-#   home.file = {
-# 	"~/.config/fastfetch/config.jsonc".text = ''
-# 	    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-# 		"logo": {
-# 			"source": "/home/aqua/Pictures/pfp/rubybg.png",
-# 			"type": "kitty",
-# 			"height": 18,
-# 			"padding": {
-# 				"top": 2
-# 			}
-# 	'';
-#   };
   
 
   wayland.windowManager.hyprland = {
