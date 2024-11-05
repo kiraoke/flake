@@ -23,12 +23,35 @@
   # Use the grub-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = false;
-    grub.enable = true;
-    grub.devices = ["nodev"];
-    grub.efiSupport = true;
-    grub.useOSProber = true;
     efi.canTouchEfiVariables = true;
     efi.efiSysMountPoint = "/boot";
+    timeout = 20;
+
+    grub = {
+	enable = true;
+	devices = ["nodev"];
+	efiSupport = true;
+	useOSProber = true;
+	gfxmodeEfi = "2560x1600";
+	timeoutStyle = "menu";
+
+	extraConfig = ''
+	   GRUB_TERMINAL_OUTPUT="gfxterm"
+	   GRUB_GFXMODE="2560x1600"
+	'';
+
+	minegrub-world-sel = {
+	  enable = true;
+	  customIcons = [
+	  {
+	     name = "nixos";
+	     lineTop = "NixOS 24.05";
+	     lineBottom = "Hardcoe Mode, No Cheats, Version 24.05";
+	     imgName = "nixos";
+	  }
+	  ];
+	};
+    };
   };
  
   networking = {

@@ -4,7 +4,7 @@
   inputs = {
     # NixOS official package source, using the nixos-24.05 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-#    hyprland.url = "github:hyprwm/Hyprland";
+    minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -23,6 +23,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.aqua = import ./home.nix;
           }
+	  inputs.minegrub-world-sel-theme.nixosModules.default
         ];
       };
     };
