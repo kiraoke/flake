@@ -86,8 +86,21 @@
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
  
   # Enable the KDE Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+
+    theme = let 
+      corners = pkgs.fetchFromGitHub {
+        owner = "ingineous";
+        repo = "corners";
+        rev = "26d0aa796914ffde75f3fac5507304234cbf67c7";
+        sha256 = "sha256-G+BuvqA6F6Ot7Q59Z3sW8EVe7WY/HRMpsEdpZRJKppo=";
+      };
+    in "${corners}";  
+
+  };
+
   services.xserver.desktopManager.plasma5.enable = true;
  
   services.xserver.videoDrivers = ["nvidia" "amdgpu"];
@@ -153,6 +166,11 @@
     libnotify
     swww
     wofi
+
+    # sddm cursor theme dependencies
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtsvg
   ];
 
    users.defaultUserShell = pkgs.zsh;

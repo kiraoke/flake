@@ -38,7 +38,7 @@
             "type": "os",
             "key": " ",
             "keyColor": "34",  // = color4
-            "format": "{2}"
+            "format": "{3}"
         },
         {
             "type": "kernel",
