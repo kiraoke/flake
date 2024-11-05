@@ -7,6 +7,9 @@
     qt6.qtwayland
     nerdfonts
     noto-fonts
+    gtk3
+    whitesur-icon-theme
+    whitesur-gtk-theme
 
     xdg-desktop-portal-hyprland
 
@@ -50,6 +53,25 @@
 	sansSerif = ["NotoSans"];
 	serif = ["NotoSerif"];
      };
+  };
+
+  gtk = {
+    enable = true;
+
+    cursorTheme = {
+	name = "WhiteSur";
+	package = pkgs.whitesur-cursors;
+    };
+
+    iconTheme = {
+	name = "WhiteSur";
+	package = pkgs.whitesur-icon-theme;
+    };
+
+    theme = {
+      name = "WhiteSur";
+      package = pkgs.whitesur-gtk-theme;
+    };
   };
   
   programs.floorp = {
