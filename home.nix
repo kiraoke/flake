@@ -16,6 +16,7 @@
     # cool tool
     fastfetch
     cava
+    bat
     pipes-rs
 
     # archives
@@ -39,6 +40,8 @@
     light
     pywal
   ];
+
+  home.file.".face.icon".source = "/home/aqua/Pictures/pfp/dandadan.jpg";
 
   fonts.fontconfig = {
      enable = true;
@@ -579,6 +582,10 @@
 	 }
      ];
 	 };
+  };
+
+  programs.waybar = {
+      enable = true;
   };
 
   programs.pywal = {

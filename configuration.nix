@@ -94,8 +94,8 @@
       corners = pkgs.fetchFromGitHub {
         owner = "ingineous";
         repo = "corners";
-        rev = "26d0aa796914ffde75f3fac5507304234cbf67c7";
-        sha256 = "sha256-G+BuvqA6F6Ot7Q59Z3sW8EVe7WY/HRMpsEdpZRJKppo=";
+	rev = "8953e16c11e82e1dd29601d2738fc56a1c127edd";
+	sha256 = "sha256-hTwbJM0fXq1yO0NcqxU66gn/73Gu0R8s+B7ZDlttcw0=";
       };
     in "${corners}";  
 
