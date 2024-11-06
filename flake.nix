@@ -7,6 +7,10 @@
     minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
@@ -23,7 +27,8 @@
             home-manager.useUserPackages = true;
             home-manager.users.aqua = import ./home.nix;
           }
-	  inputs.minegrub-world-sel-theme.nixosModules.default
+	        inputs.minegrub-world-sel-theme.nixosModules.default
+          inputs.spicetify-nix.nixosModules.default
         ];
       };
     };

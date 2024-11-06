@@ -186,6 +186,20 @@
 #     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
+  programs.spicetify = 
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+    in
+     {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        hidePodcasts
+        shuffle
+      ];
+      theme = spicePkgs.themes.starryNight;
+     };
+
   environment.sessionVariables = {
      # If your cursor becomes invisible
      WLR_NO_HARDWARE_CURSORS = "1";
