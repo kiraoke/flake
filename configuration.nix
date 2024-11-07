@@ -167,6 +167,9 @@
     swww
     wofi
 
+    # zen browser
+    inputs.zen-browser.packages."${system}".specific
+
     # sddm cursor theme dependencies
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects

@@ -271,7 +271,7 @@
       "$shiftMod" = "SUPER SHIFT";
 
       "$terminal" = "kitty";
-      "$browser" = "floorp";
+      "$browser" = "zen";
       "$fileManager" = "nautilus";
       "$menu" = "wofi --show drun --allow-images";
       "$TFileManager" = "$terminal -e yazi";
@@ -327,7 +327,7 @@
         "opacity 0.9 override 0.85 class:webstorm"
 	"opacity 1.0 override 1.0 override title:^(Spotify)$"
 	"opacity 1.0 override 0.6 override, class:vesktop"
-	"size 800 600, class:zen-browser, title:Save Image"
+	"size 800 600, class:zen, title:Save Image"
 	"suppressevent maximize, class:.*"
       ];
       
