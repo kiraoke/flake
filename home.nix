@@ -22,6 +22,7 @@
 
     # cool tool
     fastfetch
+    qbittorrent
     cava
     bat
     pipes-rs
