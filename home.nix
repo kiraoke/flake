@@ -1,4 +1,5 @@
-{config, pkgs,lib , inputs, ...}: {
+{config, pkgs,lib , inputs, ...}:
+{
 
   home.username = "aqua";
   home.homeDirectory = "/home/aqua";
@@ -11,7 +12,7 @@
     gtk3
     whitesur-icon-theme
     whitesur-gtk-theme
-
+    pywalfox-native
     xdg-desktop-portal-hyprland
 
     # trash tool
@@ -43,9 +44,9 @@
 
     light
     pywal
-  ];
 
-  home.file.".face.icon".source = "/home/aqua/Pictures/pfp/dandadan.jpg";
+    apple-cursor
+  ]; 
 
   fonts.fontconfig = {
      enable = true;
@@ -56,13 +57,16 @@
      };
   };
 
+  home.pointerCursor = {
+	gtk.enable = true;
+	x11.enable = true;
+	name = "Bibata-Modern-Classic";
+	package = pkgs.bibata-cursors;
+	size = 26;
+  };
+
   gtk = {
     enable = true;
-
-    cursorTheme = {
-	name = "WhiteSur";
-	package = pkgs.whitesur-cursors;
-    };
 
     iconTheme = {
 	name = "WhiteSur";
@@ -74,10 +78,17 @@
       package = pkgs.whitesur-gtk-theme;
     };
   };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+  };
   
   programs.floorp = {
 	enable = true;
   };
+
+
 
   programs.git = {
     userName = "ingineous";
@@ -295,8 +306,6 @@
 
 	 "GTK_WAYLAND_DISABLE_WINDOWDECORATION, 1"
 
-	 "XCURSOR_SIZE, 24"
-	 "HYPRCURSOR_SIZE, 24"
 	 "QT_QPA_PLATFORMTHEME.qt6ct"
       ];
 
@@ -306,30 +315,16 @@
 
       exec-once = [
          "waybar"
-		 "hypridle"
+	 "hypridle"
       ];
 
       # ------------------------------------------
       # Monitors
       # ------------------------------------------
 
-      monitor = [
-         "eDP-1, 2560x1600@165, auto, 1.33"
-	 " , preferred, auto, 1, mirror, eDP-1"
-      ];
-
       xwayland = {
 	  force_zero_scaling = true;
       };
-
-      windowrule = [
-        "opacity 1.0 override 0.85 override, class:zen"
-        "opacity 0.9 override 0.85 class:webstorm"
-	"opacity 1.0 override 1.0 override title:^(Spotify)$"
-	"opacity 1.0 override 0.6 override, class:vesktop"
-	"size 800 600, class:zen, title:Save Image"
-	"suppressevent maximize, class:.*"
-      ];
       
       # --------------------------------------------
       # Keybinds
@@ -417,7 +412,7 @@
       decoration = {
          rounding = 10;
 
-	 active_opacity = 0.85;
+	 active_opacity = 0.8;
 	 inactive_opacity = 0.6;
 	 fullscreen_opacity = 1.0;
 
@@ -479,6 +474,18 @@
 	workspace_swipe = true;
       };
     };
+
+    extraConfig = ''
+	monitor= eDP-1 ,2560x1600@165,auto,1.33
+	monitor = , preferred, auto, 1, mirror, eDP-1
+
+	windowrulev2 = opacity 1.0 override 0.6 override, class:zen
+	windowrulev2 = opacity 0.9 override 0.85 override, class:webstorm
+	windowrulev2 = opacity 1.0 override 1.0 override, title:^(Spotify)$
+	windowrulev2 = opacity 1.0 override 0.6 override, class:vesktop
+	windowrulev2 = opacity 1.0 override 0.95 override, class:yaak
+	windowrulev2 = size 800 600, class:zen-browser,title:Save Image
+    '';
   };
 
 
