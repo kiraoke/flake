@@ -14,6 +14,8 @@
     whitesur-gtk-theme
     pywalfox-native
     xdg-desktop-portal-hyprland
+    easyeffects
+    pavucontrol
 
     # trash tool
     vscode
@@ -23,6 +25,7 @@
     cava
     bat
     pipes-rs
+    brave
 
     # archives
     zip
@@ -34,6 +37,9 @@
     which
     file
     tree
+    vlc
+    nodejs_22
+    pnpm
 
     # file managers
     yazi
@@ -91,6 +97,8 @@
 
 
   programs.git = {
+    enable = true;
+
     userName = "ingineous";
     userEmail = "ingineousus@gmail.com";
   };
@@ -108,13 +116,6 @@
 		ignoreDups = true;
 		share = true;
 		extended = true;
-	};
-
-	oh-my-zsh = {
-		enable = true;
-		plugins = [
-			"git"
-		];
 	};
 
 	initExtra = ''
@@ -145,6 +146,29 @@
 		saymyname = "echo Heisenberg";
 		"177013" = "xdg-open https://nhentai.to/g/177013";
 		rebuild = "sudo nixos-rebuild switch --flake ~/flake#hoshino --impure";
+		wifilogin = "~/bits-login/login.sh";
+		 # Basic git commands
+      g = "git";
+      gst = "git status";
+      ga = "git add";
+      gaa = "git add --all";
+      gc = "git commit -v";
+      gcm = "git commit -m";
+      gp = "git push";
+      gpl = "git pull";
+      gd = "git diff";
+      gco = "git checkout";
+      gb = "git branch";
+      gl = "git log";
+      
+      # More advanced aliases
+      glog = "git log --oneline --decorate --graph";
+      grb = "git rebase";
+      grs = "git reset";
+      grh = "git reset --hard";
+      gcl = "git clone";
+      gf = "git fetch";
+      gm = "git merge";
 	};
   };
 
@@ -307,6 +331,8 @@
 	 "GTK_WAYLAND_DISABLE_WINDOWDECORATION, 1"
 
 	 "QT_QPA_PLATFORMTHEME.qt6ct"
+
+	 "BRAVE_BROWSER, ${pkgs.brave}"
       ];
 
       # ------------------------------------------
@@ -377,16 +403,16 @@
 	"$mod, 0, workspace, 10"
 
 	# move active window to workspace
-	"$mod, 1, movetoworkspace, 1"
-	"$mod, 2, movetoworkspace, 2"
-	"$mod, 3, movetoworkspace, 3"
-	"$mod, 4, movetoworkspace, 4"
-	"$mod, 5, movetoworkspace, 5"
-	"$mod, 6, movetoworkspace, 6"
-	"$mod, 7, movetoworkspace, 7"
-	"$mod, 8, movetoworkspace, 8"
-	"$mod, 9, movetoworkspace, 9"
-	"$mod, 0, movetoworkspace, 0"
+	"$shiftMod, 1, movetoworkspace, 1"
+	"$shiftMod, 2, movetoworkspace, 2"
+	"$shiftMod, 3, movetoworkspace, 3"
+	"$shiftMod, 4, movetoworkspace, 4"
+	"$shiftMod, 5, movetoworkspace, 5"
+	"$shiftMod, 6, movetoworkspace, 6"
+	"$shiftMod, 7, movetoworkspace, 7"
+	"$shiftMod, 8, movetoworkspace, 8"
+	"$shiftMod, 9, movetoworkspace, 9"
+	"$shiftMod, 0, movetoworkspace, 0"
       ];
 
       # move and resize windows while pressing SUPER	
