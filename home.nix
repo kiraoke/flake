@@ -15,7 +15,7 @@
     pywalfox-native
     xdg-desktop-portal-hyprland
     easyeffects
-    pavucontrol
+    lxqt.pavucontrol-qt
     mpv
     brightnessctl
     mpvScripts.uosc
@@ -34,6 +34,7 @@
     yt-dlp
     ffmpeg
     shotman
+    upscayl
 
     # archives
     zip
@@ -78,6 +79,8 @@
 	package = pkgs.bibata-cursors;
 	size = 26;
   };
+
+  home.file.".config/nvim/init.lua".source = /home/aqua/flake/init.lua;
 
   gtk = {
     enable = true;
