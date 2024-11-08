@@ -31,6 +31,8 @@
     pipes-rs
     brave
     telegram-desktop
+    yt-dlp
+    ffmpeg
 
     # archives
     zip
@@ -464,7 +466,7 @@
       decoration = {
          rounding = 10;
 
-	 active_opacity = 0.8;
+	 active_opacity = 0.7;
 	 inactive_opacity = 0.6;
 	 fullscreen_opacity = 1.0;
 
