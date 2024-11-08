@@ -111,10 +111,11 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 -- lsp
 local lsp = require("lsp-zero")
 
-lsp.setup()
-
 --lsp.ensure_installed({
   -- "tsserver",
+   --"eslint",
+   --"sumneko_lua",
+   --"rust_analyzer",
 --})
 
 --local cmp = require("cmp")
@@ -149,11 +150,44 @@ lsp.setup()
 --		vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 --	end)
 
+lsp.setup()
+
 vim.cmd("colorscheme rose-pine")
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
 vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+
+-- editor settings
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+vim.opt.smartindent = true
+
+vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
+
+vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "80"
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Telescope find files' })
