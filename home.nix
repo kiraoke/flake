@@ -16,6 +16,9 @@
     xdg-desktop-portal-hyprland
     easyeffects
     pavucontrol
+    mpv
+    brightnessctl
+    mpvScripts.uosc
 
     # trash tool
     vscode
@@ -27,6 +30,7 @@
     bat
     pipes-rs
     brave
+    telegram-desktop
 
     # archives
     zip
@@ -182,6 +186,27 @@
 
 
   home.file.".p10k.zsh".source = /home/aqua/flake/.p10k.zsh;
+
+  home.file.".config/wireplumber/wireplumber.conf.d/50-also-config.conf".text = ''
+	monitor.alsa.rules = [
+  {
+    matches = [
+      # This matches the value of the 'node.name' property of the node.
+      {
+        node.name = "~alsa_output.*"
+      }
+    ]
+    actions = {
+      # Apply all the desired node specific settings here.
+      update-props = {
+        api.alsa.period-size   = 1024
+        api.alsa.headroom      = 8192
+      }
+    }
+  }
+]
+
+  '';
 
   programs.kitty = {
       enable = true;
@@ -643,6 +668,53 @@
 
   programs.waybar = {
       enable = true;
+
+      settings = [{
+	height = 25;
+	layer = "top";
+	"modules-left" = [
+	   "custom/launcher"
+	   "cpu"
+	   "memory"
+	   "hyprland/workspaces"
+	];
+	"modules-right" = [
+	   "custom/spotify"
+	   "tray"
+	   "network"
+	   "pulseaudio"
+	   "backlight"
+	   "battery"
+	   "clock"
+	];
+
+	"hyprland/workspaces" = {
+	    "disable-scroll" = true;
+	    "all-outputs" = true;
+	    "on-click" = "activate";
+	    "persistent_workspaces" = {
+	    	"1"= [];
+            	"2"= [];
+            	"3"= [];
+            	"4"= [];
+            	"5"= [];
+            	"6"= [];
+            	"7"= [];
+            	"8"= [];
+            	"9"= [];
+            	"10"= [];
+	    };
+	};
+
+	"hyprland/window" = {
+	   format = "{}";
+	};
+
+	tray = {
+	  "icon-size" = 25;
+	  spacing = 10;
+	};
+      }];
   };
 
   programs.pywal = {

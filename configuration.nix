@@ -182,6 +182,7 @@
     # zen browser
     inputs.zen-browser.packages."${system}".specific
     go-mtpfs
+    killall
 
     # sddm cursor theme dependencies
     libsForQt5.qt5.qtquickcontrols2
