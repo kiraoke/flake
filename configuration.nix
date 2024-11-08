@@ -182,6 +182,8 @@
     inputs.zen-browser.packages."${pkgs.system}".specific
     pkgs.go-mtpfs
 
+    pkgs.gcc
+
     # sddm cursor theme dependencies
     pkgs.libsForQt5.qt5.qtquickcontrols2
     pkgs.libsForQt5.qt5.qtgraphicaleffects

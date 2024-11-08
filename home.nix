@@ -24,6 +24,7 @@
 
     # cool tool
     fastfetch
+    ripgrep
     cava
     bat
     pipes-rs
@@ -79,6 +80,7 @@
   };
 
   home.file.".config/nvim/init.lua".source = /home/aqua/flake/init.lua;
+  home.file.".config/nvim/lua/plugins/colorscheme.lua".source = /home/aqua/flake/colorscheme.lua;
 
   gtk = {
     enable = true;
