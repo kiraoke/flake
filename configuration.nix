@@ -163,33 +163,29 @@
  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
-    zsh
-    wget
-    kitty
-    timeshift
-    (waybar.overrideAttrs (oldAttrs: {
+  environment.systemPackages = [
+    pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    pkgs.git
+    pkgs.zsh
+    pkgs.wget
+    pkgs.kitty
+    pkgs.timeshift
+    (pkgs.waybar.overrideAttrs (oldAttrs: {
             mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       })
     )
-    mako
-    libnotify
-    swww
-    wofi
+    pkgs.mako
+    pkgs.libnotify
+    pkgs.wofi
 
     # zen browser
-    inputs.zen-browser.packages."${system}".specific
-    go-mtpfs
-    killall
+    inputs.zen-browser.packages."${pkgs.system}".specific
+    pkgs.go-mtpfs
 
     # sddm cursor theme dependencies
-    libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtgraphicaleffects
-    libsForQt5.qt5.qtsvg
-
-    hyprshot
+    pkgs.libsForQt5.qt5.qtquickcontrols2
+    pkgs.libsForQt5.qt5.qtgraphicaleffects
+    pkgs.libsForQt5.qt5.qtsvg
   ];
 
    users.defaultUserShell = pkgs.zsh;

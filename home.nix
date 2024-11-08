@@ -4,12 +4,11 @@
   home.username = "aqua";
   home.homeDirectory = "/home/aqua";
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     qt6ct
     qt6.qtwayland
     nerdfonts
     noto-fonts
-    gtk3
     whitesur-icon-theme
     whitesur-gtk-theme
     pywalfox-native
@@ -25,7 +24,6 @@
 
     # cool tool
     fastfetch
-    qbittorrent
     cava
     bat
     pipes-rs
@@ -52,7 +50,6 @@
 
     # file managers
     yazi
-    nautilus
 
     btop
     htop
@@ -61,7 +58,8 @@
     pywal
 
     networkmanagerapplet
-  ]; 
+    gtk4
+  ]); 
 
   fonts.fontconfig = {
      enable = true;
@@ -101,12 +99,6 @@
     platformTheme.name = "gtk";
   };
   
-  programs.floorp = {
-	enable = true;
-  };
-
-
-
   programs.git = {
     enable = true;
 
