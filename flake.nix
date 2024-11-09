@@ -12,15 +12,27 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.url = "github:ch4og/zen-browser-flake";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, ... }:
+  {
     # Please replace my-nixos with your hostname
     nixosConfigurations = {
-      hoshino = nixpkgs.lib.nixosSystem {
+      hoshino = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+	inherit inputs;
+
+  	pkgs-stable = import nixpkgs-stable {
+            # Refer to the `system` parameter from
+            # the outer scope recursively
+            inherit system;
+            # To use Chrome, we need to allow the
+            # installation of non-free software.
+            config.allowUnfree = true;
+          };	
+	};
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
@@ -28,6 +40,13 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.aqua = import ./home.nix;
+	    home-manager.extraSpecialArgs = {
+	  	pkgs-stable = import nixpkgs-stable {
+	        inherit system;
+	        config.allowUnfree = true;
+	       };
+	    };
+
           }
 	        inputs.minegrub-world-sel-theme.nixosModules.default
           inputs.spicetify-nix.nixosModules.default

@@ -1,4 +1,4 @@
-{config, pkgs,lib , inputs, ...}:
+{config, pkgs, pkgs-stable,lib, inputs, ...}:
 {
 
   home.username = "aqua";
@@ -9,8 +9,6 @@
     qt6.qtwayland
     nerdfonts
     noto-fonts
-    whitesur-icon-theme
-    whitesur-gtk-theme
     pywalfox-native
     xdg-desktop-portal-hyprland
     easyeffects
@@ -34,6 +32,7 @@
     ffmpeg
     shotman
     upscayl
+    hyprshot
 
     # archives
     zip
@@ -59,8 +58,7 @@
     pywal
 
     networkmanagerapplet
-    gtk4
-  ]); 
+  ]);
 
   fonts.fontconfig = {
      enable = true;
@@ -91,8 +89,8 @@
     };
 
     theme = {
-      name = "WhiteSur";
-      package = pkgs.whitesur-gtk-theme;
+      name = "rose-pine";
+      package = pkgs.rose-pine-gtk-theme;
     };
   };
 
@@ -573,8 +571,8 @@
 	settings = {
 		ipc = "off";
 		splash = false;
-		preload = ["/home/aqua/Pictures/wallpapers/upaqua.png"];
-		wallpaper = [", /home/aqua/Pictures/wallpapers/upaqua.png"];
+		preload = ["/home/aqua/Pictures/wallpapers/aira.png"];
+		wallpaper = [", /home/aqua/Pictures/wallpapers/aira.png"];
 	};
   };
 
