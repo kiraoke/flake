@@ -181,6 +181,7 @@
     pkgs.libsForQt5.qt5.qtquickcontrols2
     pkgs.libsForQt5.qt5.qtgraphicaleffects
     pkgs.libsForQt5.qt5.qtsvg
+    pkgs.xclip
   ];
 
    users.defaultUserShell = pkgs.zsh;
@@ -259,6 +260,13 @@
      # hint electron apps to use wayland
      NIXOS_OZONE_WL = "1";
   };
+
+  programs.ssh = {
+        startAgent = true;
+        extraConfig = ''
+            AddKeysToAgent yes
+        '';
+    };
   
 
 #  xdg.portal.enable = true;

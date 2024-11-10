@@ -34,6 +34,7 @@
     upscayl
     hyprshot
     protonvpn-gui
+    qbittorrent
 
     # archives
     zip
@@ -118,8 +119,8 @@
   programs.git = {
     enable = true;
 
-    userName = "ingineous";
-    userEmail = "ingineousus@gmail.com";
+    userName = "kiraoke";
+    userEmail = "kiraokeku@gmail.com";
   };
 
   programs.zsh  = {
