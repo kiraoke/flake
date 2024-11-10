@@ -19,6 +19,7 @@
 
     # trash tool
     vscode
+    nautilus
 
     # cool tool
     fastfetch
@@ -169,7 +170,7 @@
 		wifilogin = "~/bits-login/login.sh";
 		 # Basic git commands
       g = "git";
-      gst = "git status";
+      gs = "git status";
       ga = "git add";
       gaa = "git add --all";
       gc = "git commit -v";
@@ -349,7 +350,7 @@
 
       "$terminal" = "kitty";
       "$browser" = "zen";
-      "$fileManager" = "nautilus";
+      "$fileManager" = "GSK_RENDERER=gl nautilus";
       "$menu" = "wofi --show drun --allow-images";
       "$TFileManager" = "$terminal -e yazi";
 
