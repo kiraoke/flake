@@ -44,14 +44,7 @@
 
 	minegrub-world-sel = {
 	  enable = true;
-	  customIcons = [
-	  {
-	     name = "nixos";
-	     lineTop = "NixOS 24.05";
-	     lineBottom = "Hardcoe Mode, No Cheats, Version 24.05";
-	     imgName = "nixos";
-	  }
-	  ];
+      customIcons = [];
 	};
     };
   };

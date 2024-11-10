@@ -1,7 +1,9 @@
 print("hello from ruby")
 
+require("config.lazy")
+
 -- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+--[[local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
@@ -27,7 +29,7 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     -- add your plugins here
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+   'nvim-telescope/telescope.nvim', tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
     { "rose-pine/neovim", name = "rose-pine" },
     "nvim-treesitter/nvim-treesitter",
@@ -192,4 +194,4 @@ vim.opt.colorcolumn = "80"
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Telescope find git files' })
-vim.keymap.set('n', '<leader>ps', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>ps', builtin.live_grep, { desc = 'Telescope live grep' })--]]

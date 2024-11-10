@@ -33,6 +33,7 @@
     shotman
     upscayl
     hyprshot
+    protonvpn-gui
 
     # archives
     zip
@@ -54,7 +55,6 @@
     btop
     htop
 
-    light
     pywal
 
     networkmanagerapplet
@@ -77,8 +77,10 @@
 	size = 26;
   };
 
-  home.file.".config/nvim/init.lua".source = /home/aqua/flake/init.lua;
-  home.file.".config/nvim/lua/plugins/colorscheme.lua".source = /home/aqua/flake/colorscheme.lua;
+   home.file.".config/nvim" = {
+         source = /home/aqua/flake/nvim;
+         recursive = true;
+    };
 
   gtk = {
     enable = true;
@@ -91,6 +93,20 @@
     theme = {
       name = "rose-pine";
       package = pkgs.rose-pine-gtk-theme;
+    };
+
+     # Force dark theme for GTK3 apps
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    # Force dark theme for GTK4 apps
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
     };
   };
 
@@ -156,7 +172,7 @@
       ga = "git add";
       gaa = "git add --all";
       gc = "git commit -v";
-      gcm = "git commit -m";
+      gcmsg = "git commit -m";
       gp = "git push";
       gpl = "git pull";
       gd = "git diff";
@@ -533,7 +549,7 @@
 
 	windowrulev2 = opacity 1.0 override 0.6 override, class:zen
 	windowrulev2 = opacity 0.9 override 0.85 override, class:webstorm
-	windowrulev2 = opacity 1.0 override 1.0 override, title:^(Spotify)$
+	windowrulev2 = opacity 1.0 override 1.0 override, title:Spotify
 	windowrulev2 = opacity 1.0 override 0.6 override, class:vesktop
 	windowrulev2 = opacity 1.0 override 0.95 override, class:yaak
 	windowrulev2 = size 800 600, class:zen-browser,title:Save Image
@@ -571,8 +587,8 @@
 	settings = {
 		ipc = "off";
 		splash = false;
-		preload = ["/home/aqua/Pictures/wallpapers/aira.png"];
-		wallpaper = [", /home/aqua/Pictures/wallpapers/aira.png"];
+		preload = ["/home/aqua/Pictures/wallpapers/arcane2.png"];
+		wallpaper = [", /home/aqua/Pictures/wallpapers/arcane2.png"];
 	};
   };
 
