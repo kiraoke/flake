@@ -15,6 +15,19 @@
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;  
 
+  zramSwap = {
+        enable = true;
+        memoryPercent = 50;
+        algorithm = "zstd";
+        priority = 5;
+    };
+
+    boot.kernel.sysctl = {
+        "vm.swappiness" = 180;
+        "vm.watermark_scale_factor" = 125;
+        "vm.page-cluster" = 0;
+    };
+
   powerManagement.cpuFreqGovernor = "performance";
 
   hardware.graphics =  {
