@@ -110,6 +110,17 @@
   };
 
   services.xserver.desktopManager.plasma5.enable = true;
+
+  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+    plasma-browser-integration
+    konsole
+    oxygen
+    ark
+    elisa
+    gwenview
+    spectacle
+    okular
+ ];
  
   services.xserver.videoDrivers = ["nvidia" "amdgpu"];
   hardware.nvidia = {

@@ -482,8 +482,8 @@
       decoration = {
          rounding = 10;
 
-	 active_opacity = 0.9;
-	 inactive_opacity = 0.85;
+	 active_opacity = 0.85;
+	 inactive_opacity = 0.8;
 	 fullscreen_opacity = 1.0;
 
 	 blur = {
@@ -550,7 +550,7 @@
 	monitor = , preferred, auto, 1, mirror, eDP-2
 
 	windowrulev2 = opacity 1.0 override 0.85 override, class:zen
-	windowrulev2 = opacity 0.8 override 0.85 override, class:kitty
+	windowrulev2 = opacity 0.8 override 0.75 override, class:kitty
 	windowrulev2 = opacity 0.9 override 0.85 override, class:webstorm
 	windowrulev2 = opacity 1.0 override 1.0 override, title:Spotify
 	windowrulev2 = opacity 1.0 override 0.6 override, class:vesktop
