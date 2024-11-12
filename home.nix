@@ -1,5 +1,10 @@
-{config, pkgs, pkgs-stable,lib, inputs, ...}:
+{config, pkgs, pkgs-stable,lib,nixvim, inputs, ...}:
 {
+    imports = [nixvim.homeManagerModules.nixvim];
+
+    programs.nixvim = {
+        enable = true;
+    };
 
   home.username = "aqua";
   home.homeDirectory = "/home/aqua";
@@ -60,6 +65,9 @@
     pywal
 
     networkmanagerapplet
+
+    # lsp
+    rust-analyzer
   ]);
 
   fonts.fontconfig = {
@@ -79,10 +87,10 @@
 	size = 26;
   };
 
-   home.file.".config/nvim" = {
-         source = /home/aqua/flake/nvim;
-         recursive = true;
-    };
+    #   home.file.".config/nvim" = {
+    #    source = /home/aqua/flake/nvim;
+    #    recursive = true;
+    #};
 
   gtk = {
     enable = true;

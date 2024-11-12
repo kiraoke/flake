@@ -6,10 +6,10 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=4")
 
 vim.opt.smartindent = true
 
@@ -32,5 +32,15 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+--local opts = {buffer = ev.}
+vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
 
