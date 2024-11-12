@@ -4,6 +4,91 @@
         enable = true;
 
 	colorschemes."rose-pine".enable = true;
+
+	plugins = {
+	  treesitter.enable = true;
+	  telescope.enable = true;
+	  "web-devicons".enable = false;
+    cloak.enable = true;
+
+    harpoon.enable = true;
+	};
+
+	extraConfigLua = ''
+	 vim.g.mapleader = " "
+	 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- editor settings
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=4")
+
+vim.opt.smartindent = true
+
+vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
+
+vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "80"
+
+
+	 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
+	 vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+
+	 local builtin = require('telescope.builtin')
+	 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+	 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+	 vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
+	 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+
+    -- cloak settings
+	  require("cloak").setup({
+		enabled = true,
+		cloak_character = "*",
+		-- The applied highlighting group (colors) on the cloaking
+		highlight_group = "Comment",
+		patterns = {
+			{
+			  file_pattern = {
+				".env*",
+				"wrangled.toml",
+				".dev.vars",
+			  },
+			  cloak_pattern = "=.*",
+			},
+		},
+	  })
+
+	local mark = require("harpoon.mark")
+	local ui = require("harpoon.ui")
+
+	vim.keymap.set("n", "<leader>a", mark.add_file)
+	vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+
+	vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
+	vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
+	vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end) 
+	vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
+ 
+
+	'';
     };
 
   home.username = "aqua";
@@ -84,7 +169,7 @@
   home.pointerCursor = {
 	gtk.enable = true;
 	x11.enable = true;
-	name = "WhiteSur-cursors";
+	name = "WiteSur-cursors";
 	package = pkgs.whitesur-cursors;
 	size = 28;
   };
