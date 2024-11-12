@@ -41,6 +41,8 @@
     hyprshot
     protonvpn-gui
     qbittorrent
+    fast-cli
+    audacious
 
     # archives
     zip
