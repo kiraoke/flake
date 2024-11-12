@@ -44,16 +44,18 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+	    home-manager.sharedModules = [
+              nixvim.homeManagerModules.nixvim
+            ];
             home-manager.users.aqua = import ./home.nix;
-	          home-manager.extraSpecialArgs = {
-	  	          pkgs-stable = import nixpkgs-stable {
-	                  inherit system;
-	                  config.allowUnfree = true;
-	                  };
-                inherit nixvim;        
-	          };
+            home-manager.extraSpecialArgs = {
+  	          pkgs-stable = import nixpkgs-stable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+	     };
           }
-	        inputs.minegrub-world-sel-theme.nixosModules.default
+	  inputs.minegrub-world-sel-theme.nixosModules.default
           inputs.spicetify-nix.nixosModules.default
         ];
       };

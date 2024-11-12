@@ -1,9 +1,9 @@
 {config, pkgs, pkgs-stable,lib,nixvim, inputs, ...}:
 {
-    imports = [nixvim.homeManagerModules.nixvim];
-
     programs.nixvim = {
         enable = true;
+
+	colorschemes."rose-pine".enable = true;
     };
 
   home.username = "aqua";
