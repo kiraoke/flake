@@ -82,9 +82,9 @@
   home.pointerCursor = {
 	gtk.enable = true;
 	x11.enable = true;
-	name = "Bibata-Modern-Classic";
-	package = pkgs.bibata-cursors;
-	size = 26;
+	name = "WhiteSur-cursors";
+	package = pkgs.whitesur-cursors;
+	size = 28;
   };
 
     #   home.file.".config/nvim" = {
