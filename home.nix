@@ -167,11 +167,11 @@ vim.opt.colorcolumn = "80"
   };
 
   home.pointerCursor = {
-	gtk.enable = true;
-	x11.enable = true;
-	name = "WiteSur-cursors";
-	package = pkgs.whitesur-cursors;
-	size = 28;
+      gtk.enable = true;
+	  x11.enable = true;
+	  name = "WhiteSur-cursors";
+	  package = pkgs.whitesur-cursors;
+	  size = 28;
   };
 
     #   home.file.".config/nvim" = {
