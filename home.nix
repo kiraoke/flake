@@ -734,8 +734,8 @@ vim.opt.colorcolumn = "80"
 	settings = {
 		ipc = "off";
 		splash = false;
-		preload = ["/home/aqua/Pictures/wallpapers/arcane2.png"];
-		wallpaper = [", /home/aqua/Pictures/wallpapers/arcane2.png"];
+		preload = ["/home/aqua/Pictures/wallpapers/aira.png"];
+		wallpaper = [", /home/aqua/Pictures/wallpapers/aira.png"];
 	};
   };
 
