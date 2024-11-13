@@ -15,6 +15,38 @@
     trouble.enable = true;
     "zen-mode".enable = true;
     fugitive.enable = true;
+    lsp = {
+      enable = true;
+      servers = {
+        bashls.enable = true;
+        clangd.enable = true;
+        gopls.enable = true;
+        nixd.enable = true;
+        prolog_ls = {
+          enable = true;
+          package = pkgs.swi-prolog;
+        };
+        ruff_lsp.enable = true;
+        ts_ls.enable = true;
+      };
+      keymaps.lspBuf = {
+        "gd" = "definition";
+        "gD" = "references";
+        "gt" = "type_definition";
+        "gi" = "implementation";
+        "K" = "hover";
+      };
+    };
+    rustaceanvim.enable = true;
+
+    fidget = {
+        enable = true;
+        progress = {
+         suppressOnInsert = true;
+         ignoreDoneAlready = true;
+         pollRate = 0.5;
+       };
+    };
 	};
 
 	extraConfigLua = ''
@@ -220,7 +252,7 @@ vim.opt.colorcolumn = "80"
 	  x11.enable = true;
 	  name = "WhiteSur-cursors";
 	  package = pkgs.whitesur-cursors;
-	  size = 28;
+	  size = 32;
   };
 
     #   home.file.".config/nvim" = {
@@ -722,8 +754,8 @@ vim.opt.colorcolumn = "80"
 
 	   {
 	      timeout = 995;
-	      on-timeout = "light -S 5";
-	      on-resume = "light -S 20";
+	      on-timeout = "brightnessctl s 5%";
+	      on-resume = "brightnessctl s 20%";
 	   }
 	];
       };
