@@ -352,6 +352,7 @@
     shellAliases = {
       saymyname = "echo Heisenberg";
       "177013" = "xdg-open https://nhentai.to/g/177013";
+      "344322" = "xdg-open https://nhentai.net/g/344322";
       rebuild = "sudo nixos-rebuild switch --flake ~/flake#hoshino --impure";
       wifilogin = "~/bits-login/login.sh";
       # Basic git commands
@@ -762,8 +763,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = [ "/home/aqua/Pictures/wallpapers/aira.png" ];
-      wallpaper = [ ", /home/aqua/Pictures/wallpapers/aira.png" ];
+      preload = [ "/home/aqua/Pictures/wallpapers/momo.png" ];
+      wallpaper = [ ", /home/aqua/Pictures/wallpapers/momo.png" ];
     };
   };
 
