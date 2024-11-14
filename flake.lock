@@ -373,6 +373,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "spicetify-nix": "spicetify-nix",
+        "ucodenix": "ucodenix",
         "zen-browser": "zen-browser"
       }
     },
@@ -430,6 +431,21 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "ucodenix": {
+      "locked": {
+        "lastModified": 1731510725,
+        "narHash": "sha256-kTX8QHL5PStzyITF47l6G/KvDjORuojX9NPNTccUtdA=",
+        "owner": "e-tho",
+        "repo": "ucodenix",
+        "rev": "7d7586d3fcd07e147c0dba9291b2473e060c4c98",
+        "type": "github"
+      },
+      "original": {
+        "owner": "e-tho",
+        "repo": "ucodenix",
         "type": "github"
       }
     },

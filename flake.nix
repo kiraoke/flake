@@ -18,6 +18,7 @@
         # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
         inputs.nixpkgs.follows = "nixpkgs";
     };
+   ucodenix.url = "github:e-tho/ucodenix";
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, nixvim, ... }:

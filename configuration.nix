@@ -8,7 +8,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.ucodenix.nixosModules.default
     ];
+
+    services.ucodenix = {
+        enable = true;
+        cpuModelId = "00A70F41";
+    };
  
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "btrfs" ];
@@ -206,6 +212,7 @@
     pkgs.libsForQt5.qt5.qtgraphicaleffects
     pkgs.libsForQt5.qt5.qtsvg
     pkgs.xclip
+    pkgs.cpuid
   ];
 
    users.defaultUserShell = pkgs.zsh;
