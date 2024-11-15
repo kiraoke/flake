@@ -20,6 +20,10 @@
   boot.supportedFilesystems = [ "btrfs" ];
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;  
+  
+  boot.kernelParams = [
+    "NVreg_UsePageAttributeTable=1"
+  ];
 
   zramSwap = {
         enable = true;
@@ -55,6 +59,7 @@
 	useOSProber = true;
 	gfxmodeEfi = "2560x1600";
 	timeoutStyle = "menu";
+  copyKernels = true;
 
 	extraConfig = ''
 	   GRUB_TERMINAL_OUTPUT="gfxterm"
