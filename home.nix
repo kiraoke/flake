@@ -4,6 +4,18 @@
 
     colorschemes."rose-pine".enable = true;
 
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "vim-be-good";
+        src = pkgs.fetchFromGitHub {
+          owner = "ThePrimeagen";
+          repo = "vim-be-good";
+          rev = "4fa57b7957715c91326fcead58c1fa898b9b3625";
+          hash = "sha256-XVFq3Gb4C95Y0NYKk08ZjZaGLVF6ayPicIAccba+VRs=";
+        };
+      })
+    ];
+
     plugins = {
       treesitter.enable = true;
       telescope.enable = true;
@@ -33,7 +45,7 @@
           "gD" = "references";
           "gt" = "type_definition";
           "gi" = "implementation";
-          "K" = "hover";
+          "m" = "hover";
         };
       };
       rustaceanvim.enable = true;
@@ -266,11 +278,6 @@
     package = pkgs.whitesur-cursors;
     size = 32;
   };
-
-  #   home.file.".config/nvim" = {
-  #    source = /home/aqua/flake/nvim;
-  #    recursive = true;
-  #};
 
   gtk = {
     enable = true;
