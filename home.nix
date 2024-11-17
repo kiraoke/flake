@@ -37,7 +37,7 @@
             enable = true;
             package = pkgs.swi-prolog;
           };
-          ruff_lsp.enable = true;
+          ruff.enable = true;
           ts_ls.enable = true;
         };
         keymaps.lspBuf = {
@@ -219,7 +219,6 @@
     # cool tool
     fastfetch
     ripgrep
-    cava
     bat
     pipes-rs
     brave
@@ -392,7 +391,7 @@
     enableZshIntegration = true;
   };
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   home.file.".p10k.zsh".source = /home/aqua/flake/.p10k.zsh;
   home.file.".config/waybar/colors-waybar.css".source =
