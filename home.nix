@@ -80,6 +80,9 @@
       -- null ls settings
       vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {})
 
+      -- greatest remap ever ig
+      vim.keymap.set("x", "<leader>p", "\"_dP")
+
       vim.cmd("set expandtab")
       vim.cmd("set tabstop=2")
       vim.cmd("set softtabstop=2")
@@ -259,7 +262,7 @@
 
     # lsp
     rust-analyzer
-  ]);
+  ]) ++ [ pkgs-stable.cava ];
 
   fonts.fontconfig = {
     enable = true;
