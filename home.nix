@@ -772,8 +772,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = [ "/home/aqua/Pictures/wallpapers/momo.png" ];
-      wallpaper = [ ", /home/aqua/Pictures/wallpapers/momo.png" ];
+      preload = [ "/home/aqua/Pictures/wallpapers/aaira.png" ];
+      wallpaper = [ ", /home/aqua/Pictures/wallpapers/aaira.png" ];
     };
   };
 
