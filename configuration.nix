@@ -221,14 +221,13 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  # Set the default editor to vim
+  # Set the default editor to nvim
   programs.neovim.enable = true;
   programs.neovim.defaultEditor = true;
 
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    #     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
   programs.spicetify =
@@ -295,15 +294,7 @@
   programs.ssh = {
     startAgent = true;
     extraConfig = ''
-      
-            
-                  
-                        
-                              
-                                    
-                                          
-                                                
-                                                            AddKeysToAgent yes
+     AddKeysToAgent yes
     '';
   };
 

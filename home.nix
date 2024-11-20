@@ -214,11 +214,7 @@
     lxqt.pavucontrol-qt
     mpv
     brightnessctl
-    mpvScripts.uosc
-
-    # trash tool
-    vscode
-    nautilus
+    mpvScripts.modernx
 
     # cool tool
     fastfetch
@@ -229,7 +225,6 @@
     telegram-desktop
     yt-dlp
     ffmpeg
-    shotman
     upscayl
     hyprshot
     protonvpn-gui
@@ -261,8 +256,6 @@
 
     networkmanagerapplet
 
-    # lsp
-    rust-analyzer
   ]) ++ [ pkgs-stable.cava ];
 
   fonts.fontconfig = {
