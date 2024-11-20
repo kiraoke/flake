@@ -18,10 +18,14 @@
       # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    oskars-dotfiles = {
+      url = "github:oskardotglobal/.dotfiles/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, nixvim, ... }: {
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, nixvim
+    , oskars-dotfiles, ... }: {
       # Please replace my-nixos with your hostname
       nixosConfigurations = {
         hoshino = nixpkgs.lib.nixosSystem rec {
@@ -53,6 +57,7 @@
                 };
               };
             }
+            { nixpkgs.overlays = [ oskars-dotfiles.overlays.spotx ]; }
             inputs.minegrub-world-sel-theme.nixosModules.default
             inputs.spicetify-nix.nixosModules.default
           ];
