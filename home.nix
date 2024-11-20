@@ -203,6 +203,7 @@
   home.homeDirectory = "/home/aqua";
 
   home.packages = (with pkgs; [
+    dconf
     qt6ct
     qt6.qtwayland
     nerdfonts
@@ -279,6 +280,10 @@
     name = "WhiteSur-cursors";
     package = pkgs.whitesur-cursors;
     size = 32;
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
   };
 
   gtk = {
@@ -360,6 +365,7 @@
 
     shellAliases = {
       saymyname = "echo Heisenberg";
+      ls = "eza";
       "177013" = "xdg-open https://nhentai.to/g/177013";
       "344322" = "xdg-open https://nhentai.net/g/344322";
       rebuild = "sudo nixos-rebuild switch --flake ~/flake#hoshino --impure";

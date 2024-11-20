@@ -53,11 +53,9 @@
       copyKernels = true;
 
       extraConfig = ''
-        
-                
-                	   GRUB_TERMINAL_OUTPUT="gfxterm"
-                	   GRUB_GFXMODE="2560x1600"
-                	'';
+        GRUB_TERMINAL_OUTPUT="gfxterm"
+        GRUB_GFXMODE="2560x1600"
+      '';
 
       minegrub-world-sel = {
         enable = true;
@@ -217,6 +215,7 @@
     pkgs.libsForQt5.qt5.qtsvg
     pkgs.xclip
     pkgs.cpuid
+    pkgs.eza
   ];
 
   users.defaultUserShell = pkgs.zsh;
@@ -298,7 +297,13 @@
     extraConfig = ''
       
             
-                        AddKeysToAgent yes
+                  
+                        
+                              
+                                    
+                                          
+                                                
+                                                            AddKeysToAgent yes
     '';
   };
 
