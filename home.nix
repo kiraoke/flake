@@ -232,6 +232,7 @@
     fast-cli
     audacious
     vesktop
+    qalculate-gtk
 
     # archives
     zip
