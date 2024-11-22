@@ -146,7 +146,7 @@
     open = false; # disable the new nvidia open source drivers
 
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
   # Enable CUPS to print documents.
