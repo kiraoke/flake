@@ -15,7 +15,7 @@
   nixpkgs.config.allowUnfree = true;
 
   boot.kernelParams = [ "NVreg_UsePageAttributeTable=1" ];
-  boot.blacklistedKernelModules = ["noveau"];
+  boot.blacklistedKernelModules = ["nouveau"];
 
   zramSwap = {
     enable = true;
