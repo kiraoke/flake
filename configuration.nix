@@ -15,7 +15,7 @@
   nixpkgs.config.allowUnfree = true;
 
   boot.kernelParams = [ "NVreg_UsePageAttributeTable=1" ];
-  boot.blacklistedKernelModules = ["nouveau"];
+  boot.blacklistedKernelModules = [ "nouveau" ];
 
   zramSwap = {
     enable = true;
@@ -295,7 +295,9 @@
   programs.ssh = {
     startAgent = true;
     extraConfig = ''
-     AddKeysToAgent yes
+      
+            
+                 AddKeysToAgent yes
     '';
   };
 
