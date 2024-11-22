@@ -231,6 +231,7 @@
     qbittorrent
     fast-cli
     audacious
+    vesktop
 
     # archives
     zip
