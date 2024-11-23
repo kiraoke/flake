@@ -18,7 +18,6 @@
 
     plugins = {
       treesitter.enable = true;
-      telescope.enable = true;
       "web-devicons".enable = false;
       cloak.enable = true;
       rainbow-delimiters.enable = true;
@@ -169,12 +168,6 @@
 
             	 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
             	 vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
-
-            	 local builtin = require('telescope.builtin')
-            	 --vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-            	 --vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-            	 --vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
-            	 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
                 -- cloak settings
             	  require("cloak").setup({
