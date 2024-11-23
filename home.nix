@@ -21,11 +21,23 @@
       telescope.enable = true;
       "web-devicons".enable = false;
       cloak.enable = true;
+      rainbow-delimiters.enable = true;
+      todo-comments.enable = true;
+      fzf-lua = {
+        enable = true;
+
+        keymaps = {
+          "<C-p>" = "git_files";
+        };
+      };
 
       harpoon.enable = true;
       trouble.enable = true;
       "zen-mode".enable = true;
       fugitive.enable = true;
+      lualine.enable = true;
+      auto-save.enable = true;
+
       lsp = {
         enable = true;
         servers = {
@@ -71,132 +83,176 @@
     };
 
     extraConfigLua = ''
-      	 vim.g.mapleader = " "
-      	 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-      -- editor settings
-      vim.opt.nu = true
-      vim.opt.relativenumber = true
-
-      -- null ls settings
-      vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {})
-
-      -- greatest remap ever ig
-      vim.keymap.set("x", "<leader>p", "\"_dP")
-
-      vim.cmd("set expandtab")
-      vim.cmd("set tabstop=2")
-      vim.cmd("set softtabstop=2")
-      vim.cmd("set shiftwidth=4")
-
-      vim.opt.smartindent = true
-
-      vim.opt.wrap = false
-
-      vim.opt.swapfile = false
-      vim.opt.backup = false
-      vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-      vim.opt.undofile = true
-
-      vim.opt.hlsearch = false
-      vim.opt.incsearch = true
-
-      vim.opt.termguicolors = true
-
-      vim.opt.scrolloff = 8
-      vim.opt.signcolumn = "yes"
-      vim.opt.isfname:append("@-@")
-
-      vim.opt.updatetime = 50
-
-      vim.opt.colorcolumn = "80"
+            	 vim.g.mapleader = " "
+            	 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+            -- editor settings
+            vim.opt.nu = true
+            vim.opt.relativenumber = true
 
 
-      	 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
-      	 vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
-
-      	 local builtin = require('telescope.builtin')
-      	 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-      	 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-      	 vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
-      	 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-
-          -- cloak settings
-      	  require("cloak").setup({
-      		enabled = true,
-      		cloak_character = "*",
-      		-- The applied highlighting group (colors) on the cloaking
-      		highlight_group = "Comment",
-      		patterns = {
-      			{
-      			  file_pattern = {
-      				".env*",
-      				"wrangled.toml",
-      				".dev.vars",
-      			  },
-      			  cloak_pattern = "=.*",
-      			},
-      		},
-      	  })
-
-      	local mark = require("harpoon.mark")
-      	local ui = require("harpoon.ui")
-
-      	vim.keymap.set("n", "<leader>a", mark.add_file)
-      	vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
-
-      	vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
-      	vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
-      	vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end) 
-      	vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
-       
-         -- trouble settings
-              local trouble = require("trouble")
-              trouble.setup({
-                  icons = false,
-              })
-
-              vim.keymap.set("n", "<leader>tt", trouble.toggle)
-              vim.keymap.set("n", "<leader>tn", function() trouble.next({skip_groups=true, jump=true}) end)
-              vim.keymap.set("n", "<leader>tp", function() trouble.previous({skip_groups=true, jump=true}) end)
-        -- zen mode settings
 
 
-        -- fugitive settings
-              vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
-              local Ingineous_Fugitive = vim.api.nvim_create_augroup("Ingineous_Fugitive", {})
+            -- autosave shit
+            require("auto-save").setup({
+                  enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
+          
+          trigger_events = {"InsertLeave", "TextChanged"}, -- vim events that trigger auto-save. See :h events
+      	-- function that determines whether to save the current buffer or not
+      	-- return true: if buffer is ok to be saved
+      	-- return false: if it's not ok to be saved
+      	condition = function(buf)
+      		local fn = vim.fn
+      		local utils = require("auto-save.utils.data")
 
-              local autocmd = vim.api.nvim_create_autocmd
-              autocmd("BufWinEnter", {
-                  group = Ingineous_Fugitive,
-                  pattern = "*",
-                  callback = function()
-                      if vim.bo.ft ~= "fugitive" then
-                          return
-                      end
+      		if
+      			fn.getbufvar(buf, "&modifiable") == 1 and
+      			utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
+      			return true -- met condition(s), can save
+      		end
+      		return false -- can't save
+      	end,
+          write_all_buffers = false, -- write all buffers when the current one meets `condition`
+          debounce_delay = 135, -- saves the file at most every `debounce_delay` milliseconds
+      	callbacks = { -- functions to be executed at different intervals
+      		enabling = nil, -- ran when enabling auto-save
+      		disabling = nil, -- ran when disabling auto-save
+      		before_asserting_save = nil, -- ran before checking `condition`
+      		before_saving = nil, -- ran before doing the actual save
+      		after_saving = nil -- ran after doing the actual save
+      	}
+                })
 
-                      local bufnr = vim.api.nvim_get_current_buf()
-                      local opts = {buffer = bufnr, remap = false}
-                      vim.keymap.set("n", "<leader>p", function()
-                          vim.cmd.Git('push')
-                      end, opts)
-
-                      -- rebase always
-                      vim.keymap.set("n", "<leader>P", function()
-                          vim.cmd.Git({'pull',  '--rebase'})
-                      end, opts)
-
-                      -- NOTE: It allows me to easily set the branch i am pushing and any tracking
-                      -- needed if i did not set the branch up correctly
-                      vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
-                  end,
-              })
+            vim.api.nvim_set_keymap("n", "<leader>n", ":ASToggle<CR>", {})
 
 
-              vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
-              vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
-       
-      	'';
+
+
+            fzf = require("fzf-lua")
+            vim.keymap.set("n", "<leader>pf", fzf.files)
+            vim.keymap.set("n", "<leader>ps", fzf.live_grep)
+
+
+            -- null ls settings
+            vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {})
+
+            -- greatest remap ever ig
+            vim.keymap.set("x", "<leader>p", "\"_dP")
+
+            vim.cmd("set expandtab")
+            vim.cmd("set tabstop=2")
+            vim.cmd("set softtabstop=2")
+            vim.cmd("set shiftwidth=4")
+
+            vim.opt.smartindent = true
+
+            vim.opt.wrap = false
+
+            vim.opt.swapfile = false
+            vim.opt.backup = false
+            vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+            vim.opt.undofile = true
+
+            vim.opt.hlsearch = false
+            vim.opt.incsearch = true
+
+            vim.opt.termguicolors = true
+
+            vim.opt.scrolloff = 8
+            vim.opt.signcolumn = "yes"
+            vim.opt.isfname:append("@-@")
+
+            vim.opt.updatetime = 50
+
+            vim.opt.colorcolumn = "80"
+
+
+            	 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
+            	 vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+
+            	 local builtin = require('telescope.builtin')
+            	 --vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+            	 --vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+            	 --vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
+            	 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+
+                -- cloak settings
+            	  require("cloak").setup({
+            		enabled = true,
+            		cloak_character = "*",
+            		-- The applied highlighting group (colors) on the cloaking
+            		highlight_group = "Comment",
+            		patterns = {
+            			{
+            			  file_pattern = {
+            				".env*",
+            				"wrangled.toml",
+            				".dev.vars",
+            			  },
+            			  cloak_pattern = "=.*",
+            			},
+            		},
+            	  })
+
+            	local mark = require("harpoon.mark")
+            	local ui = require("harpoon.ui")
+
+            	vim.keymap.set("n", "<leader>a", mark.add_file)
+            	vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+
+            	vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
+            	vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
+            	vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end) 
+            	vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
+             
+               -- trouble settings
+                    local trouble = require("trouble")
+                    trouble.setup({
+                        icons = false,
+                    })
+
+                    vim.keymap.set("n", "<leader>tt", trouble.toggle)
+                    vim.keymap.set("n", "<leader>tn", function() trouble.next({skip_groups=true, jump=true}) end)
+                    vim.keymap.set("n", "<leader>tp", function() trouble.previous({skip_groups=true, jump=true}) end)
+              -- zen mode settings
+
+
+              -- fugitive settings
+                    vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
+                    local Ingineous_Fugitive = vim.api.nvim_create_augroup("Ingineous_Fugitive", {})
+
+                    local autocmd = vim.api.nvim_create_autocmd
+                    autocmd("BufWinEnter", {
+                        group = Ingineous_Fugitive,
+                        pattern = "*",
+                        callback = function()
+                            if vim.bo.ft ~= "fugitive" then
+                                return
+                            end
+
+                            local bufnr = vim.api.nvim_get_current_buf()
+                            local opts = {buffer = bufnr, remap = false}
+                            vim.keymap.set("n", "<leader>p", function()
+                                vim.cmd.Git('push')
+                            end, opts)
+
+                            -- rebase always
+                            vim.keymap.set("n", "<leader>P", function()
+                                vim.cmd.Git({'pull',  '--rebase'})
+                            end, opts)
+
+                            -- NOTE: It allows me to easily set the branch i am pushing and any tracking
+                            -- needed if i did not set the branch up correctly
+                            vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
+                        end,
+                    })
+
+
+                    vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
+                    vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
+             
+            	'';
   };
 
   home.username = "aqua";
@@ -661,11 +717,13 @@
         readFileIfExists = path:
           if builtins.pathExists path then builtins.readFile path else "";
 
-        content = builtins.fromJSON (readFileIfExists "/home/aqua/.cache/wal/colors.json"); 
+        content = builtins.fromJSON
+          (readFileIfExists "/home/aqua/.cache/wal/colors.json");
         color3 = toString content.colors.color3;
 
         # remove # from #color hex code
-        afterFirst = str : builtins.substring 1 (builtins.stringLength str - 1) str;
+        afterFirst = str:
+          builtins.substring 1 (builtins.stringLength str - 1) str;
       in {
         gaps_in = 3.5;
         gaps_out = 6;
