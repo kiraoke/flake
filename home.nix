@@ -211,10 +211,9 @@
     pywalfox-native
     xdg-desktop-portal-hyprland
     easyeffects
-    lxqt.pavucontrol-qt
+    pavucontrol
     mpv
     brightnessctl
-    mpvScripts.modernx
 
     # cool tool
     fastfetch
@@ -437,7 +436,7 @@
 
       	include ~/.cache/wal/colors-kitty.conf
 
-              # -- window --
+        # -- window --
       	window_margin_width 10 15
       	window_resize_step_cells 5
       	window_resize_step_lines 2
@@ -552,7 +551,7 @@
 
       "$terminal" = "kitty";
       "$browser" = "zen";
-      "$fileManager" = "GSK_RENDERER=gl nautilus";
+      "$fileManager" = "dolphin";
       "$menu" = "wofi --show drun --allow-images";
       "$TFileManager" = "$terminal -e yazi";
 
@@ -658,12 +657,21 @@
       # move and resize windows while pressing SUPER	
       bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
 
-      general = {
+      general = let
+        readFileIfExists = path:
+          if builtins.pathExists path then builtins.readFile path else "";
+
+        content = builtins.fromJSON (readFileIfExists "/home/aqua/.cache/wal/colors.json"); 
+        color3 = toString content.colors.color3;
+
+        # remove # from #color hex code
+        afterFirst = str : builtins.substring 1 (builtins.stringLength str - 1) str;
+      in {
         gaps_in = 3.5;
         gaps_out = 6;
         border_size = 3;
 
-        "col.active_border" = "white rgba(59595900) grey 180deg";
+        "col.active_border" = "rgb(${afterFirst color3}) rgba(59595900) 135deg";
         "col.inactive_border" = "rgba(59595900)";
 
         resize_on_border = true;
