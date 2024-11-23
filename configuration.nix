@@ -52,10 +52,11 @@
       gfxmodeEfi = "2560x1600";
       timeoutStyle = "menu";
       copyKernels = true;
+      configurationLimit = 5;
 
       extraConfig = ''
-        GRUB_TERMINAL_OUTPUT="gfxterm"
-        GRUB_GFXMODE="2560x1600"
+       GRUB_TERMINAL_OUTPUT="gfxterm"
+       GRUB_GFXMODE="2560x1600"
       '';
 
       minegrub-world-sel = {
@@ -64,6 +65,13 @@
       };
     };
   };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+  };
+
+  nix.settings.auto-optimise-store = true;
 
   networking = {
     hostName = "hoshino";
@@ -297,7 +305,11 @@
     extraConfig = ''
       
             
-                 AddKeysToAgent yes
+                  
+                        
+                              
+                                    
+                                         AddKeysToAgent yes
     '';
   };
 
