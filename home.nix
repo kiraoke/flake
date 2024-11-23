@@ -18,16 +18,14 @@
 
     plugins = {
       treesitter.enable = true;
-      "web-devicons".enable = false;
+      "web-devicons".enable = true;
       cloak.enable = true;
       rainbow-delimiters.enable = true;
       todo-comments.enable = true;
       fzf-lua = {
         enable = true;
 
-        keymaps = {
-          "<C-p>" = "git_files";
-        };
+        keymaps = { "<C-p>" = "git_files"; };
       };
 
       harpoon.enable = true;
