@@ -18,7 +18,7 @@
 
     plugins = {
       treesitter.enable = true;
-      "web-devicons".enable = true;
+      web-devicons.enable = true;
       cloak.enable = true;
       rainbow-delimiters.enable = true;
       todo-comments.enable = true;
@@ -30,13 +30,14 @@
 
       harpoon.enable = true;
       trouble.enable = true;
-      "zen-mode".enable = true;
+      zen-mode.enable = true;
       fugitive.enable = true;
       lualine.enable = true;
       auto-save.enable = true;
 
       lsp = {
         enable = true;
+
         servers = {
           bashls.enable = true;
           clangd.enable = true;
@@ -49,12 +50,20 @@
           ruff.enable = true;
           ts_ls.enable = true;
         };
-        keymaps.lspBuf = {
-          "gd" = "definition";
-          "gD" = "references";
-          "gt" = "type_definition";
-          "gi" = "implementation";
-          "m" = "hover";
+
+        keymaps = {
+          diagnostic = {
+            # Navigate diagnostics
+            "[d" = "goto_prev";
+            "]d" = "goto_next";
+          };
+          lspBuf = {
+            "gd" = "definition";
+            "gD" = "references";
+            "gt" = "type_definition";
+            "gi" = "implementation";
+            "m" = "hover";
+          };
         };
       };
       rustaceanvim.enable = true;
@@ -80,6 +89,7 @@
 
       cmp = {
         enable = true;
+        autoEnableSources = true;
         settings = {
           mapping = {
             "<C-j>" = "cmp.mapping.select_next_item()";
@@ -110,6 +120,45 @@
 
       luasnip.enable = true;
     };
+
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>t";
+        action = "vim.lsp.buf.code_action";
+        options = {
+          desc = "Code actions";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>qf";
+        action = "vim.diagnostic.setqflist";
+        options = {
+          desc = "Quickfix diagnostics";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "[d";
+        action = "vim.diagnostic.goto_prev";
+        options = {
+          desc = "Previous diagnostic";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "]d";
+        action = "vim.diagnostic.goto_next";
+        options = {
+          desc = "Next diagnostic";
+          silent = true;
+        };
+      }
+    ];
 
     extraConfigLua = ''
             	 vim.g.mapleader = " "
@@ -290,6 +339,7 @@
     pywalfox-native
     xdg-desktop-portal-hyprland
     easyeffects
+    en
     lxqt.pavucontrol-qt
     mpv
     brightnessctl
