@@ -18,6 +18,7 @@
 
     plugins = {
       treesitter.enable = true;
+      treesitter-context.enable = true;
       web-devicons.enable = true;
       cloak.enable = true;
       rainbow-delimiters.enable = true;
@@ -339,7 +340,7 @@
     pywalfox-native
     xdg-desktop-portal-hyprland
     easyeffects
-    en
+    eza
     lxqt.pavucontrol-qt
     mpv
     brightnessctl
