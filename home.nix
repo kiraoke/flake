@@ -211,7 +211,7 @@
     pywalfox-native
     xdg-desktop-portal-hyprland
     easyeffects
-    pavucontrol
+    lxqt.pavucontrol-qt
     mpv
     brightnessctl
 
