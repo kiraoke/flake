@@ -873,6 +873,7 @@
     };
 
     extraConfig = ''
+      monitor= eDP-1 ,2560x1600@165,auto,1.33
       monitor= eDP-2 ,2560x1600@165,auto,1.33
       monitor = , preferred, auto, 1, mirror, eDP-2
 
@@ -916,8 +917,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = [ "/home/aqua/Pictures/wallpapers/doira.png" ];
-      wallpaper = [ ", /home/aqua/Pictures/wallpapers/doira.png" ];
+      preload = [ "/home/aqua/Pictures/wallpapers/joira.png" ];
+      wallpaper = [ ", /home/aqua/Pictures/wallpapers/joira.png" ];
     };
   };
 
