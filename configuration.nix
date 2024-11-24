@@ -55,8 +55,14 @@
       configurationLimit = 5;
 
       extraConfig = ''
-       GRUB_TERMINAL_OUTPUT="gfxterm"
-       GRUB_GFXMODE="2560x1600"
+        
+                
+                        
+                                
+                                        
+                                                
+                                                       GRUB_TERMINAL_OUTPUT="gfxterm"
+                                                       GRUB_GFXMODE="2560x1600"
       '';
 
       minegrub-world-sel = {
@@ -193,38 +199,40 @@
       "power"
       "video"
       "audio"
+      "docker"
     ]; # Enable ‘sudo’ for the user.
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
-    pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    pkgs.git
-    pkgs.zsh
-    pkgs.wget
-    pkgs.kitty
-    pkgs.timeshift
-    (pkgs.waybar.overrideAttrs (oldAttrs: {
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    git
+    zsh
+    wget
+    kitty
+    timeshift
+    (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     }))
-    pkgs.mako
-    pkgs.libnotify
-    pkgs.wofi
+    mako
+    libnotify
+    wofi
 
     # zen browser
     inputs.zen-browser.packages."${pkgs.system}".specific
-    pkgs.go-mtpfs
+    go-mtpfs
 
-    pkgs.gcc
+    gcc
 
     # sddm cursor theme dependencies
-    pkgs.libsForQt5.qt5.qtquickcontrols2
-    pkgs.libsForQt5.qt5.qtgraphicaleffects
-    pkgs.libsForQt5.qt5.qtsvg
-    pkgs.xclip
-    pkgs.cpuid
-    pkgs.eza
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtsvg
+    xclip
+    cpuid
+    eza
+    distrobox
   ];
 
   users.defaultUserShell = pkgs.zsh;
@@ -302,17 +310,17 @@
 
   programs.ssh = {
     startAgent = true;
-    extraConfig = ''
-      
-            
-                  
-                        
-                              
-                                    
-                                         AddKeysToAgent yes
-    '';
+    extraConfig = "AddKeysToAgent yes";
   };
 
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
   #  xdg.portal.enable = true;
   #  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   # Some programs need SUID wrappers, can be configured further or are
