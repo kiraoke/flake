@@ -878,7 +878,7 @@
       monitor = , preferred, auto, 1, mirror, eDP-2
 
       windowrulev2 = opacity 1.0 override 0.85 override, class:zen
-      windowrulev2 = opacity 0.7 override 0.65 override, class:kitty
+      windowrulev2 = opacity 0.65 override 0.63 override, class:kitty
       windowrulev2 = opacity 0.9 override 0.85 override, class:webstorm
       windowrulev2 = opacity 1.0 override 1.0 override, title:Spotify
       windowrulev2 = opacity 1.0 override 0.6 override, class:vesktop
