@@ -403,7 +403,7 @@
     x11.enable = true;
     name = "WhiteSur-cursors";
     package = pkgs.whitesur-cursors;
-    size = 32;
+    size = 36;
   };
 
   dconf.settings = {
