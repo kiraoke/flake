@@ -55,26 +55,8 @@
       configurationLimit = 5;
 
       extraConfig = ''
-        
-                
-                        
-                                
-                                        
-                                                
-                                                        
-                                                                
-                                                                        
-                                                                                
-                                                                                        
-                                                                                                
-                                                                                                        
-                                                                                                                
-                                                                                                                        
-                                                                                                                                
-                                                                                                                                        
-                                                                                                                                                
-                                                                                                                                                       GRUB_TERMINAL_OUTPUT="gfxterm"
-                                                                                                                                                       GRUB_GFXMODE="2560x1600"
+         GRUB_TERMINAL_OUTPUT="gfxterm"
+         GRUB_GFXMODE="2560x1600"
       '';
 
       minegrub-world-sel = {
@@ -95,7 +77,7 @@
     hostName = "hoshino";
     networkmanager = {
       enable = true;
-      insertNameservers = [ "one.one.one.one" "1.1.1.1" "1.0.0.1" ];
+     # insertNameservers = [ "one.one.one.one" "1.1.1.1" "1.0.0.1" ];
     };
     firewall.enable = true;
   };
@@ -140,6 +122,7 @@
     in "${corners}";
 
   };
+
 
   services.xserver.desktopManager.plasma5.enable = true;
 
@@ -248,6 +231,7 @@
     cpuid
     eza
     distrobox
+    cloudflare-warp
   ];
 
   users.defaultUserShell = pkgs.zsh;
