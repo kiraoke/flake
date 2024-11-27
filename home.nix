@@ -344,6 +344,7 @@
     lxqt.pavucontrol-qt
     mpv
     brightnessctl
+    spotube
 
     # cool tool
     fastfetch
@@ -403,7 +404,7 @@
     x11.enable = true;
     name = "WhiteSur-cursors";
     package = pkgs.whitesur-cursors;
-    size = 36;
+    size = 40;
   };
 
   dconf.settings = {

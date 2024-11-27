@@ -61,8 +61,20 @@
                                 
                                         
                                                 
-                                                       GRUB_TERMINAL_OUTPUT="gfxterm"
-                                                       GRUB_GFXMODE="2560x1600"
+                                                        
+                                                                
+                                                                        
+                                                                                
+                                                                                        
+                                                                                                
+                                                                                                        
+                                                                                                                
+                                                                                                                        
+                                                                                                                                
+                                                                                                                                        
+                                                                                                                                                
+                                                                                                                                                       GRUB_TERMINAL_OUTPUT="gfxterm"
+                                                                                                                                                       GRUB_GFXMODE="2560x1600"
       '';
 
       minegrub-world-sel = {
@@ -81,7 +93,10 @@
 
   networking = {
     hostName = "hoshino";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      insertNameservers = [ "1.1.1.1" "1.0.0.1" ];
+    };
     firewall.enable = true;
   };
 
