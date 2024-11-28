@@ -1,4 +1,12 @@
-{ config, pkgs, pkgs-stable, lib, nixvim, inputs, ... }: {
+{
+  config,
+  pkgs,
+  pkgs-stable,
+  lib,
+  nixvim,
+  inputs,
+  ...
+}: {
   programs.nixvim = {
     enable = true;
 
@@ -26,7 +34,7 @@
       fzf-lua = {
         enable = true;
 
-        keymaps = { "<C-p>" = "git_files"; };
+        keymaps = {"<C-p>" = "git_files";};
       };
 
       harpoon.enable = true;
@@ -83,7 +91,7 @@
         sources = {
           formatting = {
             stylua.enable = true;
-            nixfmt.enable = true;
+            alejandra.enable = true;
           };
         };
       };
@@ -100,20 +108,18 @@
             "<C-Space>" = "cmp.mapping.complete()";
             "<C-e>" = "cmp.mapping.abort()";
             "<CR>" = "cmp.mapping.confirm({ select = true })";
-            "<Tab>" =
-              "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_next_item() else fallback() end end)";
-            "<S-Tab>" =
-              "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_prev_item() else fallback() end end)";
+            "<C-Tab>" = "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_next_item() else fallback() end end)";
+            "<S-Tab>" = "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_prev_item() else fallback() end end)";
           };
           sources = [
-            { name = "path"; } # filesystem paths
-            { name = "nvim_lsp"; } # LSP
-            { name = "nvim_lua"; } # Neovim's Lua API
-            { name = "buffer"; } # text within current buffer
-            { name = "luasnip"; } # snippets
-            { name = "calc"; } # math calculations
-            { name = "treesitter"; } # treesitter nodes
-            { name = "cmdline"; } # vim commands
+            {name = "path";} # filesystem paths
+            {name = "nvim_lsp";} # LSP
+            {name = "nvim_lua";} # Neovim's Lua API
+            {name = "buffer";} # text within current buffer
+            {name = "luasnip";} # snippets
+            {name = "calc";} # math calculations
+            {name = "treesitter";} # treesitter nodes
+            {name = "cmdline";} # vim commands
           ];
           snippet.expand = "luasnip";
         };
@@ -162,240 +168,241 @@
     ];
 
     extraConfigLua = ''
-            	 vim.g.mapleader = " "
-            	 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-            -- editor settings
-            vim.opt.nu = true
-            vim.opt.relativenumber = true
+           	 vim.g.mapleader = " "
+           	 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+           -- editor settings
+           vim.opt.nu = true
+           vim.opt.relativenumber = true
 
 
 
 
 
-            -- autosave shit
-            require("auto-save").setup({
-                  enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
-          
-          trigger_events = {"InsertLeave", "TextChanged"}, -- vim events that trigger auto-save. See :h events
-      	-- function that determines whether to save the current buffer or not
-      	-- return true: if buffer is ok to be saved
-      	-- return false: if it's not ok to be saved
-      	condition = function(buf)
-      		local fn = vim.fn
-      		local utils = require("auto-save.utils.data")
+           -- autosave shit
+           require("auto-save").setup({
+                 enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
 
-      		if
-      			fn.getbufvar(buf, "&modifiable") == 1 and
-      			utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
-      			return true -- met condition(s), can save
-      		end
-      		return false -- can't save
-      	end,
-          write_all_buffers = false, -- write all buffers when the current one meets `condition`
-          debounce_delay = 135, -- saves the file at most every `debounce_delay` milliseconds
-      	callbacks = { -- functions to be executed at different intervals
-      		enabling = nil, -- ran when enabling auto-save
-      		disabling = nil, -- ran when disabling auto-save
-      		before_asserting_save = nil, -- ran before checking `condition`
-      		before_saving = nil, -- ran before doing the actual save
-      		after_saving = nil -- ran after doing the actual save
-      	}
-                })
+         trigger_events = {"InsertLeave", "TextChanged"}, -- vim events that trigger auto-save. See :h events
+      -- function that determines whether to save the current buffer or not
+      -- return true: if buffer is ok to be saved
+      -- return false: if it's not ok to be saved
+      condition = function(buf)
+      	local fn = vim.fn
+      	local utils = require("auto-save.utils.data")
 
-            vim.api.nvim_set_keymap("n", "<leader>n", ":ASToggle<CR>", {})
+      	if
+      		fn.getbufvar(buf, "&modifiable") == 1 and
+      		utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
+      		return true -- met condition(s), can save
+      	end
+      	return false -- can't save
+      end,
+         write_all_buffers = false, -- write all buffers when the current one meets `condition`
+         debounce_delay = 135, -- saves the file at most every `debounce_delay` milliseconds
+      callbacks = { -- functions to be executed at different intervals
+      	enabling = nil, -- ran when enabling auto-save
+      	disabling = nil, -- ran when disabling auto-save
+      	before_asserting_save = nil, -- ran before checking `condition`
+      	before_saving = nil, -- ran before doing the actual save
+      	after_saving = nil -- ran after doing the actual save
+      }
+               })
 
-
+           vim.api.nvim_set_keymap("n", "<leader>n", ":ASToggle<CR>", {})
 
 
-            fzf = require("fzf-lua")
-            vim.keymap.set("n", "<leader>pf", fzf.files)
-            vim.keymap.set("n", "<leader>ps", fzf.live_grep)
 
 
-            -- null ls settings
-            vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {})
-
-            -- greatest remap ever ig
-            vim.keymap.set("x", "<leader>p", "\"_dP")
-
-            vim.cmd("set expandtab")
-            vim.cmd("set tabstop=2")
-            vim.cmd("set softtabstop=2")
-            vim.cmd("set shiftwidth=4")
-
-            vim.opt.smartindent = true
-
-            vim.opt.wrap = false
-
-            vim.opt.swapfile = false
-            vim.opt.backup = false
-            vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-            vim.opt.undofile = true
-
-            vim.opt.hlsearch = false
-            vim.opt.incsearch = true
-
-            vim.opt.termguicolors = true
-
-            vim.opt.scrolloff = 8
-            vim.opt.signcolumn = "yes"
-            vim.opt.isfname:append("@-@")
-
-            vim.opt.updatetime = 50
-
-            vim.opt.colorcolumn = "80"
+           fzf = require("fzf-lua")
+           vim.keymap.set("n", "<leader>pf", fzf.files)
+           vim.keymap.set("n", "<leader>ps", fzf.live_grep)
 
 
-            	 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
-            	 vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+           -- null ls settings
+           vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {})
 
-                -- cloak settings
-            	  require("cloak").setup({
-            		enabled = true,
-            		cloak_character = "*",
-            		-- The applied highlighting group (colors) on the cloaking
-            		highlight_group = "Comment",
-            		patterns = {
-            			{
-            			  file_pattern = {
-            				".env*",
-            				"wrangled.toml",
-            				".dev.vars",
-            			  },
-            			  cloak_pattern = "=.*",
-            			},
-            		},
-            	  })
+           -- greatest remap ever ig
+           vim.keymap.set("x", "<leader>p", "\"_dP")
 
-            	local mark = require("harpoon.mark")
-            	local ui = require("harpoon.ui")
+           vim.cmd("set expandtab")
+           vim.cmd("set tabstop=2")
+           vim.cmd("set softtabstop=2")
+           vim.cmd("set shiftwidth=4")
 
-            	vim.keymap.set("n", "<leader>a", mark.add_file)
-            	vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+           vim.opt.smartindent = true
 
-            	vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
-            	vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
-            	vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end) 
-            	vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
-             
-               -- trouble settings
-                    local trouble = require("trouble")
-                    trouble.setup({
-                        icons = false,
-                    })
+           vim.opt.wrap = false
 
-                    vim.keymap.set("n", "<leader>tt", trouble.toggle)
-                    vim.keymap.set("n", "<leader>tn", function() trouble.next({skip_groups=true, jump=true}) end)
-                    vim.keymap.set("n", "<leader>tp", function() trouble.previous({skip_groups=true, jump=true}) end)
-              -- zen mode settings
+           vim.opt.swapfile = false
+           vim.opt.backup = false
+           vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+           vim.opt.undofile = true
+
+           vim.opt.hlsearch = false
+           vim.opt.incsearch = true
+
+           vim.opt.termguicolors = true
+
+           vim.opt.scrolloff = 8
+           vim.opt.signcolumn = "yes"
+           vim.opt.isfname:append("@-@")
+
+           vim.opt.updatetime = 50
+
+           vim.opt.colorcolumn = "80"
 
 
-              -- fugitive settings
-                    vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+           	 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
+           	 vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
 
-                    local Ingineous_Fugitive = vim.api.nvim_create_augroup("Ingineous_Fugitive", {})
+               -- cloak settings
+           	  require("cloak").setup({
+           		enabled = true,
+           		cloak_character = "*",
+           		-- The applied highlighting group (colors) on the cloaking
+           		highlight_group = "Comment",
+           		patterns = {
+           			{
+           			  file_pattern = {
+           				".env*",
+           				"wrangled.toml",
+           				".dev.vars",
+           			  },
+           			  cloak_pattern = "=.*",
+           			},
+           		},
+           	  })
 
-                    local autocmd = vim.api.nvim_create_autocmd
-                    autocmd("BufWinEnter", {
-                        group = Ingineous_Fugitive,
-                        pattern = "*",
-                        callback = function()
-                            if vim.bo.ft ~= "fugitive" then
-                                return
-                            end
+           	local mark = require("harpoon.mark")
+           	local ui = require("harpoon.ui")
 
-                            local bufnr = vim.api.nvim_get_current_buf()
-                            local opts = {buffer = bufnr, remap = false}
-                            vim.keymap.set("n", "<leader>p", function()
-                                vim.cmd.Git('push')
-                            end, opts)
+           	vim.keymap.set("n", "<leader>a", mark.add_file)
+           	vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 
-                            -- rebase always
-                            vim.keymap.set("n", "<leader>P", function()
-                                vim.cmd.Git({'pull',  '--rebase'})
-                            end, opts)
+           	vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
+           	vim.keymap.set("n", "<C-t>", function() ui.nav_file(2) end)
+           	vim.keymap.set("n", "<C-n>", function() ui.nav_file(3) end)
+           	vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
 
-                            -- NOTE: It allows me to easily set the branch i am pushing and any tracking
-                            -- needed if i did not set the branch up correctly
-                            vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
-                        end,
-                    })
+              -- trouble settings
+                   local trouble = require("trouble")
+                   trouble.setup({
+                       icons = false,
+                   })
+
+                   vim.keymap.set("n", "<leader>tt", trouble.toggle)
+                   vim.keymap.set("n", "<leader>tn", function() trouble.next({skip_groups=true, jump=true}) end)
+                   vim.keymap.set("n", "<leader>tp", function() trouble.previous({skip_groups=true, jump=true}) end)
+             -- zen mode settings
 
 
-                    vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
-                    vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
-             
-            	'';
+             -- fugitive settings
+                   vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
+                   local Ingineous_Fugitive = vim.api.nvim_create_augroup("Ingineous_Fugitive", {})
+
+                   local autocmd = vim.api.nvim_create_autocmd
+                   autocmd("BufWinEnter", {
+                       group = Ingineous_Fugitive,
+                       pattern = "*",
+                       callback = function()
+                           if vim.bo.ft ~= "fugitive" then
+                               return
+                           end
+
+                           local bufnr = vim.api.nvim_get_current_buf()
+                           local opts = {buffer = bufnr, remap = false}
+                           vim.keymap.set("n", "<leader>p", function()
+                               vim.cmd.Git('push')
+                           end, opts)
+
+                           -- rebase always
+                           vim.keymap.set("n", "<leader>P", function()
+                               vim.cmd.Git({'pull',  '--rebase'})
+                           end, opts)
+
+                           -- NOTE: It allows me to easily set the branch i am pushing and any tracking
+                           -- needed if i did not set the branch up correctly
+                           vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
+                       end,
+                   })
+
+
+                   vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
+                   vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
+
+    '';
   };
 
   home.username = "aqua";
   home.homeDirectory = "/home/aqua";
 
-  home.packages = (with pkgs; [
-    dconf
-    qt6ct
-    qt6.qtwayland
-    nerdfonts
-    noto-fonts
-    pywalfox-native
-    xdg-desktop-portal-hyprland
-    easyeffects
-    eza
-    lxqt.pavucontrol-qt
-    mpv
-    brightnessctl
-    spotube
+  home.packages =
+    (with pkgs; [
+      dconf
+      qt6ct
+      qt6.qtwayland
+      nerdfonts
+      noto-fonts
+      pywalfox-native
+      xdg-desktop-portal-hyprland
+      easyeffects
+      eza
+      lxqt.pavucontrol-qt
+      mpv
+      brightnessctl
+      spotube
 
-    # cool tool
-    fastfetch
-    ripgrep
-    bat
-    pipes-rs
-    brave
-    telegram-desktop
-    yt-dlp
-    ffmpeg
-    upscayl
-    hyprshot
-    protonvpn-gui
-    qbittorrent
-    fast-cli
-    audacious
-    vesktop
-    qalculate-gtk
+      # cool tool
+      fastfetch
+      ripgrep
+      bat
+      pipes-rs
+      brave
+      telegram-desktop
+      yt-dlp
+      ffmpeg
+      upscayl
+      hyprshot
+      protonvpn-gui
+      qbittorrent
+      fast-cli
+      audacious
+      vesktop
+      qalculate-gtk
 
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
+      # archives
+      zip
+      xz
+      unzip
+      p7zip
 
-    # misc
-    which
-    file
-    tree
-    vlc
-    nodejs_22
-    pnpm
+      # misc
+      which
+      file
+      tree
+      vlc
+      nodejs_22
+      pnpm
 
-    # file managers
-    yazi
+      # file managers
+      yazi
 
-    btop
-    htop
+      btop
+      htop
 
-    pywal
+      pywal
 
-    networkmanagerapplet
-
-  ]) ++ [ pkgs-stable.cava ];
+      networkmanagerapplet
+    ])
+    ++ [pkgs-stable.cava];
 
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = [ "JetBrains Mono" ];
-      sansSerif = [ "NotoSans" ];
-      serif = [ "NotoSerif" ];
+      monospace = ["JetBrains Mono"];
+      sansSerif = ["NotoSans"];
+      serif = ["NotoSerif"];
     };
   };
 
@@ -408,7 +415,7 @@
   };
 
   dconf.settings = {
-    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+    "org/gnome/desktop/interface" = {color-scheme = "prefer-dark";};
   };
 
   gtk = {
@@ -467,29 +474,31 @@
     };
 
     initExtra = ''
-         fastfetch
+        fastfetch
 
-         # Enable Powerlevel10k instant prompt
-         if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-            source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      	fi
+        # Enable Powerlevel10k instant prompt
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+           source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
 
-      	# source the theme
-      	source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      # source the theme
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
 
-      	# to customize prompt, run `p10k configure` or edit ~/.p10k.zsh
-      	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      # to customize prompt, run `p10k configure` or edit ~/.p10k.zsh
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-        # highlight man using nvim
-        vman() { nvim <(man $1); }
+       # highlight man using nvim
+       vman() { nvim <(man $1); }
     '';
 
-    plugins = [{
-      name = "powerlevel10k";
-      src = pkgs.zsh-powerlevel10k;
-      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    }];
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+    ];
 
     shellAliases = {
       saymyname = "echo Heisenberg";
@@ -534,53 +543,52 @@
   home.file.".config/waybar/colors-waybar.css".source =
     /home/aqua/flake/colors-waybar.css;
 
-  home.file.".config/wireplumber/wireplumber.conf.d/50-also-config.conf".text =
-    ''
-      	monitor.alsa.rules = [
-        {
-          matches = [
-            # This matches the value of the 'node.name' property of the node.
-            {
-              node.name = "~alsa_output.*"
-            }
-          ]
-          actions = {
-            # Apply all the desired node specific settings here.
-            update-props = {
-              api.alsa.period-size   = 1024
-              api.alsa.headroom      = 8192
-            }
+  home.file.".config/wireplumber/wireplumber.conf.d/50-also-config.conf".text = ''
+    	monitor.alsa.rules = [
+      {
+        matches = [
+          # This matches the value of the 'node.name' property of the node.
+          {
+            node.name = "~alsa_output.*"
+          }
+        ]
+        actions = {
+          # Apply all the desired node specific settings here.
+          update-props = {
+            api.alsa.period-size   = 1024
+            api.alsa.headroom      = 8192
           }
         }
-      ]
+      }
+    ]
 
-    '';
+  '';
 
   programs.kitty = {
     enable = true;
     extraConfig = ''
-      	font_family Noto Nerd Font
-      	italic_font auto
-      	bold_font auto
-      	bold_italic_font auto
-      	font_size 11.5
+      font_family Noto Nerd Font
+      italic_font auto
+      bold_font auto
+      bold_italic_font auto
+      font_size 11.5
 
-      	include ~/.cache/wal/colors-kitty.conf
+      include ~/.cache/wal/colors-kitty.conf
 
-        # -- window --
-      	window_margin_width 10 15
-      	window_resize_step_cells 5
-      	window_resize_step_lines 2
-      	confirm_os_window_close 0
+       # -- window --
+      window_margin_width 10 15
+      window_resize_step_cells 5
+      window_resize_step_lines 2
+      confirm_os_window_close 0
 
-      	# -- misc settings --
-      	enable_audio_bell no
-      	force_ltr no
-      	detect_urls yes
+      # -- misc settings --
+      enable_audio_bell no
+      force_ltr no
+      detect_urls yes
 
-      	# -- map keys --
-      	map f1 launch --cwd=current
-      	map f2 launch --cwd=current --type=tab
+      # -- map keys --
+      map f1 launch --cwd=current
+      map f2 launch --cwd=current --type=tab
     '';
   };
 
@@ -593,8 +601,7 @@
       force_tty = "True";
       vim_keys = "False";
       rounded_corners = "True";
-      presets =
-        "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default cpu:0:block,net:0:tty";
+      presets = "cpu:1:default,proc:0:default cpu:0:default,mem:0:default,net:0:default cpu:0:block,net:0:tty";
       graph_symbol = "tty";
       graph_symbol_cpu = "default";
       graph_symbol_gpu = "default";
@@ -714,13 +721,13 @@
       # Startup
       # ------------------------------------------
 
-      exec-once = [ "waybar" "hypridle" "nm-applet" ];
+      exec-once = ["waybar" "hypridle" "nm-applet"];
 
       # ------------------------------------------
       # Monitors
       # ------------------------------------------
 
-      xwayland = { force_zero_scaling = true; };
+      xwayland = {force_zero_scaling = true;};
 
       # --------------------------------------------
       # Keybinds
@@ -785,14 +792,17 @@
         "$shiftMod, 0, movetoworkspace, 0"
       ];
 
-      # move and resize windows while pressing SUPER	
-      bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
+      # move and resize windows while pressing SUPER
+      bindm = ["$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow"];
 
       general = let
         readFileIfExists = path:
-          if builtins.pathExists path then builtins.readFile path else "";
+          if builtins.pathExists path
+          then builtins.readFile path
+          else "";
 
-        content = builtins.fromJSON
+        content =
+          builtins.fromJSON
           (readFileIfExists "/home/aqua/.cache/wal/colors.json");
         color3 = toString content.colors.color3;
 
@@ -852,7 +862,7 @@
         preserve_split = true;
       };
 
-      master = { new_status = "master"; };
+      master = {new_status = "master";};
 
       misc = {
         force_default_wallpaper = -1;
@@ -867,10 +877,10 @@
 
         sensitivity = 0;
 
-        touchpad = { natural_scroll = true; };
+        touchpad = {natural_scroll = true;};
       };
 
-      gestures = { workspace_swipe = true; };
+      gestures = {workspace_swipe = true;};
     };
 
     extraConfig = ''
@@ -918,8 +928,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = [ "/home/aqua/Pictures/wallpapers/joira.png" ];
-      wallpaper = [ ", /home/aqua/Pictures/wallpapers/joira.png" ];
+      preload = ["/home/aqua/Pictures/wallpapers/joira.png"];
+      wallpaper = [", /home/aqua/Pictures/wallpapers/joira.png"];
     };
   };
 
@@ -930,47 +940,51 @@
     enable = true;
 
     settings = {
-      background = [{
-        monitor = "";
-        path = "~/Pictures/wallpapers/marima.jpg";
-        color = "rgba(25, 20, 20, 1.0)";
+      background = [
+        {
+          monitor = "";
+          path = "~/Pictures/wallpapers/marima.jpg";
+          color = "rgba(25, 20, 20, 1.0)";
 
-        blur_passes = 0;
-        blur_size = 2;
-        noise = 0;
-        contrast = 0;
-        brightness = 0;
-        vibrancy = 0;
-        vibrancy_darkness = "0.0";
-      }];
+          blur_passes = 0;
+          blur_size = 2;
+          noise = 0;
+          contrast = 0;
+          brightness = 0;
+          vibrancy = 0;
+          vibrancy_darkness = "0.0";
+        }
+      ];
 
-      input-field = [{
-        monitor = "";
-        size = "400, 80";
-        outline_thickness = 2;
-        dots_size = 0.25;
-        dots_spacing = 0.55;
-        dots_center = true;
-        dots_rounding = -1;
-        outer_color = "rgb(236, 169, 158)";
-        inner_color = "rgb(135, 27, 43)";
-        font_color = "rgb(179, 206, 208)";
-        fade_on_empty = false;
-        placeholder_text = "";
-        hide_input = false;
-        check_color = "rgba(204, 136, 34, 0)";
-        fail_color = "rgba(204, 34, 34, 0)";
-        fail_text = "$FAIL <b>($ATTEMPTS)</b>";
-        fail_transition = 300;
-        capslock_color = -1;
-        numlock_color = -1;
-        bothlock_color = -1;
-        invert_numlock = false;
-        swap_font_color = false;
-        position = "0, -270";
-        halign = "center";
-        valign = "center";
-      }];
+      input-field = [
+        {
+          monitor = "";
+          size = "400, 80";
+          outline_thickness = 2;
+          dots_size = 0.25;
+          dots_spacing = 0.55;
+          dots_center = true;
+          dots_rounding = -1;
+          outer_color = "rgb(236, 169, 158)";
+          inner_color = "rgb(135, 27, 43)";
+          font_color = "rgb(179, 206, 208)";
+          fade_on_empty = false;
+          placeholder_text = "";
+          hide_input = false;
+          check_color = "rgba(204, 136, 34, 0)";
+          fail_color = "rgba(204, 34, 34, 0)";
+          fail_text = "$FAIL <b>($ATTEMPTS)</b>";
+          fail_transition = 300;
+          capslock_color = -1;
+          numlock_color = -1;
+          bothlock_color = -1;
+          invert_numlock = false;
+          swap_font_color = false;
+          position = "0, -270";
+          halign = "center";
+          valign = "center";
+        }
+      ];
 
       label = [
         {
@@ -1013,7 +1027,7 @@
     enable = true;
 
     style = ''
-      	
+
         /* `otf-font-awesome` is required to be installed for icons */
 
       @import '/home/aqua/.config/waybar/colors-waybar.css';
@@ -1097,7 +1111,7 @@
         padding-right: 4px;
         padding-left: 4px;
 
-        
+
         transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
 
@@ -1111,11 +1125,11 @@
         transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
 
-      /* If workspaces is the leftmost module, omit left margin 
+      /* If workspaces is the leftmost module, omit left margin
       .modules-left > widget:first-child > #workspaces {
         margin-left: 0;
       }
-       If workspaces is the rightmost module, omit right margin 
+       If workspaces is the rightmost module, omit right margin
       .modules-right > widget:last-child > #workspaces {
         margin-right: 0;
       }*/
@@ -1218,7 +1232,7 @@
         font-size: 22px;
       }
 
-      #battery.charging { 
+      #battery.charging {
         font-size: 18px;
         padding-right: 13px;
         padding-left: 4px;
@@ -1355,49 +1369,50 @@
 
     '';
 
-    settings = [{
-      height = 25;
-      layer = "top";
-      "modules-left" =
-        [ "custom/launcher" "cpu" "memory" "hyprland/workspaces" ];
-      "modules-right" = [
-        "custom/spotify"
-        "tray"
-        "network"
-        "pulseaudio"
-        "backlight"
-        "battery"
-        "clock"
-      ];
+    settings = [
+      {
+        height = 25;
+        layer = "top";
+        "modules-left" = ["custom/launcher" "cpu" "memory" "hyprland/workspaces"];
+        "modules-right" = [
+          "custom/spotify"
+          "tray"
+          "network"
+          "pulseaudio"
+          "backlight"
+          "battery"
+          "clock"
+        ];
 
-      "hyprland/workspaces" = {
-        "disable-scroll" = true;
-        "all-outputs" = true;
-        "on-click" = "activate";
-        "persistent_workspaces" = {
-          "1" = [ ];
-          "2" = [ ];
-          "3" = [ ];
-          "4" = [ ];
-          "5" = [ ];
-          "6" = [ ];
-          "7" = [ ];
-          "8" = [ ];
-          "9" = [ ];
-          "10" = [ ];
+        "hyprland/workspaces" = {
+          "disable-scroll" = true;
+          "all-outputs" = true;
+          "on-click" = "activate";
+          "persistent_workspaces" = {
+            "1" = [];
+            "2" = [];
+            "3" = [];
+            "4" = [];
+            "5" = [];
+            "6" = [];
+            "7" = [];
+            "8" = [];
+            "9" = [];
+            "10" = [];
+          };
         };
-      };
 
-      "hyprland/window" = { format = "{}"; };
+        "hyprland/window" = {format = "{}";};
 
-      tray = {
-        "icon-size" = 25;
-        spacing = 10;
-      };
-    }];
+        tray = {
+          "icon-size" = 25;
+          spacing = 10;
+        };
+      }
+    ];
   };
 
-  programs.pywal = { enable = true; };
+  programs.pywal = {enable = true;};
 
   programs.home-manager.enable = true;
 }

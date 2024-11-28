@@ -1,21 +1,26 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, inputs, ... }:
-
 {
-  imports = [ # Include the results of the hardware scan.
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.supportedFilesystems = [ "btrfs" ];
+  boot.supportedFilesystems = ["btrfs"];
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
 
-  boot.kernelParams = [ "NVreg_UsePageAttributeTable=1" ];
-  boot.blacklistedKernelModules = [ "nouveau" ];
+  boot.kernelParams = ["NVreg_UsePageAttributeTable=1"];
+  boot.blacklistedKernelModules = ["nouveau"];
 
   zramSwap = {
     enable = true;
@@ -46,7 +51,7 @@
 
     grub = {
       enable = true;
-      devices = [ "nodev" ];
+      devices = ["nodev"];
       efiSupport = true;
       useOSProber = true;
       gfxmodeEfi = "2560x1600";
@@ -55,13 +60,13 @@
       configurationLimit = 5;
 
       extraConfig = ''
-         GRUB_TERMINAL_OUTPUT="gfxterm"
-         GRUB_GFXMODE="2560x1600"
+        GRUB_TERMINAL_OUTPUT="gfxterm"
+        GRUB_GFXMODE="2560x1600"
       '';
 
       minegrub-world-sel = {
         enable = true;
-        customIcons = [ ];
+        customIcons = [];
       };
     };
   };
@@ -77,13 +82,13 @@
     hostName = "hoshino";
     networkmanager = {
       enable = true;
-     # insertNameservers = [ "one.one.one.one" "1.1.1.1" "1.0.0.1" ];
+      # insertNameservers = [ "one.one.one.one" "1.1.1.1" "1.0.0.1" ];
     };
     firewall.enable = true;
   };
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -120,9 +125,7 @@
         sha256 = "sha256-hTwbJM0fXq1yO0NcqxU66gn/73Gu0R8s+B7ZDlttcw0=";
       };
     in "${corners}";
-
   };
-
 
   services.xserver.desktopManager.plasma5.enable = true;
 
@@ -137,7 +140,7 @@
     okular
   ];
 
-  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+  services.xserver.videoDrivers = ["nvidia" "amdgpu"];
   hardware.nvidia = {
     modesetting.enable = true;
 
@@ -211,7 +214,7 @@
     kitty
     timeshift
     (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
     mako
     libnotify
@@ -246,59 +249,59 @@
     xwayland.enable = true;
   };
 
-  programs.spicetify =
-    let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-    in {
-      spotifyPackage = pkgs.spotify;
-      enable = true;
-      enabledExtensions = [
-        spicePkgs.extensions.adblock
-        spicePkgs.extensions.beautifulLyrics
-        {
-          name = "romanji.js";
-          src = pkgs.fetchFromGitHub {
-            owner = "ingineous";
-            repo = "romanji";
-            rev = "c3dba44f50314005159c7e37842ed0c2ab117dac";
-            hash = "sha256-wz1ft9nhX8ND4eJhsjB7L64MpAscccS2QbHB0Cim8dw=";
-          };
-        }
-        {
-          name = "romaja.js";
-          src = pkgs.fetchFromGitHub {
-            owner = "ingineous";
-            repo = "romaja";
-            rev = "88fcbf91cb6afa36b140c7b3cfd22276dc9dca7b";
-            hash = "sha256-UisN2lUZf3/NJyagPuLNvQX4SDZmT6ghcieR2G+NsNY=";
-          };
-        }
-        {
-          name = "waveform.js";
-          src = pkgs.fetchFromGitHub {
-            owner = "SPOTLAB-Live";
-            repo = "Spicetify-waveform";
-            rev = "89fa8a6e29258984bc296790e6f41ee017e87c71";
-            hash = "sha256-LOOtdlnpKRE/D95hbuk8vTtFUsA+nUtmsKTiQiy2s7w=";
-          };
-        }
-      ];
-      enabledCustomApps = with spicePkgs.apps; [ marketplace ];
-      theme = {
-        name = "Galaxy";
+  programs.spicetify = let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  in {
+    spotifyPackage = pkgs.spotify;
+    enable = true;
+    enabledExtensions = [
+      spicePkgs.extensions.adblock
+      spicePkgs.extensions.beautifulLyrics
+      {
+        name = "romanji.js";
         src = pkgs.fetchFromGitHub {
-          owner = "harbassan";
-          repo = "spicetify-galaxy";
-          rev = "45467bad47526c49290a9273dca02085b9a55842";
-          hash = "sha256-5MPmUznHx5OFUsF3lbrBs3QDdUv8EO2srNywxy1S3LE=";
+          owner = "ingineous";
+          repo = "romanji";
+          rev = "c3dba44f50314005159c7e37842ed0c2ab117dac";
+          hash = "sha256-wz1ft9nhX8ND4eJhsjB7L64MpAscccS2QbHB0Cim8dw=";
         };
-        injectCss = true;
-        injectThemeJs = true;
-        replaceColors = true;
-        homeConfig = true;
-        overwriteAssets = true;
-        additonalCss = "";
+      }
+      {
+        name = "romaja.js";
+        src = pkgs.fetchFromGitHub {
+          owner = "ingineous";
+          repo = "romaja";
+          rev = "88fcbf91cb6afa36b140c7b3cfd22276dc9dca7b";
+          hash = "sha256-UisN2lUZf3/NJyagPuLNvQX4SDZmT6ghcieR2G+NsNY=";
+        };
+      }
+      {
+        name = "waveform.js";
+        src = pkgs.fetchFromGitHub {
+          owner = "SPOTLAB-Live";
+          repo = "Spicetify-waveform";
+          rev = "89fa8a6e29258984bc296790e6f41ee017e87c71";
+          hash = "sha256-LOOtdlnpKRE/D95hbuk8vTtFUsA+nUtmsKTiQiy2s7w=";
+        };
+      }
+    ];
+    enabledCustomApps = with spicePkgs.apps; [marketplace];
+    theme = {
+      name = "Galaxy";
+      src = pkgs.fetchFromGitHub {
+        owner = "harbassan";
+        repo = "spicetify-galaxy";
+        rev = "45467bad47526c49290a9273dca02085b9a55842";
+        hash = "sha256-5MPmUznHx5OFUsF3lbrBs3QDdUv8EO2srNywxy1S3LE=";
       };
+      injectCss = true;
+      injectThemeJs = true;
+      replaceColors = true;
+      homeConfig = true;
+      overwriteAssets = true;
+      additonalCss = "";
     };
+  };
 
   environment.sessionVariables = {
     # If your cursor becomes invisible
