@@ -33,8 +33,6 @@
       todo-comments.enable = true;
       fzf-lua = {
         enable = true;
-
-        keymaps = {"<C-p>" = "git_files";};
       };
 
       harpoon.enable = true;
@@ -46,6 +44,8 @@
 
       lsp = {
         enable = true;
+
+        inlayHints = true; 
 
         servers = {
           bashls.enable = true;
@@ -215,6 +215,7 @@
 
            fzf = require("fzf-lua")
            vim.keymap.set("n", "<leader>pf", fzf.files)
+           vim.keymap.set("n", "<leader>pg", fzf.git_files)
            vim.keymap.set("n", "<leader>ps", fzf.live_grep)
 
 
