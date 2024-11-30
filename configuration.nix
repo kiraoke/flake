@@ -303,6 +303,14 @@
     };
   };
 
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka
+  ];
+
   environment.sessionVariables = {
     # If your cursor becomes invisible
     WLR_NO_HARDWARE_CURSORS = "1";

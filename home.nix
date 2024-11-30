@@ -343,8 +343,6 @@
       dconf
       qt6ct
       qt6.qtwayland
-      nerdfonts
-      noto-fonts
       pywalfox-native
       xdg-desktop-portal-hyprland
       easyeffects
@@ -398,6 +396,7 @@
     ])
     ++ [pkgs-stable.cava];
 
+  
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
@@ -751,6 +750,7 @@
         "$mod, L, exec, pkill waybar || waybar"
         "$mod, T, fullscreen, 1"
         "$mod, Y, fullscreen, 0"
+        "$mod, S, exec, hyprshot -m output"
 
         # move windows
         "$shiftMod, A, movewindow, l"
