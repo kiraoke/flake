@@ -351,6 +351,7 @@
       mpv
       brightnessctl
       spotube
+      songrec
 
       # cool tool
       fastfetch
