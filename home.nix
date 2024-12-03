@@ -45,7 +45,7 @@
       lsp = {
         enable = true;
 
-        inlayHints = true; 
+        inlayHints = true;
 
         servers = {
           bashls.enable = true;
@@ -397,7 +397,6 @@
     ])
     ++ [pkgs-stable.cava];
 
-  
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
