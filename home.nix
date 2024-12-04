@@ -576,7 +576,7 @@
       include ~/.cache/wal/colors-kitty.conf
 
        # -- window --
-      window_margin_width 10 15
+      window_margin_width 5 5
       window_resize_step_cells 5
       window_resize_step_lines 2
       confirm_os_window_close 0
