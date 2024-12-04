@@ -411,7 +411,7 @@
     x11.enable = true;
     name = "WhiteSur-cursors";
     package = pkgs.whitesur-cursors;
-    size = 44;
+    size = 32;
   };
 
   dconf.settings = {
@@ -576,7 +576,7 @@
       include ~/.cache/wal/colors-kitty.conf
 
        # -- window --
-      window_margin_width 5 5
+      window_margin_width 5 5 
       window_resize_step_cells 5
       window_resize_step_lines 2
       confirm_os_window_close 0
