@@ -885,8 +885,8 @@
     };
 
     extraConfig = ''
-      monitor= eDP-1 ,2560x1600@165,auto,1.33
-      monitor= eDP-2 ,2560x1600@165,auto,1.33
+      monitor= eDP-1 ,2560x1600@60,auto,1.33
+      monitor= eDP-2 ,2560x1600@60,auto,1.33
       monitor = , preferred, auto, 1, mirror, eDP-2
 
       windowrulev2 = opacity 1.0 override 0.85 override, class:zen
