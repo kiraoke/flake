@@ -539,9 +539,9 @@
 
   home.stateVersion = "24.11";
 
-  home.file.".p10k.zsh".source = /home/aqua/flake/.p10k.zsh;
+  home.file.".p10k.zsh".source = /home/aqua/flake/dots/.p10k.zsh;
   home.file.".config/waybar/colors-waybar.css".source =
-    /home/aqua/flake/colors-waybar.css;
+    /home/aqua/flake/dots/colors-waybar.css;
 
   home.file.".config/wireplumber/wireplumber.conf.d/50-also-config.conf".text = ''
     	monitor.alsa.rules = [
@@ -677,7 +677,7 @@
   };
 
   home.file.".config/fastfetch/config.jsonc".source =
-    /home/aqua/flake/config.jsonc;
+    /home/aqua/flake/dots/config.jsonc;
 
   wayland.windowManager.hyprland = {
     enable = true;
