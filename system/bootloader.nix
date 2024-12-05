@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   hardware.enableAllFirmware = true;
-  nixpkgs.config.allowUnfree = true;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
