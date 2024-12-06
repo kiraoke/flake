@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   ...
 }: {
@@ -7,7 +6,6 @@
    ./audio.nix
    ./bluetooth.nix
    ./bootloader.nix
-   ./config.nix
    ./devices.nix
    ./docker.nix
    ./environment.nix

@@ -11,326 +11,327 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./system/config.nix
   ];
 
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.supportedFilesystems = ["btrfs"];
-  hardware.enableAllFirmware = true;
-  nixpkgs.config.allowUnfree = true;
+# nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+# boot.kernelPackages = pkgs.linuxPackages_latest;
+# boot.supportedFilesystems = ["btrfs"];
+# hardware.enableAllFirmware = true;
+# nixpkgs.config.allowUnfree = true;
 
-  boot.kernelParams = ["NVreg_UsePageAttributeTable=1"];
-  boot.blacklistedKernelModules = ["nouveau"];
+# boot.kernelParams = ["NVreg_UsePageAttributeTable=1"];
+# boot.blacklistedKernelModules = ["nouveau"];
 
-  zramSwap = {
-    enable = true;
-    memoryPercent = 50;
-    algorithm = "zstd";
-    priority = 5;
-  };
+# zramSwap = {
+#   enable = true;
+#   memoryPercent = 50;
+#   algorithm = "zstd";
+#   priority = 5;
+# };
 
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 180;
-    "vm.watermark_scale_factor" = 125;
-    "vm.page-cluster" = 0;
-  };
+# boot.kernel.sysctl = {
+#   "vm.swappiness" = 180;
+#   "vm.watermark_scale_factor" = 125;
+#   "vm.page-cluster" = 0;
+# };
 
-  powerManagement.cpuFreqGovernor = "performance";
+# powerManagement.cpuFreqGovernor = "performance";
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+# hardware.graphics = {
+#   enable = true;
+#   enable32Bit = true;
+# };
 
-  # Use the grub-boot EFI boot loader.
-  boot.loader = {
-    systemd-boot.enable = false;
-    efi.canTouchEfiVariables = true;
-    efi.efiSysMountPoint = "/boot";
-    timeout = 20;
+# # Use the grub-boot EFI boot loader.
+# boot.loader = {
+#   systemd-boot.enable = false;
+#   efi.canTouchEfiVariables = true;
+#   efi.efiSysMountPoint = "/boot";
+#   timeout = 20;
 
-    grub = {
-      enable = true;
-      devices = ["nodev"];
-      efiSupport = true;
-      useOSProber = true;
-      gfxmodeEfi = "2560x1600";
-      timeoutStyle = "menu";
-      copyKernels = true;
-      configurationLimit = 5;
+#   grub = {
+#     enable = true;
+#     devices = ["nodev"];
+#     efiSupport = true;
+#     useOSProber = true;
+#     gfxmodeEfi = "2560x1600";
+#     timeoutStyle = "menu";
+#     copyKernels = true;
+#     configurationLimit = 5;
 
-      extraConfig = ''
-        GRUB_TERMINAL_OUTPUT="gfxterm"
-        GRUB_GFXMODE="2560x1600"
-      '';
+#     extraConfig = ''
+#       GRUB_TERMINAL_OUTPUT="gfxterm"
+#       GRUB_GFXMODE="2560x1600"
+#     '';
 
-      minegrub-world-sel = {
-        enable = true;
-        customIcons = [];
-      };
-    };
-  };
+#     minegrub-world-sel = {
+#       enable = true;
+#       customIcons = [];
+#     };
+#   };
+# };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-  };
+# nix.gc = {
+#   automatic = true;
+#   dates = "weekly";
+# };
 
-  nix.settings.auto-optimise-store = true;
+# nix.settings.auto-optimise-store = true;
 
-  networking = {
-    hostName = "hoshino";
-    networkmanager = {
-      enable = true;
-      # insertNameservers = [ "one.one.one.one" "1.1.1.1" "1.0.0.1" ];
-    };
-    firewall.enable = true;
-  };
+# networking = {
+#   hostName = "hoshino";
+#   networkmanager = {
+#     enable = true;
+#     # insertNameservers = [ "one.one.one.one" "1.1.1.1" "1.0.0.1" ];
+#   };
+#   firewall.enable = true;
+# };
 
-  # Enable flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+# # Enable flakes
+# nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Set your time zone.
-  time.timeZone = "Asia/Kolkata";
+# # Set your time zone.
+# time.timeZone = "Asia/Kolkata";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+# # Configure network proxy if necessary
+# # networking.proxy.default = "http://user:password@proxy:port/";
+# # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
+# # Select internationalisation properties.
+# i18n.defaultLocale = "en_US.UTF-8";
+# # console = {
+# #   font = "Lat2-Terminus16";
+# #   keyMap = "us";
+# #   useXkbConfig = true; # use xkb.options in tty.
+# # };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+# # Enable the X11 windowing system.
+# services.xserver.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+# # Configure keymap in X11
+# services.xserver.xkb.layout = "us";
+# # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable the KDE Desktop Environment.
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
+# # Enable the KDE Desktop Environment.
+# services.displayManager.sddm = {
+#   enable = true;
+#   wayland.enable = true;
 
-    theme = let
-      corners = pkgs.fetchFromGitHub {
-        owner = "ingineous";
-        repo = "corners";
-        rev = "8953e16c11e82e1dd29601d2738fc56a1c127edd";
-        sha256 = "sha256-hTwbJM0fXq1yO0NcqxU66gn/73Gu0R8s+B7ZDlttcw0=";
-      };
-    in "${corners}";
-  };
+#   theme = let
+#     corners = pkgs.fetchFromGitHub {
+#       owner = "ingineous";
+#       repo = "corners";
+#       rev = "8953e16c11e82e1dd29601d2738fc56a1c127edd";
+#       sha256 = "sha256-hTwbJM0fXq1yO0NcqxU66gn/73Gu0R8s+B7ZDlttcw0=";
+#     };
+#   in "${corners}";
+# };
 
-  services.xserver.desktopManager.plasma5.enable = true;
+# services.xserver.desktopManager.plasma5.enable = true;
 
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-    plasma-browser-integration
-    konsole
-    oxygen
-    ark
-    elisa
-    gwenview
-    spectacle
-    okular
-  ];
+# environment.plasma5.excludePackages = with pkgs.libsForQt5; [
+#   plasma-browser-integration
+#   konsole
+#   oxygen
+#   ark
+#   elisa
+#   gwenview
+#   spectacle
+#   okular
+# ];
 
-  services.xserver.videoDrivers = ["nvidia" "amdgpu"];
-  hardware.nvidia = {
-    modesetting.enable = true;
+# services.xserver.videoDrivers = ["nvidia" "amdgpu"];
+# hardware.nvidia = {
+#   modesetting.enable = true;
 
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
+#   prime = {
+#     offload = {
+#       enable = true;
+#       enableOffloadCmd = true;
+#     };
 
-      amdgpuBusId = "PCI:5:0:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
+#     amdgpuBusId = "PCI:5:0:0";
+#     nvidiaBusId = "PCI:1:0:0";
+#   };
 
-    # see arch wiki preserve nvidia video memory
-    powerManagement.enable = true;
-    powerManagement.finegrained = true;
+#   # see arch wiki preserve nvidia video memory
+#   powerManagement.enable = true;
+#   powerManagement.finegrained = true;
 
-    open = false; # disable the new nvidia open source drivers
+#   open = false; # disable the new nvidia open source drivers
 
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
+#   nvidiaSettings = true;
+#   package = config.boot.kernelPackages.nvidiaPackages.beta;
+# };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+# # Enable CUPS to print documents.
+# services.printing.enable = true;
 
-  # Enable sound.
-  # hardware.pulseaudio.enable = true;
-  # OR
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    audio.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-  };
+# # Enable sound.
+# # hardware.pulseaudio.enable = true;
+# # OR
+# security.rtkit.enable = true;
+# services.pipewire = {
+#   enable = true;
+#   pulse.enable = true;
+#   audio.enable = true;
+#   alsa.enable = true;
+#   alsa.support32Bit = true;
+#   jack.enable = true;
+#   wireplumber.enable = true;
+# };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
+# # Enable touchpad support (enabled default in most desktopManager).
+# services.libinput.enable = true;
 
-  # Enable bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
+# # Enable bluetooth
+# hardware.bluetooth = {
+#   enable = true;
+#   powerOnBoot = true;
+# };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.aqua = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "storage"
-      "power"
-      "video"
-      "audio"
-      "docker"
-    ]; # Enable ‘sudo’ for the user.
-  };
+# # Define a user account. Don't forget to set a password with ‘passwd’.
+# users.users.aqua = {
+#   isNormalUser = true;
+#   extraGroups = [
+#     "wheel"
+#     "networkmanager"
+#     "storage"
+#     "power"
+#     "video"
+#     "audio"
+#     "docker"
+#   ]; # Enable ‘sudo’ for the user.
+# };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
-    zsh
-    wget
-    kitty
-    timeshift
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-    }))
-    mako
-    libnotify
-    wofi
+# # List packages installed in system profile. To search, run:
+# # $ nix search wget
+# environment.systemPackages = with pkgs; [
+#   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+#   git
+#   zsh
+#   wget
+#   kitty
+#   timeshift
+#   (waybar.overrideAttrs (oldAttrs: {
+#     mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+#   }))
+#   mako
+#   libnotify
+#   wofi
 
-    # zen browser
-    inputs.zen-browser.packages."${pkgs.system}".specific
-    go-mtpfs
+#   # zen browser
+#   inputs.zen-browser.packages."${pkgs.system}".specific
+#   go-mtpfs
 
-    gcc
+#   gcc
 
-    # sddm cursor theme dependencies
-    libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtgraphicaleffects
-    libsForQt5.qt5.qtsvg
-    xclip
-    cpuid
-    eza
-    distrobox
-    cloudflare-warp
-  ];
+#   # sddm cursor theme dependencies
+#   libsForQt5.qt5.qtquickcontrols2
+#   libsForQt5.qt5.qtgraphicaleffects
+#   libsForQt5.qt5.qtsvg
+#   xclip
+#   cpuid
+#   eza
+#   distrobox
+#   cloudflare-warp
+# ];
 
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
+# users.defaultUserShell = pkgs.zsh;
+# programs.zsh.enable = true;
 
-  # Set the default editor to nvim
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
+# # Set the default editor to nvim
+# programs.neovim.enable = true;
+# programs.neovim.defaultEditor = true;
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+# programs.hyprland = {
+#   enable = true;
+#   xwayland.enable = true;
+# };
 
-  programs.spicetify = let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-  in {
-    spotifyPackage = pkgs.spotify;
-    enable = true;
-    enabledExtensions = [
-      spicePkgs.extensions.adblock
-      spicePkgs.extensions.beautifulLyrics
-      {
-        name = "romanji.js";
-        src = pkgs.fetchFromGitHub {
-          owner = "ingineous";
-          repo = "romanji";
-          rev = "c3dba44f50314005159c7e37842ed0c2ab117dac";
-          hash = "sha256-wz1ft9nhX8ND4eJhsjB7L64MpAscccS2QbHB0Cim8dw=";
-        };
-      }
-      {
-        name = "romaja.js";
-        src = pkgs.fetchFromGitHub {
-          owner = "ingineous";
-          repo = "romaja";
-          rev = "88fcbf91cb6afa36b140c7b3cfd22276dc9dca7b";
-          hash = "sha256-UisN2lUZf3/NJyagPuLNvQX4SDZmT6ghcieR2G+NsNY=";
-        };
-      }
-      {
-        name = "waveform.js";
-        src = pkgs.fetchFromGitHub {
-          owner = "SPOTLAB-Live";
-          repo = "Spicetify-waveform";
-          rev = "89fa8a6e29258984bc296790e6f41ee017e87c71";
-          hash = "sha256-LOOtdlnpKRE/D95hbuk8vTtFUsA+nUtmsKTiQiy2s7w=";
-        };
-      }
-    ];
-    enabledCustomApps = with spicePkgs.apps; [marketplace];
-    theme = {
-      name = "Galaxy";
-      src = pkgs.fetchFromGitHub {
-        owner = "harbassan";
-        repo = "spicetify-galaxy";
-        rev = "45467bad47526c49290a9273dca02085b9a55842";
-        hash = "sha256-5MPmUznHx5OFUsF3lbrBs3QDdUv8EO2srNywxy1S3LE=";
-      };
-      injectCss = true;
-      injectThemeJs = true;
-      replaceColors = true;
-      homeConfig = true;
-      overwriteAssets = true;
-      additonalCss = "";
-    };
-  };
+# programs.spicetify = let
+#   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+# in {
+#   spotifyPackage = pkgs.spotify;
+#   enable = true;
+#   enabledExtensions = [
+#     spicePkgs.extensions.adblock
+#     spicePkgs.extensions.beautifulLyrics
+#     {
+#       name = "romanji.js";
+#       src = pkgs.fetchFromGitHub {
+#         owner = "ingineous";
+#         repo = "romanji";
+#         rev = "c3dba44f50314005159c7e37842ed0c2ab117dac";
+#         hash = "sha256-wz1ft9nhX8ND4eJhsjB7L64MpAscccS2QbHB0Cim8dw=";
+#       };
+#     }
+#     {
+#       name = "romaja.js";
+#       src = pkgs.fetchFromGitHub {
+#         owner = "ingineous";
+#         repo = "romaja";
+#         rev = "88fcbf91cb6afa36b140c7b3cfd22276dc9dca7b";
+#         hash = "sha256-UisN2lUZf3/NJyagPuLNvQX4SDZmT6ghcieR2G+NsNY=";
+#       };
+#     }
+#     {
+#       name = "waveform.js";
+#       src = pkgs.fetchFromGitHub {
+#         owner = "SPOTLAB-Live";
+#         repo = "Spicetify-waveform";
+#         rev = "89fa8a6e29258984bc296790e6f41ee017e87c71";
+#         hash = "sha256-LOOtdlnpKRE/D95hbuk8vTtFUsA+nUtmsKTiQiy2s7w=";
+#       };
+#     }
+#   ];
+#   enabledCustomApps = with spicePkgs.apps; [marketplace];
+#   theme = {
+#     name = "Galaxy";
+#     src = pkgs.fetchFromGitHub {
+#       owner = "harbassan";
+#       repo = "spicetify-galaxy";
+#       rev = "45467bad47526c49290a9273dca02085b9a55842";
+#       hash = "sha256-5MPmUznHx5OFUsF3lbrBs3QDdUv8EO2srNywxy1S3LE=";
+#     };
+#     injectCss = true;
+#     injectThemeJs = true;
+#     replaceColors = true;
+#     homeConfig = true;
+#     overwriteAssets = true;
+#     additonalCss = "";
+#   };
+# };
 
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.iosevka
-  ];
+# fonts.fonts = with pkgs; [
+#   noto-fonts
+#   noto-fonts-cjk-sans
+#   noto-fonts-cjk-serif
+#   nerd-fonts.jetbrains-mono
+#   nerd-fonts.iosevka
+# ];
 
-  environment.sessionVariables = {
-    # If your cursor becomes invisible
-    WLR_NO_HARDWARE_CURSORS = "1";
-    # hint electron apps to use wayland
-    NIXOS_OZONE_WL = "1";
-  };
+# environment.sessionVariables = {
+#   # If your cursor becomes invisible
+#   WLR_NO_HARDWARE_CURSORS = "1";
+#   # hint electron apps to use wayland
+#   NIXOS_OZONE_WL = "1";
+# };
 
-  programs.ssh = {
-    startAgent = true;
-    extraConfig = "AddKeysToAgent yes";
-  };
+# programs.ssh = {
+#   startAgent = true;
+#   extraConfig = "AddKeysToAgent yes";
+# };
 
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "btrfs";
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
+# virtualisation.docker = {
+#   enable = true;
+#   storageDriver = "btrfs";
+#   rootless = {
+#     enable = true;
+#     setSocketVariable = true;
+#   };
+# };
   #  xdg.portal.enable = true;
   #  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   # Some programs need SUID wrappers, can be configured further or are
