@@ -4,11 +4,23 @@
   ...
 }: {
   imports = [
-    ./bootloader.nix
-    ./networking.nix
-    ./audio.nix
-    ./bluetooth.nix
-    ./devices.nix
+   ./audio.nix
+   ./bluetooth.nix
+   ./bootloader.nix
+   ./config.nix
+   ./devices.nix
+   ./docker.nix
+   ./environment.nix
+   ./fonts.nix
+   ./graphics.nix
+   ./networking.nix
+   ./packages.nix
+   ./programs.nix
+   ./sddm.nix
+   ./spicetify.nix
+   ./ssh.nix
+   ./user.nix
+   ./xserver.nix
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
