@@ -352,6 +352,7 @@
       brightnessctl
       spotube
       songrec
+      peaclock
 
       # cool tool
       fastfetch

@@ -14,7 +14,7 @@
       {
         name = "romanji.js";
         src = pkgs.fetchFromGitHub {
-          owner = "ingineous";
+          owner = "kiraoke";
           repo = "romanji";
           rev = "c3dba44f50314005159c7e37842ed0c2ab117dac";
           hash = "sha256-wz1ft9nhX8ND4eJhsjB7L64MpAscccS2QbHB0Cim8dw=";
@@ -23,7 +23,7 @@
       {
         name = "romaja.js";
         src = pkgs.fetchFromGitHub {
-          owner = "ingineous";
+          owner = "kiraoke";
           repo = "romaja";
           rev = "88fcbf91cb6afa36b140c7b3cfd22276dc9dca7b";
           hash = "sha256-UisN2lUZf3/NJyagPuLNvQX4SDZmT6ghcieR2G+NsNY=";
