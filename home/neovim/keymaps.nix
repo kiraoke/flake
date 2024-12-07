@@ -1,4 +1,54 @@
 {...}: {
+  #  {
+  #    mode = "n";
+  #    key = "<leader>n";
+  #    action.__raw = ":ASToggle<CR>";
+  #    options = {
+  #      desc = "Toggle Auto Save";
+  #    };
+  #  }
+  #  # Ctrl+h to move to left window
+  #  {
+  #    mode = "n";
+  #    key = "<C-h>";
+  #    action = "<C-w>h";
+  #    options = {
+  #      silent = true;
+  #      desc = "Move to left window";
+  #    };
+  #  }
+  #  # Ctrl+j to move to bottom window
+  #  {
+  #    mode = "n";
+  #    key = "<C-j>";
+  #    action = "<C-w>j";
+  #    options = {
+  #      silent = true;
+  #      desc = "Move to bottom window";
+  #    };
+  #  }
+  #  # Ctrl+k to move to top window
+  #  {
+  #    mode = "n";
+  #    key = "<C-k>";
+  #    action = "<C-w>k";
+  #    options = {
+  #      silent = true;
+  #      desc = "Move to top window";
+  #    };
+  #  }
+  #  # Ctrl+l to move to right window
+  #  {
+  #    mode = "n";
+  #    key = "<C-l>";
+  #    action = "<C-w>l";
+  #    options = {
+  #      silent = true;
+  #      desc = "Move to right window";
+  #    };
+  #  }
+  #];
+
   programs.nixvim.keymaps = [
     {
       mode = "n";
@@ -12,7 +62,7 @@
     {
       mode = "x";
       key = "<leader>p";
-      action.__raw = ''"\"_dP"'';
+      action = ''"\"_dP"'';
       options = {
         silent = true;
         desc = "Paste over selection without yanking";
@@ -29,14 +79,14 @@
     {
       mode = "n";
       key = "<leader>n";
-      action.__raw = ":ASToggle<CR>";
+      action = ":ASToggle<CR>";
       options = {
         desc = "Toggle Auto Save";
       };
     }
     # Ctrl+h to move to left window
     {
-      mode = ["n" "t"];
+      mode = "n";
       key = "<C-h>";
       action = "<C-w>h";
       options = {
@@ -46,7 +96,7 @@
     }
     # Ctrl+j to move to bottom window
     {
-      mode = ["n" "t"];
+      mode = "n";
       key = "<C-j>";
       action = "<C-w>j";
       options = {
@@ -56,7 +106,7 @@
     }
     # Ctrl+k to move to top window
     {
-      mode = ["n" "t"];
+      mode = "n";
       key = "<C-k>";
       action = "<C-w>k";
       options = {
@@ -66,7 +116,7 @@
     }
     # Ctrl+l to move to right window
     {
-      mode = ["n" "t"];
+      mode = "n";
       key = "<C-l>";
       action = "<C-w>l";
       options = {

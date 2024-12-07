@@ -8,11 +8,11 @@
 
     fzf-lua = {
       enable = true;
-    # keymaps = {
-    #   "<leader>pf" = "files"; 
-    #   "<leader>ps" = "live_grep";
-    #   "<leader>pg" = "git_files";
-    # };
+     keymaps = {
+       "<leader>pf" = "files"; 
+       "<leader>ps" = "live_grep";
+       "<leader>pg" = "git_files";
+     };
     };
 
     trouble.enable = true;

@@ -33,7 +33,7 @@
     backup = false;
     wrap = false;
     undofile = true;
-    undodir = ''os.getenv("HOME") .. "/.vim/undodir" '';
+    undodir = '' "/home/aqua/.vim/undodir" '';
 
     hlsearch = true;
     incsearch = true;
