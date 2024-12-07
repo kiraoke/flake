@@ -30,17 +30,17 @@
         "gh" = "hover";
       };
     };
+  };
 
-    rustaceanvim.enable = true;
-
-    none-ls = {
-      enable = true;
-      sources = {
-        formatting = {
-          stylua.enable = true;
-          alejandra.enable = true;
-        };
+  programs.nixvim.plugins.none-ls = {
+    enable = true;
+    sources = {
+      formatting = {
+        stylua.enable = true;
+        alejandra.enable = true;
       };
     };
   };
+
+  programs.nixvim.plugins.rustaceanvim.enable = true;
 }

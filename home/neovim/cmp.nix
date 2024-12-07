@@ -29,5 +29,5 @@
     };
   };
 
-  luasnip.enable = true;
+  programs.nixvim.plugins.luasnip.enable = true;
 }

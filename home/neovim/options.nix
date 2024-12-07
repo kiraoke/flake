@@ -29,9 +29,16 @@
     # Start scrolling when the cursor is X lines away from the top/bottom
     scrolloff = 8;
     smartindent = true;
+    swapfile = false;
+    backup = false;
     wrap = false;
     undofile = true;
     undodir = ''os.getenv("HOME") .. "/.vim/undodir" '';
+
+    hlsearch = true;
+    incsearch = true;
+
+    termguicolors = true;
 
     updatetime = 50;
   };

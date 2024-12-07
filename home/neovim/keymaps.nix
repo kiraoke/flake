@@ -12,23 +12,67 @@
     {
       mode = "x";
       key = "<leader>p";
-      action = ''"\"_dP"'';
+      action.__raw = ''"\"_dP"'';
       options = {
         silent = true;
         desc = "Paste over selection without yanking";
       };
     }
-  ];
-
-  plugins.fzf-lua.keymaps = {
-    "<leader>pf" = {
-      action = "files";
+    {
+      mode = "n";
+      key = "<leader>gf";
+      action.__raw = "vim.lsp.buf.format";
       options = {
-        desc = "Fzf-Lua Find Files";
-        silent = true;
+        desc = "Format the code using lsp";
       };
-    };
-    "<leader>ps" = "live_grep";
-    "<leader>pg" = "git_files";
-  };
+    }
+    {
+      mode = "n";
+      key = "<leader>n";
+      action.__raw = ":ASToggle<CR>";
+      options = {
+        desc = "Toggle Auto Save";
+      };
+    }
+    # Ctrl+h to move to left window
+    {
+      mode = ["n" "t"];
+      key = "<C-h>";
+      action = "<C-w>h";
+      options = {
+        silent = true;
+        desc = "Move to left window";
+      };
+    }
+    # Ctrl+j to move to bottom window
+    {
+      mode = ["n" "t"];
+      key = "<C-j>";
+      action = "<C-w>j";
+      options = {
+        silent = true;
+        desc = "Move to bottom window";
+      };
+    }
+    # Ctrl+k to move to top window
+    {
+      mode = ["n" "t"];
+      key = "<C-k>";
+      action = "<C-w>k";
+      options = {
+        silent = true;
+        desc = "Move to top window";
+      };
+    }
+    # Ctrl+l to move to right window
+    {
+      mode = ["n" "t"];
+      key = "<C-l>";
+      action = "<C-w>l";
+      options = {
+        silent = true;
+        desc = "Move to right window";
+      };
+    }
+  ];
 }
