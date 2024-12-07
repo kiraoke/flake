@@ -7,6 +7,7 @@
     ./harpoon.nix
     ./keymaps.nix
     ./lsp.nix
+    ./oil.nix
     ./options.nix
     ./plugins.nix
   ];
