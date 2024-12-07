@@ -9,8 +9,26 @@
 }: {
   programs.nixvim = {
     enable = true;
+    globals.mapleader = " ";
 
-    colorschemes."rose-pine".enable = true;
+    colorschemes."rose-pine" = {
+      enable = true;
+      settings = {
+        variant = "moon";
+        enable = {
+          terminal = true;
+        };
+
+        dim_inactive_windows = true;
+        extend_background_behind_borders = true;
+
+        styles = {
+          bold = true;
+          italic = true;
+          transparency = true;
+        };
+      };
+    };
 
     extraPlugins = [
       (pkgs.vimUtils.buildVimPlugin {
@@ -33,6 +51,17 @@
       todo-comments.enable = true;
       fzf-lua = {
         enable = true;
+        keymaps = {
+          "<leader>pf" = {
+            action = "files";
+            options = {
+              desc = "Fzf-Lua Find Files";
+              silent = true;
+            };
+          };
+          "<leader>ps" = "live_grep";
+          "<leader>pg" = "git_files";
+        };
       };
 
       harpoon.enable = true;
@@ -107,7 +136,8 @@
             "<C-f>" = "cmp.mapping.scroll_docs(4)";
             "<C-Space>" = "cmp.mapping.complete()";
             "<C-e>" = "cmp.mapping.abort()";
-            "<CR>" = "cmp.mapping.confirm({ select = true })";
+            "<CR>" = "cmp.mapping.confirm({ select = false })";
+            "<C-y>" = "cmp.mapping.confirm({ select = true })";
             "<C-Tab>" = "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_next_item() else fallback() end end)";
             "<S-Tab>" = "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_prev_item() else fallback() end end)";
           };
@@ -165,11 +195,29 @@
           silent = true;
         };
       }
+      {
+        mode = "n";
+        key = "<leader>pv";
+        action = "<cmd>Ex<cr>";
+        options = {
+          silent = true;
+          desc = "Open file explorer";
+        };
+      }
+      {
+        mode = "x";
+        key = "<leader>p";
+        action = ''"\"_dP"'';
+        options = {
+          silent = true;
+          desc = "Paste over selection without yanking";
+        };
+      }
     ];
 
     extraConfigLua = ''
            	 vim.g.mapleader = " "
-           	 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+    --       	 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
            -- editor settings
            vim.opt.nu = true
            vim.opt.relativenumber = true
@@ -214,9 +262,9 @@
 
 
            fzf = require("fzf-lua")
-           vim.keymap.set("n", "<leader>pf", fzf.files)
-           vim.keymap.set("n", "<leader>pg", fzf.git_files)
-           vim.keymap.set("n", "<leader>ps", fzf.live_grep)
+           --vim.keymap.set("n", "<leader>pf", fzf.files)
+           --vim.keymap.set("n", "<leader>pg", fzf.git_files)
+           --vim.keymap.set("n", "<leader>ps", fzf.live_grep)
 
 
            -- null ls settings
@@ -253,8 +301,6 @@
            vim.opt.colorcolumn = "80"
 
 
-           	 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
-           	 vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
 
                -- cloak settings
            	  require("cloak").setup({
@@ -577,7 +623,7 @@
       include ~/.cache/wal/colors-kitty.conf
 
        # -- window --
-      window_margin_width 5 5 
+      window_margin_width 5 5
       window_resize_step_cells 5
       window_resize_step_lines 2
       confirm_os_window_close 0

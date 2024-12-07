@@ -26,6 +26,7 @@
 
     libsForQt5.dolphin
     xclip
+    wl-clipboard
     cpuid
     eza
     distrobox
