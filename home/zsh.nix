@@ -3,6 +3,8 @@
   config,
   ...
 }: {
+  home.file.".p10k.zsh".source = /home/aqua/flake/dots/.p10k.zsh;
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

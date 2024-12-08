@@ -1,4 +1,7 @@
 {...}: {
+  home.file.".config/waybar/colors-waybar.css".source =
+    /home/aqua/flake/dots/colors-waybar.css;
+
   programs.waybar = {
     enable = true;
 
