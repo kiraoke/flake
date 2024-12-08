@@ -8,7 +8,6 @@
     ./keymaps.nix
     ./lsp.nix
     ./options.nix
-    ./oil.nix
     ./plugins.nix
   ];
 }

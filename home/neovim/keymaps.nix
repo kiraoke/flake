@@ -1,54 +1,4 @@
 {...}: {
-  #  {
-  #    mode = "n";
-  #    key = "<leader>n";
-  #    action.__raw = ":ASToggle<CR>";
-  #    options = {
-  #      desc = "Toggle Auto Save";
-  #    };
-  #  }
-  #  # Ctrl+h to move to left window
-  #  {
-  #    mode = "n";
-  #    key = "<C-h>";
-  #    action = "<C-w>h";
-  #    options = {
-  #      silent = true;
-  #      desc = "Move to left window";
-  #    };
-  #  }
-  #  # Ctrl+j to move to bottom window
-  #  {
-  #    mode = "n";
-  #    key = "<C-j>";
-  #    action = "<C-w>j";
-  #    options = {
-  #      silent = true;
-  #      desc = "Move to bottom window";
-  #    };
-  #  }
-  #  # Ctrl+k to move to top window
-  #  {
-  #    mode = "n";
-  #    key = "<C-k>";
-  #    action = "<C-w>k";
-  #    options = {
-  #      silent = true;
-  #      desc = "Move to top window";
-  #    };
-  #  }
-  #  # Ctrl+l to move to right window
-  #  {
-  #    mode = "n";
-  #    key = "<C-l>";
-  #    action = "<C-w>l";
-  #    options = {
-  #      silent = true;
-  #      desc = "Move to right window";
-  #    };
-  #  }
-  #];
-
   programs.nixvim.keymaps = [
     {
       mode = "n";
@@ -119,6 +69,15 @@
       mode = "n";
       key = "<C-l>";
       action = "<C-w>l";
+      options = {
+        silent = true;
+        desc = "Move to right window";
+      };
+    }
+    {
+      mode = "n";
+      key = "<C-Tab>";
+      action = "<C-w>w";
       options = {
         silent = true;
         desc = "Move to right window";
