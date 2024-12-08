@@ -4,8 +4,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = ["${userpath}Pictures/wallpapers/joira.png"];
-      wallpaper = [", ${userpath}Pictures/wallpapers/joira.png"];
+      preload = ["${userpath}Pictures/wallpapers/koira.png"];
+      wallpaper = [", ${userpath}Pictures/wallpapers/koira.png"];
     };
   };
 }
