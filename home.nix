@@ -10,6 +10,7 @@
   imports = [
   ./home/neovim/init.nix
   ./home/hyprland/init.nix 
+  ./home/fonts.nix
   ];
 
    home.username = "aqua";
@@ -74,15 +75,6 @@
       networkmanagerapplet
     ])
     ++ [pkgs-stable.cava];
-
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      monospace = ["JetBrains Mono"];
-      sansSerif = ["NotoSans"];
-      serif = ["NotoSerif"];
-    };
-  };
 
   home.pointerCursor = {
     gtk.enable = true;
