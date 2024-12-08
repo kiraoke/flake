@@ -12,10 +12,10 @@
       passes = 2;
       new_optimizations = true;
       ignore_opacity = true;
-      noise = 0.01;
+      noise = 0.001;
       vibrancy = 0.4;
-      vibrancy_darkness = 0.1;
-      brightness = 0.7;
+      vibrancy_darkness = 0.2;
+      brightness = 0.85;
     };
   };
 }
