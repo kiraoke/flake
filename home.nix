@@ -1,10 +1,7 @@
 {
-  config,
   pkgs,
   pkgs-stable,
-  lib,
-  nixvim,
-  inputs,
+  username,
   ...
 }: {
   imports = [
@@ -20,8 +17,8 @@
     ./home/zsh.nix
   ];
 
-  home.username = "aqua";
-  home.homeDirectory = "/home/aqua";
+  home.username = username;
+  home.homeDirectory = ''/home/${username}'';
 
   home.packages =
     (with pkgs; [

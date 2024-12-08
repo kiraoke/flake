@@ -24,44 +24,57 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, nixvim
-    , oskars-dotfiles, ... }: {
-      # Please replace my-nixos with your hostname
-      nixosConfigurations = {
-        hoshino = nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    nixvim,
+    oskars-dotfiles,
+    ...
+  }: {
+    # Please replace my-nixos with your hostname
+    nixosConfigurations = {
+      hoshino = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
 
-            pkgs-stable = import nixpkgs-stable {
-              # Refer to the `system` parameter from
-              # the outer scope recursively
-              inherit system;
-              # To use Chrome, we need to allow the
-              # installation of non-free software.
-              config.allowUnfree = true;
-            };
+          pkgs-stable = import nixpkgs-stable {
+            # Refer to the `system` parameter from
+            # the outer scope recursively
+            inherit system;
+            # To use Chrome, we need to allow the
+            # installation of non-free software.
+            config.allowUnfree = true;
           };
-          modules = [
-            ./configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.sharedModules = [ nixvim.homeManagerModules.nixvim ];
-              home-manager.users.aqua = import ./home.nix;
-              home-manager.extraSpecialArgs = {
-                pkgs-stable = import nixpkgs-stable {
-                  inherit system;
-                  config.allowUnfree = true;
-                };
-              };
-            }
-            { nixpkgs.overlays = [ oskars-dotfiles.overlays.spotx ]; }
-            inputs.minegrub-world-sel-theme.nixosModules.default
-            inputs.spicetify-nix.nixosModules.default
-          ];
+
+          username = "aqua";
+          userpath = "/home/aqua/";
         };
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.sharedModules = [nixvim.homeManagerModules.nixvim];
+            home-manager.users.aqua = import ./home.nix;
+            home-manager.extraSpecialArgs = {
+              pkgs-stable = import nixpkgs-stable {
+                inherit system;
+                config.allowUnfree = true;
+              };
+
+              username = "aqua";
+              userpath = "/home/aqua/";
+            };
+          }
+          {nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];}
+          inputs.minegrub-world-sel-theme.nixosModules.default
+          inputs.spicetify-nix.nixosModules.default
+        ];
       };
     };
+  };
 }
