@@ -8,13 +8,15 @@
   ...
 }: {
   imports = [
-  ./home/neovim/init.nix
-  ./home/hyprland/init.nix 
-  ./home/fonts.nix
-  ./home/theme.nix
+    ./home/neovim/init.nix
+    ./home/hyprland/init.nix
+    ./home/fonts.nix
+    ./home/theme.nix
+    ./home/git.nix
+    ./home/zsh.nix
   ];
 
-   home.username = "aqua";
+  home.username = "aqua";
   home.homeDirectory = "/home/aqua";
 
   home.packages =
@@ -76,13 +78,6 @@
       networkmanagerapplet
     ])
     ++ [pkgs-stable.cava];
-
-    programs.git = {
-    enable = true;
-
-    userName = "kiraoke";
-    userEmail = "kiraokeku@gmail.com";
-  };
 
   programs.zsh = {
     enable = true;
