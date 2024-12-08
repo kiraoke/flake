@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  home.file.".p10k.zsh".source = ../dots/.p10k.zsh; 
+  home.file.".p10k.zsh".source = ../dots/.p10k.zsh;
 
   home.file.".config/fastfetch/config.jsonc".source = ../dots/config.jsonc;
 
@@ -39,6 +39,11 @@
 
        # highlight man using nvim
        vman() { nvim <(man $1); }
+
+       warper() {
+            sudo warp-svc
+            warp-cli connect
+        }
     '';
 
     plugins = [
