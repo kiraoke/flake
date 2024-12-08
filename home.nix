@@ -11,8 +11,10 @@
     ./home/neovim/init.nix
     ./home/hyprland/init.nix
     ./home/fonts.nix
-    ./home/theme.nix
     ./home/git.nix
+    ./home/kitty.nix
+    ./home/theme.nix
+    ./home/wireplumber.nix
     ./home/zsh.nix
   ];
 
@@ -79,63 +81,14 @@
     ])
     ++ [pkgs-stable.cava];
 
-    programs.fzf = {
+  programs.fzf = {
     enable = true;
     enableZshIntegration = true;
   };
 
   home.stateVersion = "24.11";
 
-    home.file.".config/wireplumber/wireplumber.conf.d/50-also-config.conf".text = ''
-    	monitor.alsa.rules = [
-      {
-        matches = [
-          # This matches the value of the 'node.name' property of the node.
-          {
-            node.name = "~alsa_output.*"
-          }
-        ]
-        actions = {
-          # Apply all the desired node specific settings here.
-          update-props = {
-            api.alsa.period-size   = 1024
-            api.alsa.headroom      = 8192
-          }
-        }
-      }
-    ]
-
-  '';
-
-  programs.kitty = {
-    enable = true;
-    extraConfig = ''
-      font_family Noto Nerd Font
-      italic_font auto
-      bold_font auto
-      bold_italic_font auto
-      font_size 11.5
-
-      include ~/.cache/wal/colors-kitty.conf
-
-       # -- window --
-      window_margin_width 5 5
-      window_resize_step_cells 5
-      window_resize_step_lines 2
-      confirm_os_window_close 0
-
-      # -- misc settings --
-      enable_audio_bell no
-      force_ltr no
-      detect_urls yes
-
-      # -- map keys --
-      map f1 launch --cwd=current
-      map f2 launch --cwd=current --type=tab
-    '';
-  };
-
-  programs.btop = {
+    programs.btop = {
     enable = true;
     settings = {
       color_theme = "pywal";
