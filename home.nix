@@ -172,8 +172,5 @@
     };
   };
 
-  home.file.".config/fastfetch/config.jsonc".source =
-    /home/aqua/flake/dots/config.jsonc;
-
-  programs.home-manager.enable = true;
+    programs.home-manager.enable = true;
 }
