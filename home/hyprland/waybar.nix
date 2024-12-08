@@ -1,6 +1,5 @@
-{...}: {
-  home.file.".config/waybar/colors-waybar.css".source =
-    /home/aqua/flake/dots/colors-waybar.css;
+{userpath, ...}: {
+  home.file.".config/waybar/colors-waybar.css".source = ../../dots/colors-waybar.css;
 
   programs.waybar = {
     enable = true;
@@ -9,8 +8,8 @@
 
         /* `otf-font-awesome` is required to be installed for icons */
 
-      @import '/home/aqua/.config/waybar/colors-waybar.css';
-      @import url("/home/aqua/.cache/wal/colors-waybar.css");
+      @import '${userpath}.config/waybar/colors-waybar.css';
+      @import url("${userpath}.cache/wal/colors-waybar.css");
       *{
       font-family: Material Design Icons, IBM Plex Mono, Iosevka Nerd Font;
         font-size: 19px;

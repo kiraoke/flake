@@ -3,10 +3,9 @@
   config,
   ...
 }: {
-  home.file.".p10k.zsh".source = /home/aqua/flake/dots/.p10k.zsh;
+  home.file.".p10k.zsh".source = ../dots/.p10k.zsh; 
 
-  home.file.".config/fastfetch/config.jsonc".source =
-    /home/aqua/flake/dots/config.jsonc;
+  home.file.".config/fastfetch/config.jsonc".source = ../dots/config.jsonc;
 
   programs.zsh = {
     enable = true;

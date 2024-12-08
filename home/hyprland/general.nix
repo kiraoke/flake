@@ -1,4 +1,4 @@
-{...}: {
+{userpath, ...}: {
   wayland.windowManager.hyprland.settings.general = let
     readFileIfExists = path:
       if builtins.pathExists path
@@ -7,7 +7,7 @@
 
     content =
       builtins.fromJSON
-      (readFileIfExists "/home/aqua/.cache/wal/colors.json");
+      (readFileIfExists "${userpath}.cache/wal/colors.json");
     color3 = toString content.colors.color3;
 
     # remove # from #color hex code

@@ -1,4 +1,4 @@
-{...}: {
+{userpath, ...}: {
   programs.nixvim.globals.mapleader = " ";
 
   programs.nixvim.globalOpts = {
@@ -33,7 +33,7 @@
     backup = false;
     wrap = false;
     undofile = true;
-    undodir = "/home/aqua/.vim/undodir";
+    undodir = "${userpath}.vim/undodir";
 
     hlsearch = true;
     incsearch = true;
