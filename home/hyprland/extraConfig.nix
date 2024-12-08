@@ -1,5 +1,5 @@
 {...}: {
-  wayland.windowManager.hyprland.settings.extraConfig = ''
+  wayland.windowManager.hyprland.extraConfig = ''
     monitor= eDP-1 ,2560x1600@165,auto,1.33
     monitor= eDP-2 ,2560x1600@165,auto,1.33
     monitor = , preferred, auto, 1, mirror, eDP-2
