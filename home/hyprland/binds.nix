@@ -1,6 +1,6 @@
 {...}: {
   wayland.windowManager.hyprland.settings."$mod" = "SUPER";
-  wayland.windowManager.hyprland.settings."$shiftMod" = "SUPER";
+  wayland.windowManager.hyprland.settings."$shiftMod" = "SUPER_SHIFT";
 
   wayland.windowManager.hyprland.settings.bind = [
     "$mod, Return, exec, $terminal"
