@@ -11,6 +11,7 @@
     ./home/neovim/init.nix
     ./home/hyprland/init.nix
     ./home/fonts.nix
+    ./home/fzf.nix
     ./home/git.nix
     ./home/kitty.nix
     ./home/theme.nix
@@ -81,14 +82,9 @@
     ])
     ++ [pkgs-stable.cava];
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
   home.stateVersion = "24.11";
 
-    programs.btop = {
+  programs.btop = {
     enable = true;
     settings = {
       color_theme = "pywal";
@@ -172,5 +168,5 @@
     };
   };
 
-    programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 }
