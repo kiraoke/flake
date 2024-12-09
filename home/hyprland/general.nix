@@ -14,11 +14,11 @@
     afterFirst = str:
       builtins.substring 1 (builtins.stringLength str - 1) str;
   in {
-    gaps_in = 3.5;
+    gaps_in = 5;
     gaps_out = 6;
-    border_size = 3;
+    border_size = 4;
 
-    "col.active_border" = "rgb(${afterFirst color3}) rgba(59595900) 135deg";
+    "col.active_border" = "rgb(${afterFirst color3})";
     "col.inactive_border" = "rgba(59595900)";
 
     resize_on_border = true;
