@@ -37,7 +37,17 @@
 
         minegrub-world-sel = {
           enable = true;
-          customIcons = [];
+          customIcons = [
+            {
+              name = "nixos";
+              lineTop = "NixOS (24/10/2024, 22:16)";
+              lineBottom = "Hardcore Mode, Cheats, Version: 25.05";
+              customImg = builtins.path {
+                path = ../assets/nixos-logo.png;
+                name = "nixos-img";
+              };
+            }
+          ];
         };
       };
     };
