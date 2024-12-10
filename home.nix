@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-stable,
   username,
   ...
 }: {
@@ -8,6 +7,7 @@
     ./home/neovim/init.nix
     ./home/hyprland/init.nix
     ./home/btop.nix
+    ./home/cava.nix
     ./home/fonts.nix
     ./home/fzf.nix
     ./home/git.nix
@@ -20,65 +20,63 @@
   home.username = username;
   home.homeDirectory = ''/home/${username}'';
 
-  home.packages =
-    (with pkgs; [
-      dconf
-      qt6ct
-      qt6.qtwayland
-      pywalfox-native
-      xdg-desktop-portal-hyprland
-      easyeffects
-      eza
-      lxqt.pavucontrol-qt
-      mpv
-      brightnessctl
-      spotube
-      songrec
-      peaclock
+  home.packages = with pkgs; [
+    dconf
+    qt6ct
+    qt6.qtwayland
+    pywalfox-native
+    xdg-desktop-portal-hyprland
+    easyeffects
+    eza
+    lxqt.pavucontrol-qt
+    mpv
+    brightnessctl
+    spotube
+    songrec
+    peaclock
 
-      # cool tool
-      fastfetch
-      ripgrep
-      bat
-      pipes-rs
-      brave
-      telegram-desktop
-      yt-dlp
-      ffmpeg
-      upscayl
-      hyprshot
-      protonvpn-gui
-      qbittorrent
-      fast-cli
-      audacious
-      vesktop
-      qalculate-gtk
+    # cool tool
+    fastfetch
+    ripgrep
+    bat
+    pipes-rs
+    brave
+    telegram-desktop
+    yt-dlp
+    ffmpeg
+    upscayl
+    hyprshot
+    protonvpn-gui
+    qbittorrent
+    fast-cli
+    audacious
+    vesktop
+    qalculate-gtk
 
-      # archives
-      zip
-      xz
-      unzip
-      p7zip
+    # archives
+    zip
+    xz
+    unzip
+    p7zip
 
-      # misc
-      which
-      file
-      tree
-      vlc
-      nodejs_22
-      pnpm
+    # misc
+    which
+    file
+    tree
+    vlc
+    nodejs_22
+    pnpm
 
-      # file managers
-      yazi
+    # file managers
+    yazi
 
-      btop
-      htop
+    btop
+    htop
 
-      pywal
+    pywal
 
-      networkmanagerapplet
-    ])
-    ++ [pkgs-stable.cava];
+    networkmanagerapplet
+  ];
 
   home.stateVersion = "24.11";
 
