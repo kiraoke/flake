@@ -586,11 +586,11 @@
         "zen-browser": "zen-browser"
       },
       "locked": {
-        "lastModified": 1733056327,
-        "narHash": "sha256-g9xo4NcdIMGBUdJX3YkH6vl6wVlmsiLj8pJIY4WfuKA=",
+        "lastModified": 1733907511,
+        "narHash": "sha256-9ERM2ihW8Z3Jb9ZsPqSxI7GCTeJcW5jDl/Q39FZcGIo=",
         "owner": "oskardotglobal",
         "repo": ".dotfiles",
-        "rev": "3f38da8509ec981e0e2eab40e09f54b1d85a8bba",
+        "rev": "77a46fb1a4b42ef9b7d35c6fa6b5be5d6545c066",
         "type": "github"
       },
       "original": {
