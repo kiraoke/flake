@@ -27,11 +27,9 @@
     pywalfox-native
     xdg-desktop-portal-hyprland
     easyeffects
-    eza
     lxqt.pavucontrol-qt
     mpv
     brightnessctl
-    spotube
     songrec
     peaclock
 
@@ -48,7 +46,6 @@
     hyprshot
     protonvpn-gui
     qbittorrent
-    fast-cli
     audacious
     vesktop
     qalculate-gtk

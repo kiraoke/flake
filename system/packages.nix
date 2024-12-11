@@ -29,6 +29,7 @@
     wl-clipboard
     cpuid
     eza
+    eza
     distrobox
     cloudflare-warp
   ];
