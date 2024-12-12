@@ -1,1 +1,4 @@
 hardware-configuration.nix
+
+ags/@girs/
+ags/node_modules/
