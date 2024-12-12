@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   username,
   ...
@@ -15,6 +16,7 @@
     ./home/theme.nix
     ./home/wireplumber.nix
     ./home/zsh.nix
+    inputs.ags.homeManagerModules.default
   ];
 
   home.username = username;
@@ -73,7 +75,20 @@
     pywal
 
     networkmanagerapplet
+
+    inputs.ags.packages.${pkgs.system}.io
   ];
+
+  programs.ags = {
+    enable = true;
+
+
+    # additional packages to add to gjs's runtime
+    extraPackages = with pkgs; [
+      inputs.ags.packages.${pkgs.system}.battery
+      fzf
+    ];
+  };
 
   home.stateVersion = "24.11";
 

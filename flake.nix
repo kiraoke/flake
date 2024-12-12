@@ -22,6 +22,8 @@
       url = "github:oskardotglobal/.dotfiles/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ags.url = "github:aylur/ags";
   };
 
   outputs = inputs @ {
@@ -68,6 +70,8 @@
 
               username = "aqua";
               userpath = "/home/aqua/";
+
+              inherit inputs;
             };
           }
           {nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];}
