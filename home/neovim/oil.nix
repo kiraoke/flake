@@ -13,6 +13,15 @@
         natural_order = true;
         win_options = {wrap = true;};
       };
+
+      keymaps = {
+        # Open in horizontal split
+        "<C-s>" = "actions.select_split";
+        # Open in vertical split
+        "<C-v>" = "actions.select_vsplit";
+        # Open in a new tab
+        "<C-t>" = "actions.select_tab";
+      };
     };
   };
 }
