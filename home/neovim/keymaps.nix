@@ -3,7 +3,7 @@
     {
       mode = "n";
       key = "<leader>pv";
-      action = "<cmd>Ex<cr>";
+      action = ":Oil<CR>";
       options = {
         silent = true;
         desc = "Open file explorer";

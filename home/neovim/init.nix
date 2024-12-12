@@ -5,6 +5,7 @@
     ./cmp.nix
     ./colorscheme.nix
     ./harpoon.nix
+    ./oil.nix
     ./keymaps.nix
     ./lsp.nix
     ./options.nix
