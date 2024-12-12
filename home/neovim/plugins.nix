@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.nixvim.plugins = {
     treesitter.enable = true;
     treesitter-context.enable = true;
@@ -9,11 +9,11 @@
 
     fzf-lua = {
       enable = true;
-     keymaps = {
-       "<leader>pf" = "files"; 
-       "<leader>ps" = "live_grep";
-       "<leader>pg" = "git_files";
-     };
+      keymaps = {
+        "<leader>pf" = "files";
+        "<leader>ps" = "live_grep";
+        "<leader>pg" = "git_files";
+      };
     };
 
     trouble.enable = true;
@@ -69,5 +69,30 @@
         write_all_buffers = true;
       };
     };
+
+    which-key = {
+      enable = true;
+
+      settings = {delay = 500;};
+
+      luaConfig.post = ''
+         vim.keymap.set("n", "<leader>?",  function()
+             require("which-key").show({ global = false })
+           end
+        )
+      '';
+    };
   };
+
+  programs.nixvim.extraPlugins = [
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "gx.nvim";
+      src = pkgs.fetchFromGitHub {
+        owner = "chrishrb";
+        repo = "gx.nvim";
+        rev = "b01db725a001e4215f363159fc04727f6fde0a1c";
+        hash = "sha256-/ktgolMALf8P6gqoGwbxdAiJaOFzUcGDJHJASuvITiI=";
+      };
+    })
+  ];
 }
