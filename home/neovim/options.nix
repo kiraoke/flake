@@ -4,6 +4,7 @@
   programs.nixvim.globalOpts = {
     number = true;
     relativenumber = true;
+    fillchars = {eob = " ";};
 
     # Always show the signcolumn, otherwise text would be shifted when displaying error icons
     signcolumn = "yes";

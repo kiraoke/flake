@@ -87,13 +87,13 @@
     # TROUBLE keymaps
     {
       mode = "n";
-      key = "<leader>xx";
+      key = "<leader>tt";
       action = "<cmd>Trouble diagnostics toggle<cr>";
       options.desc = "Diagnostics (Trouble)";
     }
     {
       mode = "n";
-      key = "<leader>xX";
+      key = "<leader>tT";
       action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
       options.desc = "Buffer Diagnostics (Trouble)";
     }
@@ -111,13 +111,13 @@
     }
     {
       mode = "n";
-      key = "<leader>xL";
+      key = "<leader>tL";
       action = "<cmd>Trouble loclist toggle<cr>";
       options.desc = "Location List (Trouble)";
     }
     {
       mode = "n";
-      key = "<leader>xQ";
+      key = "<leader>tQ";
       action = "<cmd>Trouble qflist toggle<cr>";
       options.desc = "Quickfix List (Trouble)";
     }
