@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   services.xserver.videoDrivers = ["nvidia" "amdgpu"];
 
   hardware.nvidia = {
@@ -22,5 +26,19 @@
 
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
+
+  specialisation = {
+    gaming-time.configuration = {
+      hardware.nvidia = {
+        prime.sync.enable = lib.mkForce true;
+        powerManagement.finegrained = lib.mkForce false;
+
+        prime.offload = {
+          enable = lib.mkForce false;
+          enableOffloadCmd = lib.mkForce false;
+        };
+      };
+    };
   };
 }
