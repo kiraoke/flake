@@ -1,11 +1,13 @@
-{userpath, ...}: {
+{userpath, ...}: let
+  wallpaper = "${userpath}Pictures/wallpapers/lulu.jpg";
+in {
   services.hyprpaper = {
     enable = true;
     settings = {
       ipc = "off";
       splash = false;
-      preload = ["${userpath}Pictures/wallpapers/koira.png"];
-      wallpaper = [", ${userpath}Pictures/wallpapers/koira.png"];
+      preload = [wallpaper];
+      wallpaper = [", ${wallpaper}"];
     };
   };
 }

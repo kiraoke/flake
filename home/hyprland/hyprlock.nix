@@ -1,4 +1,7 @@
-{userpath, ...}: {
+{userpath, ...}: let
+  input_position = -340;
+  touch_label_position = input_position + 28;
+in {
   programs.hyprlock = {
     enable = true;
 
@@ -39,14 +42,15 @@
           bothlock_color = -1;
           invert_numlock = false;
           swap_font_color = false;
-          position = "0, -270";
+          position = "0, ${toString input_position}";
           halign = "center";
           valign = "center";
         }
       ];
 
       label = [
-/*         {
+        /*
+           {
           monitor = "";
           text = ''cmd[update:1000] echo "$(date +"%H:%M")"'';
           color = "rgba(244, 244, 244, 0.75)";
@@ -56,14 +60,14 @@
           halign = "center";
           valign = "center";
         }
- */
+        */
         {
           monitor = "";
           text = "Touch Id or Enter Password";
           color = "rgba(242, 243, 244, 0.75)";
           font_size = 10;
           font_family = "SD Pro Display";
-          position = "0, -242";
+          position = "0, ${toString touch_label_position}";
           halign = "center";
           valign = "center";
         }
