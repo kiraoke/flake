@@ -38,7 +38,7 @@
     {
       mode = "n";
       key = "<C-h>";
-      action = "<C-w>h";
+      action = "<leader>zh";
       options = {
         silent = true;
         desc = "Move to left window";
@@ -48,7 +48,7 @@
     {
       mode = "n";
       key = "<C-j>";
-      action = "<C-w>j";
+      action = "<leader>zj";
       options = {
         silent = true;
         desc = "Move to bottom window";
@@ -57,7 +57,7 @@
     # Ctrl+k to move to top window
     {
       mode = "n";
-      key = "<C-k>";
+      key = "<leader>zk";
       action = "<C-w>k";
       options = {
         silent = true;
@@ -67,7 +67,7 @@
     # Ctrl+l to move to right window
     {
       mode = "n";
-      key = "<C-l>";
+      key = "<leader>zl";
       action = "<C-w>l";
       options = {
         silent = true;
@@ -82,6 +82,44 @@
         silent = true;
         desc = "Move to right window";
       };
+    }
+
+    # TROUBLE keymaps
+    {
+      mode = "n";
+      key = "<leader>xx";
+      action = "<cmd>Trouble diagnostics toggle<cr>";
+      options.desc = "Diagnostics (Trouble)";
+    }
+    {
+      mode = "n";
+      key = "<leader>xX";
+      action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
+      options.desc = "Buffer Diagnostics (Trouble)";
+    }
+    {
+      mode = "n";
+      key = "<leader>cs";
+      action = "<cmd>Trouble symbols toggle focus=false<cr>";
+      options.desc = "Symbols (Trouble)";
+    }
+    {
+      mode = "n";
+      key = "<leader>cl";
+      action = "<cmd>Trouble lsp toggle focus=false win.position=right<cr>";
+      options.desc = "LSP Definitions / references / ... (Trouble)";
+    }
+    {
+      mode = "n";
+      key = "<leader>xL";
+      action = "<cmd>Trouble loclist toggle<cr>";
+      options.desc = "Location List (Trouble)";
+    }
+    {
+      mode = "n";
+      key = "<leader>xQ";
+      action = "<cmd>Trouble qflist toggle<cr>";
+      options.desc = "Quickfix List (Trouble)";
     }
   ];
 }

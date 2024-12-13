@@ -46,7 +46,7 @@
       ];
 
       label = [
-        {
+/*         {
           monitor = "";
           text = ''cmd[update:1000] echo "$(date +"%H:%M")"'';
           color = "rgba(244, 244, 244, 0.75)";
@@ -56,7 +56,7 @@
           halign = "center";
           valign = "center";
         }
-
+ */
         {
           monitor = "";
           text = "Touch Id or Enter Password";

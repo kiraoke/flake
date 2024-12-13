@@ -4,6 +4,7 @@
   imports = [
     ./cmp.nix
     ./colorscheme.nix
+    ./comment.nix
     ./harpoon.nix
     ./oil.nix
     ./keymaps.nix
