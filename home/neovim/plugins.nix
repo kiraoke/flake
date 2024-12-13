@@ -82,6 +82,10 @@
         )
       '';
     };
+
+    undotree = {
+      enable = true;
+    };
   };
 
   programs.nixvim.extraPlugins = [
