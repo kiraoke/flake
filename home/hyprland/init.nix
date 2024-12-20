@@ -27,7 +27,7 @@
     settings.exec-once = ["waybar" "hypridle" "nm-applet"];
 
     settings."$terminal" = "kitty";
-    settings."$browser" = "zen";
+    settings."$browser" = "nvidia-offload zen";
     settings."$fileManager" = "dolphin";
     settings."$menu" = "wofi --show drun --allow-images";
     settings."$TFileManager" = "$terminal -e yazi";
