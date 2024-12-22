@@ -20,9 +20,7 @@
         {name = "nvim_lsp";} # LSP
         {name = "nvim_lua";} # Neovim's Lua API
         {name = "buffer";} # text within current buffer
-        {name = "luasnip";} # snippets
         {name = "calc";} # math calculations
-        {name = "treesitter";} # treesitter nodes
         {name = "cmdline";} # vim commands
       ];
       snippet.expand = "luasnip";
