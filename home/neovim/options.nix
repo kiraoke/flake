@@ -22,10 +22,10 @@
     };
 
     tabstop = 2;
-    shiftwidth = 4;
+    shiftwidth = 2;
     softtabstop = 2;
     expandtab = true;
-    smarttab = true;
+    smarttab = false;
 
     # Start scrolling when the cursor is X lines away from the top/bottom
     scrolloff = 8;

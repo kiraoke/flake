@@ -64,6 +64,7 @@
     tree
     vlc
     nodejs_22
+    deno
     pnpm
 
     # file managers
