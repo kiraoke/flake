@@ -76,7 +76,7 @@
     }
     {
       mode = "n";
-      key = "<leader>z";
+      key = "<leader>zz";
       action = "<C-w>w";
       options = {
         silent = true;
