@@ -52,6 +52,7 @@
     vesktop
     qalculate-gtk
     evince 
+    glow
 
     # archives
     zip

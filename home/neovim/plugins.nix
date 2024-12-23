@@ -86,6 +86,10 @@
     undotree = {
       enable = true;
     };
+
+    render-markdown = {
+      enable = true;
+    };
   };
 
   programs.nixvim.extraPlugins = [
