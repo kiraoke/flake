@@ -13,6 +13,7 @@
     ./home/fzf.nix
     ./home/git.nix
     ./home/kitty.nix
+    ./home/notification.nix
     ./home/theme.nix
     ./home/wireplumber.nix
     ./home/zsh.nix

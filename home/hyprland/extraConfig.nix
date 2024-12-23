@@ -12,5 +12,9 @@
     windowrulev2 = opacity 1.0 override 0.8 override, class:vesktop
     windowrulev2 = opacity 1.0 override 0.95 override, class:evince
     windowrulev2 = size 800 600, class:zen-browser,title:Save Image
+
+
+    layerrule = blur, swaync-control-center
+    layerrule = blur, swaync-notification-window
   '';
 }

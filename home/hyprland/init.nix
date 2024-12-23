@@ -24,7 +24,7 @@
 
     settings.xwayland = {force_zero_scaling = true;};
 
-    settings.exec-once = ["waybar" "hypridle" "nm-applet"];
+    settings.exec-once = ["waybar" "hypridle" "nm-applet" "swaync"];
 
     settings."$terminal" = "kitty";
     settings."$browser" = "zen";
