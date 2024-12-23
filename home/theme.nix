@@ -20,22 +20,16 @@
     };
 
     theme = {
-      name = "rose-pine";
+      name = "Rose-Pine-Dark";
       package = pkgs.rose-pine-gtk-theme;
     };
 
-    # Force dark theme for GTK3 apps
     gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
+      gtk-application-prefer-dark-theme = true;
     };
 
-    # Force dark theme for GTK4 apps
     gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
+      gtk-application-prefer-dark-theme = true;
     };
   };
 

@@ -10,7 +10,7 @@
     windowrulev2 = opacity 0.9 override 0.85 override, class:webstorm
     windowrulev2 = opacity 1.0 override 1.0 override, title:Spotify
     windowrulev2 = opacity 1.0 override 0.8 override, class:vesktop
-    windowrulev2 = opacity 1.0 override 0.95 override, class:yaak
+    windowrulev2 = opacity 1.0 override 0.95 override, class:evince
     windowrulev2 = size 800 600, class:zen-browser,title:Save Image
   '';
 }
