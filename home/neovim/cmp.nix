@@ -19,9 +19,6 @@
         {name = "path";} # filesystem paths
         {name = "nvim_lsp";} # LSP
         {name = "nvim_lua";} # Neovim's Lua API
-        {name = "buffer";} # text within current buffer
-        {name = "calc";} # math calculations
-        {name = "cmdline";} # vim commands
       ];
       snippet.expand = "luasnip";
     };
