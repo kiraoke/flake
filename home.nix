@@ -27,7 +27,6 @@
     qt6ct
     qt6.qtwayland
     pywalfox-native
-    xdg-desktop-portal-hyprland
     easyeffects
     lxqt.pavucontrol-qt
     mpv
