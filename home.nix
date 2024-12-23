@@ -50,6 +50,7 @@
     audacious
     vesktop
     qalculate-gtk
+    okular
 
     # archives
     zip
