@@ -17,7 +17,7 @@
     wofi
 
     # zen browser
-    inputs.zen-browser.packages."${pkgs.system}".specific
+    inputs.zen-browser.packages."${pkgs.system}".default
     go-mtpfs
 
     gcc
