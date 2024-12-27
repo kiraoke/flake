@@ -28,7 +28,7 @@
 
     settings."$terminal" = "kitty";
     settings."$browser" = "zen";
-    settings."$fileManager" = "dolphin";
+    settings."$fileManager" = "nautilus";
     settings."$menu" = "wofi --show drun --allow-images";
     settings."$TFileManager" = "$terminal -e yazi";
   };
