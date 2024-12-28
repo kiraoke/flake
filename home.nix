@@ -34,6 +34,7 @@
     brightnessctl
     songrec
     peaclock
+    git-lfs
 
     # cool tool
     fastfetch
