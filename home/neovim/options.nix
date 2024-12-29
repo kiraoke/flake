@@ -32,7 +32,7 @@
     smartindent = true;
     swapfile = false;
     backup = false;
-    wrap = false;
+    wrap = true;
     undofile = true;
     undodir = "${userpath}.vim/undodir";
 

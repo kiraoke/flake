@@ -7,6 +7,7 @@
       bold_font auto
       bold_italic_font auto
       font_size 11.5
+      background_opacity 0.85
 
       include ~/.cache/wal/colors-kitty.conf
 

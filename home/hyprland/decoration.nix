@@ -16,7 +16,7 @@
       contrast = 1.8;
       vibrancy = 0.3;
       vibrancy_darkness = 0.1;
-      brightness = 0.95;
+      brightness = 0.85;
     };
   };
 }
