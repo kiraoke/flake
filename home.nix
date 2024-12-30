@@ -54,6 +54,7 @@
     qalculate-gtk
     evince 
     glow
+    amberol
 
     # archives
     zip
