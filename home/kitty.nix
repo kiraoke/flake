@@ -27,4 +27,6 @@
       map f2 launch --cwd=current --type=tab
     '';
   };
+
+  home.file.".config/ghostty/config".source = ../dots/ghostty.conf;
 }
