@@ -30,8 +30,8 @@
     pywalfox-native
     easyeffects
     lxqt.pavucontrol-qt
-    mpv
     brightnessctl
+    celluloid
     songrec
     peaclock
     git-lfs
@@ -65,7 +65,6 @@
     which
     file
     tree
-    vlc
     nodejs_22
     deno
     pnpm
