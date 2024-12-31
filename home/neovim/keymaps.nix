@@ -12,7 +12,7 @@
     {
       mode = "x";
       key = "<leader>p";
-      action = ''"\"_dP"'';
+      action = ''"_dP'';
       options = {
         silent = true;
         desc = "Paste over selection without yanking";
@@ -122,7 +122,7 @@
       options.desc = "Quickfix List (Trouble)";
     }
 
-    # some other keymaps
+    # some other keymaps move code in visual mode
     {
       mode = "v";
       key = "J";
@@ -140,6 +140,19 @@
       key = "<leader>tu";
       action = ":UndotreeToggle<CR>";
       options.desc = "toggles undo tree";
+    }
+
+    # set to system clipboard
+    {
+      mode = "v";
+      key = "<leader>y";
+      action = ''"+y'';
+    }
+
+    {
+      mode = "n";
+      key = "<leader>y";
+      action = ''"+y'';
     }
   ];
 }
