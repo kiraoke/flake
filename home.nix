@@ -29,7 +29,7 @@
     qt6.qtwayland
     pywalfox-native
     easyeffects
-    lxqt.pavucontrol-qt
+    pavucontrol
     brightnessctl
     celluloid
     songrec
