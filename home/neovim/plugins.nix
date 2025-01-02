@@ -6,6 +6,7 @@
     rainbow-delimiters.enable = true;
     todo-comments.enable = true;
     vim-be-good.enable = true;
+    colorizer.enable = true;
 
     fzf-lua = {
       enable = true;
