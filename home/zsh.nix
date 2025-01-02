@@ -56,6 +56,7 @@
 
     shellAliases = {
       saymyname = "echo Heisenberg";
+      img="kitten icat";
       ls = "eza";
       "177013" = "xdg-open https://nhentai.to/g/177013";
       "344322" = "xdg-open https://nhentai.net/g/344322";
