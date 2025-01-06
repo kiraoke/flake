@@ -35,6 +35,7 @@
     songrec
     peaclock
     git-lfs
+    nicotine-plus
 
     # cool tool
     fastfetch

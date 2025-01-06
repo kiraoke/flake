@@ -6,6 +6,7 @@
 
     windowrulev2 = opacity 1.0 override 0.85 override, class:zen-beta
     windowrulev2 = opacity 1.0 override 0.85 override, class:org.telegram.desktop
+    windowrulev2 = opacity 1.0 override 0.85 override, class:org.nicotine_plus.Nicotine
     windowrulev2 = opacity 1.0 override 0.85 override, class:zen
     windowrulev2 = opacity 0.65 override 0.63 override, class:kitty
     windowrulev2 = opacity 0.65 override 0.63 override, class:com.mitchellh.ghostty
