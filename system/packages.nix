@@ -15,7 +15,6 @@
     }))
     libnotify
     wofi
-    gnumake
 
     # zen browser
     inputs.zen-browser.packages."${pkgs.system}".default
@@ -23,6 +22,8 @@
     go-mtpfs
 
     gcc
+    gnumake
+    gdb
 
     # sddm cursor theme dependencies
     libsForQt5.qt5.qtquickcontrols2
