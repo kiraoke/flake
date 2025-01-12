@@ -15,6 +15,7 @@
     }))
     libnotify
     wofi
+    gnumake
 
     # zen browser
     inputs.zen-browser.packages."${pkgs.system}".default
