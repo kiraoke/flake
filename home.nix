@@ -36,6 +36,7 @@
     peaclock
     git-lfs
     nicotine-plus
+    clang
 
     # cool tool
     fastfetch
