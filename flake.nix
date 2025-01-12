@@ -27,7 +27,6 @@
     };
 
     ags.url = "github:aylur/ags";
-    hyprland.url = "github:hyprwm/Hyprland";
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
