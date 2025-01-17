@@ -44,7 +44,7 @@
   }: {
     # Please replace my-nixos with your hostname
     nixosConfigurations = {
-      hoshino = nixpkgs.lib.nixosSystem rec {
+      kage = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
@@ -58,8 +58,8 @@
             config.allowUnfree = true;
           };
 
-          username = "aqua";
-          userpath = "/home/aqua/";
+          username = "kira";
+          userpath = "/home/kira/";
         };
         modules = [
           ./configuration.nix
@@ -68,15 +68,15 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [nixvim.homeManagerModules.nixvim];
-            home-manager.users.aqua = import ./home.nix;
+            home-manager.users.kira = import ./home.nix;
             home-manager.extraSpecialArgs = {
               pkgs-stable = import nixpkgs-stable {
                 inherit system;
                 config.allowUnfree = true;
               };
 
-              username = "aqua";
-              userpath = "/home/aqua/";
+              username = "kira";
+              userpath = "/home/kira/";
 
               inherit inputs;
             };

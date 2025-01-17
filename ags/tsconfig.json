@@ -9,13 +9,13 @@
         // "checkJs": true,
         // "allowJs": true,
         "jsx": "react-jsx",
-        "jsxImportSource": "/home/aqua/.local/share/ags/gtk3",
+        "jsxImportSource": "/home/kira/.local/share/ags/gtk3",
         "paths": {
             "astal": [
-                "/home/aqua/.local/share/ags"
+                "/home/kira/.local/share/ags"
             ],
             "astal/*": [
-                "/home/aqua/.local/share/ags/*"
+                "/home/kira/.local/share/ags/*"
             ]
         },
     }

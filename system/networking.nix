@@ -1,6 +1,6 @@
 {...}: {
   networking = {
-    hostName = "hoshino";
+    hostName = "kage";
 
     networkmanager = {
       enable = true;

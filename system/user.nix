@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  users.users.aqua = {
+  users.users.kira = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
