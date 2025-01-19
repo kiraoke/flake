@@ -12,7 +12,7 @@
     ./packages.nix
     ./programs.nix
     ./sddm.nix
-    ./spicetify.nix
+    # ./spicetify.nix
     ./ssh.nix
     ./user.nix
     ./xserver.nix

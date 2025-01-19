@@ -81,7 +81,7 @@
               inherit inputs;
             };
           }
-          {nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];}
+          # {nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];}
           inputs.minegrub-world-sel-theme.nixosModules.default
           inputs.spicetify-nix.nixosModules.default
         ];

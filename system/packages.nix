@@ -18,7 +18,7 @@
 
     # zen browser
     inputs.zen-browser.packages."${pkgs.system}".default
-    inputs.ghostty.packages."${pkgs.system}".default
+    # inputs.ghostty.packages."${pkgs.system}".default
     go-mtpfs
 
     gcc
