@@ -1,5 +1,5 @@
 {...}: {
-  programs.nixvim.plugins.copilot-vim = {
-    enable = true;
-  };
+  # programs.nixvim.plugins.copilot-vim = {
+  #   enable = true;
+  # };
 }

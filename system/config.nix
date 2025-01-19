@@ -1,4 +1,7 @@
-{inputs, ...}: {
+{
+  inputs,
+  ...
+}: {
   imports = [
     ./audio.nix
     ./bluetooth.nix
@@ -36,7 +39,6 @@
   location.provider = "geoclue2";
   location.latitude = "52";
   location.longitude = "85";
-
 
   # ------------------- ZRAM -----------------------------------
   zramSwap = {
