@@ -8,10 +8,10 @@
     minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # spicetify-nix = {
+    #   url = "github:Gerg-L/spicetify-nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     zen-browser = {
         url = "github:youwen5/zen-browser-flake";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -28,9 +28,9 @@
 
     ags.url = "github:aylur/ags";
 
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
+    # ghostty = {
+    #   url = "github:ghostty-org/ghostty";
+    # };
   };
 
   outputs = inputs @ {
@@ -39,7 +39,6 @@
     nixpkgs-stable,
     home-manager,
     nixvim,
-    oskars-dotfiles,
     ...
   }: {
     # Please replace my-nixos with your hostname
@@ -81,9 +80,7 @@
               inherit inputs;
             };
           }
-          # {nixpkgs.overlays = [oskars-dotfiles.overlays.spotx];}
           inputs.minegrub-world-sel-theme.nixosModules.default
-          inputs.spicetify-nix.nixosModules.default
         ];
       };
     };
