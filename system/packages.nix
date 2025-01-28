@@ -15,6 +15,7 @@
     }))
     libnotify
     wofi
+    ntfs3g
 
     # zen browser
     inputs.zen-browser.packages."${pkgs.system}".default
