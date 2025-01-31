@@ -1,4 +1,5 @@
 {...}: {
+      # include ~/.cache/wal/colors-kitty.conf
   programs.kitty = {
     enable = true;
     extraConfig = ''
@@ -8,8 +9,6 @@
       bold_italic_font auto
       font_size 11.5
       background_opacity 0.9
-
-      include ~/.cache/wal/colors-kitty.conf
 
        # -- window --
       window_margin_width 5 5
