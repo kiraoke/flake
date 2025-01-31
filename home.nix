@@ -37,6 +37,7 @@
     git-lfs
     nicotine-plus
     clang
+    xh
 
     # cool tool
     fastfetch
