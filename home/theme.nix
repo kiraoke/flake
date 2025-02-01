@@ -20,8 +20,16 @@
     };
 
     theme = {
-      name = "rose-pine";
+      name = "rose-pine-dark";
       package = pkgs.rose-pine-gtk-theme;
+    };
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
     };
   };
 

@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./home/neovim/init.nix
+    ./home/tmux/init.nix
     ./home/hyprland/init.nix
     ./home/btop.nix
     ./home/cava.nix
@@ -55,7 +56,7 @@
     audacious
     vesktop
     qalculate-gtk
-    evince 
+    evince
     glow
     amberol
 
