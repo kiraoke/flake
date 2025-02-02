@@ -37,8 +37,8 @@
     # Ctrl+h to move to left window
     {
       mode = "n";
-      key = "<C-h>";
-      action = "<leader>zh";
+      key = "<leader>zh";
+      action = "<C-w>h";
       options = {
         silent = true;
         desc = "Move to left window";
@@ -47,8 +47,8 @@
     # Ctrl+j to move to bottom window
     {
       mode = "n";
-      key = "<C-j>";
-      action = "<leader>zj";
+      key = "<leader>zj";
+      action = "<C-w>j";
       options = {
         silent = true;
         desc = "Move to bottom window";
