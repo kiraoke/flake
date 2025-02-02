@@ -7,6 +7,7 @@
       bashls.enable = true;
       clangd.enable = true;
       gopls.enable = true;
+      lua_ls.enable = true;
       nixd.enable = true;
       prolog_ls = {
         enable = true;
