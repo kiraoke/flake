@@ -13,6 +13,9 @@
         package = pkgs.swi-prolog;
       };
       ruff.enable = true;
+      html.enable = true;
+      cssls.enable = true;
+      somesass_ls.enable = true;
       ts_ls.enable = true;
       denols.enable = true;
     };
