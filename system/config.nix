@@ -7,7 +7,7 @@
     ./bluetooth.nix
     ./bootloader.nix
     ./devices.nix
-    ./docker.nix
+    ./container.nix
     ./environment.nix
     ./fonts.nix
     ./graphics.nix
