@@ -98,6 +98,12 @@
           enable = true;
         };
       };
+      luaConfig.post = ''
+        vim.keymap.set("n", "<leader>lg", function()
+          require("snacks").lazygit()
+          end
+        , { desc = "Open LazyGit" })
+      '';
     };
 
     ts-autotag = {

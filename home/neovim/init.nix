@@ -15,9 +15,6 @@
       single_file_support = false
     })
 
-    vim.keymap.set("n", "<leader>lg", function()
-      require("snacks").lazygit()
-    end, { desc = "Open LazyGit" })
   '';
 
   imports = [
@@ -31,5 +28,6 @@
     ./lsp.nix
     ./options.nix
     ./plugins.nix
+    ./debugger.nix
   ];
 }
