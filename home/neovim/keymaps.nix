@@ -25,7 +25,8 @@
       options = {
         desc = "Format the code using lsp";
       };
-    }{
+    }
+    {
       mode = "n";
       key = "<leader>ca";
       action.__raw = "vim.lsp.buf.code_action";

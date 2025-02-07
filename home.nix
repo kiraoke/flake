@@ -38,7 +38,9 @@
     git-lfs
     nicotine-plus
     clang
-    xh
+    xh # curl alternative
+    lazygit
+    chafa
 
     # cool tool
     fastfetch

@@ -90,6 +90,15 @@
     render-markdown = {
       enable = true;
     };
+
+    snacks = {
+      enable = true;
+      settings = {
+        lazygit = {
+          enable = true;
+        };
+      };
+    };
   };
 
   programs.nixvim.extraPlugins = [
