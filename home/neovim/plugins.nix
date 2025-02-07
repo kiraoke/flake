@@ -99,6 +99,10 @@
         };
       };
     };
+
+    ts-autotag = {
+      enable = true;
+    };
   };
 
   programs.nixvim.extraPlugins = [
