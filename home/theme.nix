@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{pkgs, pkgs-stable, ...}: {
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
     name = "WhiteSur-cursors";
-    package = pkgs.whitesur-cursors;
+    package = pkgs-stable.whitesur-cursors;
     size = 32;
   };
 
@@ -16,7 +16,7 @@
 
     iconTheme = {
       name = "WhiteSur";
-      package = pkgs.whitesur-icon-theme;
+      package = pkgs-stable.whitesur-icon-theme;
     };
 
     theme = {
@@ -31,6 +31,7 @@
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
+
   };
 
   qt = {
