@@ -89,10 +89,12 @@
 
     render-markdown = {
       enable = true;
+      package = pkgs.vimPlugins.render-markdown-nvim;
     };
 
     snacks = {
       enable = true;
+      package = pkgs.vimPlugins.snacks-nvim;
       settings = {
         lazygit = {
           enable = true;
