@@ -109,6 +109,10 @@
     ts-autotag = {
       enable = true;
     };
+
+    leap = {
+      enable = true;
+    };
   };
 
   programs.nixvim.extraPlugins = [
