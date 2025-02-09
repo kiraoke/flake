@@ -12,6 +12,7 @@
     windowrulev2 = opacity 0.65 override 0.63 override, class:com.mitchellh.ghostty
     windowrulev2 = opacity 0.9 override 0.85 override, class:webstorm
     windowrulev2 = opacity 1.0 override 1.0 override, title:Spotify
+    windowrulev2 = opacity 1.0 override 1.0 override, class:io.github.celluloid_player.Celluloid
     windowrulev2 = opacity 1.0 override 1.0 override, class:io.bassi.Amberol
     windowrulev2 = opacity 1.0 override 0.8 override, class:vesktop
     windowrulev2 = opacity 1.0 override 0.95 override, class:evince
