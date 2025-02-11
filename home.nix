@@ -36,17 +36,14 @@
     songrec
     peaclock
     git-lfs
-    nicotine-plus
     clang
     xh # curl alternative
     lazygit
-    chafa
 
     # cool tool
     fastfetch
     ripgrep
     bat
-    pipes-rs
     brave
     telegram-desktop
     yt-dlp
