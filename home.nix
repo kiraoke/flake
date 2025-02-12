@@ -55,7 +55,6 @@
     audacious
     vesktop
     qalculate-gtk
-    evince
     glow
     amberol
 
