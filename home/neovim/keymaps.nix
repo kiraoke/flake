@@ -36,6 +36,14 @@
     }
     {
       mode = "n";
+      key = "<leader>rn";
+      action.__raw = "vim.lsp.buf.rename";
+      options = {
+        desc = "Rename symbol";
+      };
+    }
+    {
+      mode = "n";
       key = "<leader>n";
       action = ":ASToggle<CR>";
       options = {
