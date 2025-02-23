@@ -21,7 +21,7 @@
 
     theme = {
       name = "rose-pine-dark";
-      package = pkgs-stable.rose-pine-gtk-theme;
+      package = pkgs.rose-pine-gtk-theme;
     };
 
     gtk3.extraConfig = {
