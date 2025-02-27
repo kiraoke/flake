@@ -598,7 +598,8 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
-        "oskars-dotfiles": "oskars-dotfiles"
+        "oskars-dotfiles": "oskars-dotfiles",
+        "zen-browser": "zen-browser"
       }
     },
     "rust-overlay": {
@@ -757,6 +758,26 @@
       "original": {
         "owner": "winapps-org",
         "repo": "winapps",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740605145,
+        "narHash": "sha256-7hr11jH+Q1BuVA85EYTE3KF5chkPdEdDwrRhp06979Q=",
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "rev": "f8b093520a144b424ba36ccd073ce064e0e456fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

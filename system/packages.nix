@@ -18,11 +18,11 @@
     ntfs3g
 
     # zen browser
-    # inputs.zen-browser.packages."${pkgs.system}".default
-    (import ../packages/zen.nix {
-      appimageTools = pkgs.appimageTools;
-      fetchurl = pkgs.fetchurl;
-    })
+    inputs.zen-browser.packages."${pkgs.system}".default
+    # (import ../packages/zen.nix {
+    #   appimageTools = pkgs.appimageTools;
+    #   fetchurl = pkgs.fetchurl;
+    # })
     # inputs.ghostty.packages."${pkgs.system}".default
     go-mtpfs
 

@@ -39,6 +39,9 @@
     clang
     xh # curl alternative
     lazygit
+    nicotine-plus
+    scrcpy
+    android-tools
 
     # cool tool
     fastfetch
