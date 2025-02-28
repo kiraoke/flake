@@ -21,11 +21,11 @@
       # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    oskars-dotfiles = {
-      url = "github:oskardotglobal/.dotfiles/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    # oskars-dotfiles = {
+    #   url = "github:oskardotglobal/.dotfiles/nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    #
     ags.url = "github:aylur/ags";
 
     # ghostty = {
