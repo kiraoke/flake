@@ -45,6 +45,13 @@
             warp-cli connect
         }
 
+        wifer() {
+          systemctl suspend
+          ~/bits-login/login.sh
+          sudo warp-svc
+          warp-cli connect
+        }
+
         cleaner() {
             sudo nix profile wipe-history  --profile /nix/var/nix/profiles/system
             sudo nix-collect-garbage --delete-old
@@ -63,7 +70,7 @@
     shellAliases = {
       saymyname = "echo Heisenberg";
       ama = "adb start-server &&";
-      img="kitten icat";
+      img = "kitten icat";
       ls = "eza";
       "177013" = "xdg-open https://nhentai.to/g/177013";
       "344322" = "xdg-open https://nhentai.net/g/344322";
