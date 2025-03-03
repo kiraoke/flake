@@ -8,29 +8,16 @@
     minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    # spicetify-nix = {
-    #   url = "github:Gerg-L/spicetify-nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     zen-browser = {
         url = "github:youwen5/zen-browser-flake";
         inputs.nixpkgs.follows = "nixpkgs";
       };
     nixvim = {
       url = "github:nix-community/nixvim";
-      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    # oskars-dotfiles = {
-    #   url = "github:oskardotglobal/.dotfiles/nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    #
-    ags.url = "github:aylur/ags";
 
-    # ghostty = {
-    #   url = "github:ghostty-org/ghostty";
-    # };
+    ags.url = "github:aylur/ags";
   };
 
   outputs = inputs @ {
