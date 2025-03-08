@@ -42,6 +42,7 @@
     nicotine-plus
     scrcpy
     android-tools
+    inter
 
     # cool tool
     fastfetch
