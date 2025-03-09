@@ -7,8 +7,8 @@
       corners = pkgs.fetchFromGitHub {
         owner = "kiraoke";
         repo = "evadm";
-        rev = "7240803fdba93cd67e476414fec0a505dbe13be0";
-        sha256 = "sha256-JUZ+ZQ+YsiWvg4huZN06QTpp0XYRDGw7D2g2I+5+gt8=";
+        rev = "62ab6748a32959cf5ebb23995c6943df900e1b8a";
+        sha256 = "sha256-zCOEZYduNfiuTbI0TUvafr2JAHTk3E1fux0F8WQFor8=";
       };
     in "${corners}";
   };
