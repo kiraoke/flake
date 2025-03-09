@@ -1,5 +1,5 @@
 {userpath, ...}: let
-  wallpaper = "${userpath}Pictures/wallpapers/boira.png";
+  wallpaper = "${userpath}Pictures/wallpapers/gri4k.png";
 in {
   services.hyprpaper = {
     enable = true;
