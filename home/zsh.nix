@@ -34,6 +34,11 @@
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
 
+     if [ -z "$SSH_AUTH_SOCK" ]; then
+       eval "$(ssh-agent -s)"
+       ssh-add ~/key # or id_rsa if you use RSA keys
+     fi
+
       # to customize prompt, run `p10k configure` or edit ~/.p10k.zsh
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
