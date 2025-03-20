@@ -1,5 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
   hardware.enableAllFirmware = true;
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      grub2 = pkgs-stable.grub2;
+    })
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

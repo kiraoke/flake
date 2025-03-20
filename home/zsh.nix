@@ -75,6 +75,7 @@
     shellAliases = {
       saymyname = "echo Heisenberg";
       ama = "adb start-server &&";
+      timer = "sudo -E timeshift-gtk";
       img = "kitten icat";
       ls = "eza";
       "177013" = "xdg-open https://nhentai.to/g/177013";
