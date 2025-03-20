@@ -33,7 +33,7 @@
       # source the theme
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
-
+     # add ssh key from ~/.key gor github
      if [ -z "$SSH_AUTH_SOCK" ]; then
        eval "$(ssh-agent -s)"
        ssh-add ~/key # or id_rsa if you use RSA keys
