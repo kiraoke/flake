@@ -57,6 +57,11 @@
             sudo nix-collect-garbage --delete-old
             nix-collect-garbage --delete-old
         }
+
+        rebuild() {
+            sudo mount /dev/nvme0n1p4 /boot
+            sudo nixos-rebuild switch --flake ~/flake#kage --impure
+         }
     '';
 
     plugins = [
@@ -74,7 +79,6 @@
       ls = "eza";
       "177013" = "xdg-open https://nhentai.to/g/177013";
       "344322" = "xdg-open https://nhentai.net/g/344322";
-      rebuild = "sudo nixos-rebuild switch --flake ~/flake#kage --impure";
       wifilogin = "~/bits-login/login.sh";
       # Basic git commands
       g = "git";
