@@ -1,6 +1,11 @@
 {...}: {
   programs.ssh = {
     startAgent = true;
-    extraConfig = "AddKeysToAgent yes";
+    extraConfig = ''
+    AddKeysToAgent yes
+    Host github.com
+      User git
+      IdentityFile /home/kira/kirakey
+    '' ;
   };
 }
