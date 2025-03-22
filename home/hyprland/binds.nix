@@ -9,6 +9,7 @@
     "$mod, E, exec, $fileManager"
     "$mod, V, togglefloating"
     "$mod, F, exec, $menu"
+    "$mod, C, exec, $clip"
     "$mod, P, pseudo" # dwindle
     "$mod, Space, togglesplit"
     "$mod, B, exec, $browser"

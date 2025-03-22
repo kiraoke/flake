@@ -29,7 +29,8 @@
     settings."$terminal" = "kitty";
     settings."$browser" = "zen";
     settings."$fileManager" = "nautilus";
-    settings."$menu" = "wofi --show drun --allow-images";
+    settings."$menu" = "fuzzel";
+    settings."$clip" = "~/flake/dots/fuzzel/clipboard-fuzzel.sh";
     settings."$TFileManager" = "$terminal -e yazi";
   };
 

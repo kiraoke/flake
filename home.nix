@@ -18,6 +18,7 @@
     ./home/theme.nix
     ./home/wireplumber.nix
     ./home/zsh.nix
+    ./home/fuzzel.nix
     inputs.ags.homeManagerModules.default
   ];
 
@@ -43,6 +44,7 @@
     scrcpy
     android-tools
     inter
+    cliphist # needed for fuzzel clipboard search
 
     # cool tool
     fastfetch

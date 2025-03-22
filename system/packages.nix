@@ -14,7 +14,6 @@
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
     libnotify
-    wofi
     ntfs3g
 
     # zen browser
