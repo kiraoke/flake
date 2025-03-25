@@ -8,7 +8,7 @@
       bold_font auto
       bold_italic_font auto
       font_size 11.5
-      background_opacity 0.9
+      background_opacity 0.8
 
        # -- window --
       window_margin_width 5 5
