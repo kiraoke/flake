@@ -45,6 +45,7 @@
     android-tools
     inter
     cliphist # needed for fuzzel clipboard search
+    kew # music player for terminal
 
     # cool tool
     fastfetch
@@ -58,7 +59,6 @@
     hyprshot
     protonvpn-gui
     qbittorrent
-    audacious
     vesktop
     qalculate-gtk
     glow
