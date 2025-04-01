@@ -19,6 +19,8 @@
     windowrulev2 = opacity 0.95 override 0.85 override, class:nautilus
     windowrulev2 = size 800 600, class:zen-browser,title:Save Image
 
+    windowrulev2 = opacity 0.85 override 0.8 override, title:^(kew.*)$
+
 
     layerrule = blur, swaync-control-center
     layerrule = blur, swaync-notification-window
