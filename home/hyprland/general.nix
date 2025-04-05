@@ -18,7 +18,7 @@
     gaps_out = 6;
     border_size = 4;
 
-    "col.active_border" = "rgb(${afterFirst color3})";
+    "col.active_border" = "rgb(${afterFirst color3}) rgb(0,0,0) 208deg";
     "col.inactive_border" = "rgba(59595900)";
 
     resize_on_border = true;
