@@ -67,6 +67,19 @@
             sudo mount /dev/nvme0n1p4 /boot
             sudo nixos-rebuild switch --flake ~/flake#kage --impure
          }
+
+         ff() {
+            local file
+            file=$(fzf --query="$1") || return
+            cd "$(dirname "$file")" || return
+          }
+
+         fvim() {
+            local file
+            file=$(fzf --query="$1") || return
+            nvim "$file" || return
+          }
+
     '';
 
     plugins = [
@@ -83,6 +96,8 @@
       timer = "sudo -E timeshift-gtk";
       img = "kitten icat";
       ls = "eza";
+      fd= "cd ~ && cd \$(find * -type d | fzf)";
+      dvim= "cd ~ && nvim \$(find * -type d | fzf)";
       "177013" = "xdg-open https://nhentai.to/g/177013";
       "344322" = "xdg-open https://nhentai.net/g/344322";
       wifilogin = "~/bits-login/login.sh";
