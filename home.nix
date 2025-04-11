@@ -46,6 +46,7 @@
     inter
     cliphist # needed for fuzzel clipboard search
     kew # music player for terminal
+    go # the programming language
 
     # cool tool
     fastfetch
@@ -62,7 +63,6 @@
     vesktop
     qalculate-gtk
     glow
-    amberol
 
     # archives
     zip
