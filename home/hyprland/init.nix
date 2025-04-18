@@ -24,7 +24,7 @@
 
     settings.xwayland = {force_zero_scaling = true;};
 
-    settings.exec-once = ["waybar" "hypridle" "nm-applet" "swaync"];
+    settings.exec-once = ["waybar" "hypridle" "nm-applet" "swaync" "easyeffects --gapplication-service"];
 
     settings."$terminal" = "kitty";
     settings."$browser" = "zen";
