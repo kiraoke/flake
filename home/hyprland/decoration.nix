@@ -8,12 +8,12 @@
 
     blur = {
       enabled = true;
-      size = 10;
+      size = 12;
       passes = 2;
       new_optimizations = true;
       ignore_opacity = true;
-      noise = 0;
-      contrast = 1.8;
+      noise = 0.05;
+      contrast = 3;
       vibrancy = 0.2;
       vibrancy_darkness = 0.2;
       brightness = 0.4;
