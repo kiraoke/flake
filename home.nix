@@ -60,7 +60,6 @@
     hyprshot
     protonvpn-gui
     qbittorrent
-    vesktop
     qalculate-gtk
     glow
 
