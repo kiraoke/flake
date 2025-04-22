@@ -62,6 +62,7 @@
     qbittorrent
     qalculate-gtk
     glow
+    vesktop
 
     # archives
     zip
