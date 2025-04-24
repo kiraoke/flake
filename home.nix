@@ -58,7 +58,6 @@
     ffmpeg
     upscayl
     hyprshot
-    protonvpn-gui
     qbittorrent
     qalculate-gtk
     glow

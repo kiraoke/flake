@@ -22,7 +22,7 @@
       extended = true;
     };
 
-    initExtra = ''
+    initContent = ''
         fastfetch
 
         # Enable Powerlevel10k instant prompt
