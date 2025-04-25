@@ -213,7 +213,7 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": [
-          "nixpkgs-stable"
+          "nixpkgs"
         ],
         "nuschtosSearch": "nuschtosSearch"
       },
