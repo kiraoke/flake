@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  pkgs-stable,
   username,
   ...
 }: {
@@ -33,7 +34,6 @@
     easyeffects
     pavucontrol
     brightnessctl
-    celluloid
     songrec
     peaclock
     git-lfs
@@ -47,6 +47,7 @@
     cliphist # needed for fuzzel clipboard search
     kew # music player for terminal
     go # the programming language
+    celluloid
 
     # cool tool
     fastfetch
