@@ -202,5 +202,16 @@
       key = "<leader>r";
       action.__raw = "function() require'harpoon':list():select(4) end";
     }
+    # center page when control d
+    {
+      mode = "n";
+      key = "<C-d>";
+      action = "<C-d>zz";
+    }
+    {
+      mode = "n";
+      key = "<C-u>";
+      action = "<C-u>zz";
+    }
   ];
 }
