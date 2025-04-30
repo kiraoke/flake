@@ -48,6 +48,7 @@
     kew # music player for terminal
     go # the programming language
     celluloid
+    mpvpaper
 
     # cool tool
     fastfetch
