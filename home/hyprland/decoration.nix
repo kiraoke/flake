@@ -8,15 +8,15 @@
 
     blur = {
       enabled = true;
-      size = 12;
+      size = 8;
       passes = 2;
       new_optimizations = true;
       ignore_opacity = true;
       noise = 0.05;
       contrast = 3;
-      vibrancy = 0.2;
-      vibrancy_darkness = 0.2;
-      brightness = 0.4;
+      vibrancy = 0.4;
+      vibrancy_darkness = 0.4;
+      brightness = 0.6;
     };
   };
 }
