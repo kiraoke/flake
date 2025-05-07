@@ -75,7 +75,7 @@
     which
     file
     tree
-    nodejs_23
+    nodejs
     deno
     pnpm
 
