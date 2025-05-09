@@ -29,7 +29,7 @@
     settings."$terminal" = "kitty";
     settings."$browser" = "zen";
     settings."$fileManager" = "nautilus";
-    settings."$menu" = "fuzzel";
+    settings."$menu" = "rofi -show drun";
     settings."$clip" = "~/flake/dots/fuzzel/clipboard-fuzzel.sh";
     settings."$TFileManager" = "$terminal -e yazi";
   };
