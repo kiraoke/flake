@@ -19,7 +19,7 @@
     ./home/theme.nix
     ./home/wireplumber.nix
     ./home/zsh.nix
-    ./home/fuzzel.nix
+    ./home/launcher.nix
     inputs.ags.homeManagerModules.default
   ];
 
@@ -51,6 +51,7 @@
     mpvpaper
     galaxy-buds-client
     blueman
+    bluetui
 
     # cool tool
     fastfetch
