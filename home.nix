@@ -49,6 +49,8 @@
     go # the programming language
     celluloid
     mpvpaper
+    galaxy-buds-client
+    blueman
 
     # cool tool
     fastfetch
