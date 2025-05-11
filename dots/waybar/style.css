@@ -1,4 +1,4 @@
-@import "../../.cache/wal/colors-waybar.css";
+@import "../../.flakewal/colors-waybar.css";
 
 @define-color main-color @color13;
 
@@ -13,7 +13,7 @@
 
 window#waybar {
     border-radius: 20px;
-    background: alpha(@background, 0.1);
+    background: alpha(@background, 0.6);
 }
 
 tooltip {
@@ -27,7 +27,7 @@ tooltip label {
 }
 
 #workspaces {
-    background: alpha(@background, 0.2);
+    background: alpha(@background, 0.9);
     border-radius: 20px;
     margin-top: 4px;
     margin-bottom: 4px;
@@ -35,7 +35,7 @@ tooltip label {
 
 #workspaces button {
     padding: 0px;
-    color: alpha(@foreground, 0.5);
+    color: alpha(@foreground, 0.9);
     background: transparent;
     border-radius: 10px;
     margin-top: 3px;
@@ -47,7 +47,7 @@ tooltip label {
 }
 
 #workspaces button.active {
-    background: alpha(@background, 0.2);
+    background: alpha(@background, 0.9);
     color: lighter(@main-color);
     border-radius: 20px;
     transition: color 0.5s;
