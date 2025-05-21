@@ -1,4 +1,8 @@
-{pkgs, pkgs-stable, ...}: {
+{
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -20,8 +24,13 @@
     };
 
     theme = {
-      name = "rose-pine-dark";
-      package = pkgs.rose-pine-gtk-theme;
+      name = "WhiteSur";
+      package = pkgs.fetchFromGitHub {
+        owner = "vinceliuice";
+        repo = "WhiteSur-gtk-theme";
+        rev = "master";
+        hash = "sha256-+sPuqU8UQpxgI7fAVxvKsTWQKLEak92tiHojYNW/LS0=";
+      };
     };
 
     gtk3.extraConfig = {
@@ -31,7 +40,6 @@
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
-
   };
 
   qt = {
