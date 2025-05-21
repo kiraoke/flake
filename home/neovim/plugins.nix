@@ -115,6 +115,10 @@
     leap = {
       enable = true;
     };
+
+    friendly-snippets = {
+      enable = true;
+    };
   };
 
   programs.nixvim.extraPlugins = [

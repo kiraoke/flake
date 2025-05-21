@@ -19,10 +19,14 @@
         {name = "path";} # filesystem paths
         {name = "nvim_lsp";} # LSP
         {name = "nvim_lua";} # Neovim's Lua API
+        {name = "luasnip";} # Neovim's Lua API
       ];
       snippet.expand = "luasnip";
     };
   };
 
-  programs.nixvim.plugins.luasnip.enable = true;
+  programs.nixvim.plugins.luasnip = {
+      enable = true;
+      fromVscode = [{}];
+    };
 }
