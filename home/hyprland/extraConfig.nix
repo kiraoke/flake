@@ -5,6 +5,7 @@
     monitor = , preferred, auto, 1, mirror, eDP-2
 
     windowrulev2 = opacity 1.0 override 0.85 override, class:zen-beta
+    windowrulev2 = opacity 1.0 override 0.85 override, class:brave-browser
     windowrulev2 = opacity 1.0 override 0.85 override, class:org.telegram.desktop
     windowrulev2 = opacity 1.0 override 0.85 override, class:org.nicotine_plus.Nicotine
     windowrulev2 = opacity 1.0 override 0.85 override, class:zen
