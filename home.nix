@@ -38,7 +38,6 @@
     peaclock
     git-lfs
     clang
-    xh # curl alternative
     lazygit
     nicotine-plus
     scrcpy
@@ -65,8 +64,8 @@
     hyprshot
     qbittorrent
     qalculate-gtk
-    glow
     vesktop
+    yaak
 
     # archives
     zip
