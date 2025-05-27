@@ -16,6 +16,7 @@
       ruff.enable = true;
       html.enable = true;
       cssls.enable = true;
+      jsonls.enable = true;
       ts_ls.enable = true;
       denols.enable = true;
     };
