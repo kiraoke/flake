@@ -51,6 +51,7 @@
     galaxy-buds-client
     blueman
     bluetui
+    podman-desktop
 
     # cool tool
     fastfetch
