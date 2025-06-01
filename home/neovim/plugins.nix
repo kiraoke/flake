@@ -21,6 +21,7 @@
     zen-mode.enable = true;
     fugitive.enable = true;
     lualine.enable = true;
+    image.enable = true;
 
     fidget = {
       enable = true;
