@@ -12,7 +12,7 @@
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     supportedFilesystems = ["btrfs"];
 
     kernelParams = ["NVreg_UsePageAttributeTable=1"];

@@ -5,6 +5,9 @@
     # NixOS official package source, using the nixos-24.05 branch here
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # chaotic-nyx for cacyhos kernel
+
+
     minegrub-world-sel-theme.url = "github:Lxtharia/minegrub-world-sel-theme";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +29,7 @@
     nixpkgs-stable,
     home-manager,
     nixvim,
+    chaotic,
     ...
   }: {
     # Please replace my-nixos with your hostname
@@ -49,6 +53,7 @@
         };
         modules = [
           ./configuration.nix
+          chaotic.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
