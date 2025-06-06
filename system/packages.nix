@@ -15,6 +15,7 @@
     }))
     libnotify
     ntfs3g
+    pulseaudio # only for utilities, pipewire is used for everything
 
     # zen browser
     inputs.zen-browser.packages."${pkgs.system}".default
