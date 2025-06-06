@@ -52,6 +52,7 @@
     blueman
     bluetui
     podman-desktop
+    wf-recorder
 
     # cool tool
     fastfetch
