@@ -10,6 +10,15 @@
       };
     }
     {
+      mode = "n";
+      key = "<leader>h";
+      action = ":nohls";
+      options = {
+        silent = true;
+        desc = "Open file explorer";
+      };
+    }
+    {
       mode = "x";
       key = "<leader>p";
       action = ''"_dP'';
@@ -53,7 +62,7 @@
     # Ctrl+h to move to left window
     {
       mode = "n";
-      key = "<leader>zh";
+      key = "<C-h>";
       action = "<C-w>h";
       options = {
         silent = true;
@@ -63,7 +72,7 @@
     # Ctrl+j to move to bottom window
     {
       mode = "n";
-      key = "<leader>zj";
+      key = "<C-j>";
       action = "<C-w>j";
       options = {
         silent = true;
@@ -73,7 +82,7 @@
     # Ctrl+k to move to top window
     {
       mode = "n";
-      key = "<leader>zk";
+      key = "<C-k>k";
       action = "<C-w>k";
       options = {
         silent = true;
@@ -83,7 +92,7 @@
     # Ctrl+l to move to right window
     {
       mode = "n";
-      key = "<leader>zl";
+      key = "<C-l>l";
       action = "<C-w>l";
       options = {
         silent = true;
@@ -92,7 +101,7 @@
     }
     {
       mode = "n";
-      key = "<leader>zz";
+      key = "<C-m>";
       action = "<C-w>w";
       options = {
         silent = true;
