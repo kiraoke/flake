@@ -12,7 +12,7 @@
     {
       mode = "n";
       key = "<leader>h";
-      action = ":nohls";
+      action = ":nohls<CR>";
       options = {
         silent = true;
         desc = "Open file explorer";
