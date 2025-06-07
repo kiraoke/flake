@@ -53,6 +53,7 @@
     bluetui
     podman-desktop
     wf-recorder
+    firefox
 
     # cool tool
     fastfetch
