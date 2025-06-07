@@ -42,6 +42,10 @@
     sources = {
       formatting = {
         stylua.enable = true;
+        prettier = {
+            enable = true;
+            disableTsServerFormatter = true;
+          };
         alejandra.enable = true;
       };
     };
