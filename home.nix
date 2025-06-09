@@ -26,76 +26,79 @@
   home.username = username;
   home.homeDirectory = ''/home/${username}'';
 
-  home.packages = with pkgs; [
-    dconf
-    qt6ct
-    qt6.qtwayland
-    pywalfox-native
-    easyeffects
-    pavucontrol
-    brightnessctl
-    songrec
-    peaclock
-    git-lfs
-    clang
-    lazygit
-    nicotine-plus
-    scrcpy
-    android-tools
-    inter
-    cliphist # needed for fuzzel clipboard search
-    kew # music player for terminal
-    go # the programming language
-    celluloid
-    mpvpaper
-    galaxy-buds-client
-    blueman
-    bluetui
-    podman-desktop
-    wf-recorder
-    firefox
+  home.packages = with pkgs;
+    [
+      dconf
+      qt6ct
+      qt6.qtwayland
+      pywalfox-native
+      easyeffects
+      pavucontrol
+      brightnessctl
+      songrec
+      peaclock
+      git-lfs
+      clang
+      lazygit
+      nicotine-plus
+      scrcpy
+      android-tools
+      inter
+      cliphist # needed for fuzzel clipboard search
+      go # the programming language
+      celluloid
+      mpvpaper
+      galaxy-buds-client
+      blueman
+      bluetui
+      podman-desktop
+      wf-recorder
+      firefox
 
-    # cool tool
-    fastfetch
-    ripgrep
-    bat
-    brave
-    telegram-desktop
-    yt-dlp
-    ffmpeg
-    upscayl
-    hyprshot
-    qbittorrent
-    qalculate-gtk
-    vesktop
-    yaak
+      # cool tool
+      fastfetch
+      ripgrep
+      bat
+      brave
+      telegram-desktop
+      yt-dlp
+      ffmpeg
+      upscayl
+      hyprshot
+      qbittorrent
+      qalculate-gtk
+      vesktop
+      yaak
 
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
+      # archives
+      zip
+      xz
+      unzip
+      p7zip
 
-    # misc
-    which
-    file
-    tree
-    nodejs
-    deno
-    pnpm
+      # misc
+      which
+      file
+      tree
+      nodejs
+      deno
+      pnpm
 
-    # file managers
-    yazi
+      # file managers
+      yazi
 
-    btop
-    htop
+      btop
+      htop
 
-    pywal
+      pywal
 
-    networkmanagerapplet
+      networkmanagerapplet
 
-    inputs.ags.packages.${pkgs.system}.io
-  ];
+      inputs.ags.packages.${pkgs.system}.io
+    ]
+    ++ (with pkgs-stable; [
+      kew
+    ]);
 
   programs.ags = {
     enable = true;
