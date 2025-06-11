@@ -54,6 +54,7 @@
       podman-desktop
       wf-recorder
       firefox
+      ncdu
 
       # cool tool
       fastfetch
