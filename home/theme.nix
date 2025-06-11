@@ -29,7 +29,7 @@
         owner = "vinceliuice";
         repo = "WhiteSur-gtk-theme";
         rev = "master";
-        hash = "sha256-+sPuqU8UQpxgI7fAVxvKsTWQKLEak92tiHojYNW/LS0=";
+        hash = "sha256-ANBtC/+MhHS//HGNjRpUarSOt857MnBYofD3xOp4XPE=";
       };
     };
 
