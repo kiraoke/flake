@@ -20,6 +20,7 @@
     ./home/wireplumber.nix
     ./home/zsh.nix
     ./home/launcher.nix
+    ./home/zellij.nix
     inputs.ags.homeManagerModules.default
   ];
 
