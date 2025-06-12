@@ -4,7 +4,6 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
     zsh
     wget
@@ -19,11 +18,6 @@
 
     # zen browser
     inputs.zen-browser.packages."${pkgs.system}".default
-    # (import ../packages/zen.nix {
-    #   appimageTools = pkgs.appimageTools;
-    #   fetchurl = pkgs.fetchurl;
-    # })
-    # inputs.ghostty.packages."${pkgs.system}".default
     go-mtpfs
 
     gcc
@@ -40,7 +34,6 @@
     xclip
     wl-clipboard
     cpuid
-    eza
     eza
     distrobox
     cloudflare-warp
