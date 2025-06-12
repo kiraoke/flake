@@ -22,6 +22,7 @@
 
     windowrulev2 = opacity 0.85 override 0.8 override, title:^(kew.*)$
     windowrulev2 = opacity 1.0 override 0.85 override, class:yaak-app
+    windowrulev2 = opacity 1.0 override 0.85 override, class:jetbrains-studio
 
 
     layerrule = blur, swaync-control-center

@@ -37,5 +37,9 @@
     eza
     distrobox
     cloudflare-warp
+
+    # flutter
+    android-studio
+    flutter
   ];
 }
