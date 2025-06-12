@@ -41,10 +41,7 @@
       clang
       lazygit
       nicotine-plus
-      scrcpy
-      android-tools
       inter
-      cliphist # needed for fuzzel clipboard search
       go # the programming language
       celluloid
       mpvpaper
@@ -52,7 +49,6 @@
       blueman
       bluetui
       podman-desktop
-      wf-recorder
       firefox
       ncdu
 
@@ -75,10 +71,8 @@
       zip
       xz
       unzip
-      p7zip
 
       # misc
-      which
       file
       tree
       nodejs
