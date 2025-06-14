@@ -77,7 +77,6 @@
       file
       tree
       nodejs
-      deno
       pnpm
 
       # file managers
@@ -94,6 +93,7 @@
     ]
     ++ (with pkgs-stable; [
       kew
+      deno
     ]);
 
   programs.ags = {
