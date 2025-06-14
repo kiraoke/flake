@@ -93,7 +93,6 @@
     ]
     ++ (with pkgs-stable; [
       kew
-      deno
     ]);
 
   programs.ags = {
