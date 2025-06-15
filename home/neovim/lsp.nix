@@ -18,6 +18,7 @@
       cssls.enable = true;
       jsonls.enable = true;
       ts_ls.enable = true;
+      denols.enable = true;
     };
 
     keymaps = {
