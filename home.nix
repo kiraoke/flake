@@ -52,6 +52,7 @@
       podman-desktop
       firefox
       ncdu
+      tiny8086
 
       # cool tool
       fastfetch
