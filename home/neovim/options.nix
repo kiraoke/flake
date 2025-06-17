@@ -36,6 +36,7 @@
     undofile = true;
     undodir = "${userpath}.vim/undodir";
 
+
     hlsearch = true;
     incsearch = true;
 
@@ -43,4 +44,6 @@
 
     updatetime = 50;
   };
+
+  programs.nixvim.diagnostic.settings.virtual_text = true;
 }
