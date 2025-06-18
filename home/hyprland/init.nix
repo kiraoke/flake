@@ -24,7 +24,15 @@
 
     settings.xwayland = {force_zero_scaling = true;};
 
-    settings.exec-once = ["waybar" "hypridle" "nm-applet" "swaync" "easyeffects --gapplication-service"];
+    settings.exec-once = [
+      "waybar"
+      "hypridle"
+      "nm-applet"
+      "swaync"
+      "easyeffects --gapplication-service"
+      "swww-daemon"
+      "swww img ~/flake/assets/wallpapers/castoru.png"
+    ];
 
     settings."$terminal" = "kitty";
     settings."$browser" = "zen";
@@ -44,7 +52,6 @@
     ./general.nix
     ./hypridle.nix
     ./hyprlock.nix
-    ./hyprpaper.nix
     ./misc.nix
     ./waybar.nix
   ];

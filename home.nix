@@ -89,6 +89,7 @@
       pywal
 
       networkmanagerapplet
+      swww
 
       inputs.ags.packages.${pkgs.system}.io
     ]

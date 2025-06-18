@@ -1,4 +1,4 @@
-{userpath, ...}: {
+{...}: {
   programs.waybar = {
     enable = true;
   };
