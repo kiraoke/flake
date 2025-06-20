@@ -44,14 +44,15 @@
       nicotine-plus
       inter
       go # the programming language
+      mpv
       celluloid
-      mpvpaper
       galaxy-buds-client
       blueman
       bluetui
       podman-desktop
       firefox
       ncdu
+      gpustat
 
       # cool tool
       fastfetch
