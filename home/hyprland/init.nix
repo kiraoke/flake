@@ -31,7 +31,7 @@
       "swaync"
       "easyeffects --gapplication-service"
       "swww-daemon"
-      "swww img ~/flake/assets/wallpapers/castoru.png"
+      "swww img ~/flake/assets/wallpapers/bakane.jpg"
     ];
 
     settings."$terminal" = "kitty";

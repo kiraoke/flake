@@ -85,7 +85,7 @@
           waller() {
             cd
               mkdir .flakewal
-              wal -i ~/flake/assets/fireflied.png
+              wal -i ~/flake/assets/wallpapers/bakane.jpg
               rsync -a ~/.cache/wal/ ~/.flakewal
               wal -i "$1"
           }
