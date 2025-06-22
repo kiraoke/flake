@@ -53,6 +53,7 @@
       firefox
       ncdu
       gpustat
+      steam-run-free
 
       # cool tool
       fastfetch
