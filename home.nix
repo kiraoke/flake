@@ -50,7 +50,6 @@
       blueman
       bluetui
       podman-desktop
-      firefox
       ncdu
       gpustat
       steam-run-free
