@@ -26,6 +26,10 @@
     };
   };
 
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
+
   # # Ensures SDDM starts after the service.
   systemd.services.sddm = {after = ["sddm-avatar.service"];};
 }
