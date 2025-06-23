@@ -222,5 +222,10 @@
       key = "<C-u>";
       action = "<C-u>zz";
     }
+    {
+      mode = "i";
+      key = "<C-BS>";
+      action = "<C-W>";
+    }
   ];
 }
