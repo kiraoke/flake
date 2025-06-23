@@ -17,6 +17,7 @@
     ./sddm.nix
     # ./spicetify.nix
     ./ssh.nix
+    ./systemd.nix
     ./user.nix
     ./xserver.nix
   ];
