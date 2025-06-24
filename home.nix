@@ -53,6 +53,7 @@
       ncdu
       gpustat
       steam-run-free
+      anki-bin
 
       # cool tool
       fastfetch
