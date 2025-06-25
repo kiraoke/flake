@@ -1,5 +1,5 @@
 {...}: {
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
+  #  systemd.extraConfig = ''
+  #    DefaultTimeoutStopSec=10s
+  #  '';
 }
