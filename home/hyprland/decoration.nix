@@ -14,8 +14,8 @@
       ignore_opacity = true;
       noise = 0.05;
       contrast = 3;
-      vibrancy = 0.4;
-      vibrancy_darkness = 0.4;
+      vibrancy = 0.3;
+      vibrancy_darkness = 0.3;
       brightness = 0.6;
     };
   };
