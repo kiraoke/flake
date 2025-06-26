@@ -20,6 +20,7 @@
     };
 
     ags.url = "github:aylur/ags";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs = inputs @ {
@@ -28,6 +29,7 @@
     nixpkgs-stable,
     home-manager,
     nixvim,
+    chaotic,
     ...
   }: {
     # Please replace my-nixos with your hostname
@@ -70,6 +72,7 @@
             };
           }
           inputs.minegrub-world-sel-theme.nixosModules.default
+          chaotic.nixosModules.default
         ];
       };
     };
