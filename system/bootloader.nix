@@ -24,6 +24,9 @@
       "vm.page-cluster" = 0;
     };
 
+    tmp.cleanOnBoot = true;
+    tmp.useTmpfs = false;
+
     loader = {
       systemd-boot.enable = false;
       efi.canTouchEfiVariables = true;
