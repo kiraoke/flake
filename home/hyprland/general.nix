@@ -2,17 +2,17 @@
   wayland.windowManager.hyprland.settings.general = let
     readFileIfExists = path:
       if builtins.pathExists path
-      then builtins.readFile path
-      else "";
-
-    content =
-      builtins.fromJSON
-      (readFileIfExists "${userpath}.cache/wal/colors.json");
-    color3 = toString content.colors.color3;
+      then let
+        color = builtins.fromJSON (builtins.readFile path);
+      in
+        color.colors.color3 or "#8D7091"
+      else "#8D7091";
 
     # remove # from #color hex code
     afterFirst = str:
       builtins.substring 1 (builtins.stringLength str - 1) str;
+
+    color3 = readFileIfExists "${userpath}.cache/wal/colors.json";
   in {
     gaps_in = 5;
     gaps_out = 6;
