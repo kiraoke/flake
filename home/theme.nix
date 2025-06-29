@@ -4,9 +4,8 @@
     hyprlock.enable = false;
     neovim.enable = false;
     nixvim.enable = false;
-    fzf.enable = false;
-    bat.enable = false;
     kitty.enable = false;
+    fzf.enable = false;
   };
 
   home.file.".local/share/fonts/DIN" = {
