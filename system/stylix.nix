@@ -5,6 +5,7 @@
 }: {
   fonts.packages = with pkgs; [
     noto-fonts
+    inter
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     nerd-fonts.jetbrains-mono

@@ -4,7 +4,73 @@
   pkgs-stable,
   username,
   ...
-}: {
+}: let
+  systemPackages = with pkgs; [
+    dconf
+    qt6ct
+    qt6.qtwayland
+    clang
+    networkmanagerapplet
+    swww
+    pywal
+    file
+    tree
+    git-lfs
+  ];
+
+  utils = with pkgs; [
+    yazi
+    btop
+    htop
+    ripgrep
+    bat
+    zip
+    xz
+    unzip
+    fastfetch
+    gpustat
+    ncdu
+    mpv
+    blueman
+    brightnessctl
+    pavucontrol
+    steam-run-free
+    yt-dlp
+    ffmpeg
+  ];
+
+  apps = with pkgs; [
+    easyeffects
+    songrec
+    peaclock
+    lazygit
+    nicotine-plus
+    galaxy-buds-client
+    celluloid
+    anki-bin
+    brave
+    telegram-desktop
+    qbittorrent
+    qalculate-gtk
+    vesktop
+    upscayl
+    hyprshot
+  ];
+
+  dev = with pkgs; [
+    go
+    podman-desktop
+    yaak
+    nasm
+    nodejs
+    pnpm
+    deno
+  ];
+
+  stable = with pkgs-stable; [
+    kew
+  ];
+in {
   imports = [
     ./home/neovim/init.nix
     ./home/tmux/init.nix
@@ -25,77 +91,7 @@
   home.username = username;
   home.homeDirectory = ''/home/${username}'';
 
-  home.packages = with pkgs;
-    [
-      dconf
-      qt6ct
-      qt6.qtwayland
-      pywalfox-native
-      easyeffects
-      pavucontrol
-      brightnessctl
-      songrec
-      peaclock
-      git-lfs
-      clang
-      lazygit
-      nicotine-plus
-      inter
-      go # the programming language
-      mpv
-      celluloid
-      galaxy-buds-client
-      blueman
-      bluetui
-      podman-desktop
-      ncdu
-      gpustat
-      steam-run-free
-      anki-bin
-
-      # cool tool
-      fastfetch
-      ripgrep
-      bat
-      brave
-      telegram-desktop
-      yt-dlp
-      ffmpeg
-      upscayl
-      hyprshot
-      qbittorrent
-      qalculate-gtk
-      vesktop
-      yaak
-      nasm
-
-      # archives
-      zip
-      xz
-      unzip
-
-      # misc
-      file
-      tree
-      nodejs
-      pnpm
-
-      # file managers
-      yazi
-
-      btop
-      htop
-
-      pywal
-
-      networkmanagerapplet
-      swww
-
-    ]
-    ++ (with pkgs-stable; [
-      kew
-      deno
-    ]);
+  home.packages = systemPackages ++ utils ++ apps ++ dev ++ stable ;
 
   home.stateVersion = "24.11";
 
