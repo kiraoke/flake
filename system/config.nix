@@ -8,7 +8,6 @@
     ./locale.nix
     ./bootloader.nix
     ./devices.nix
-    ./container.nix
     ./environment.nix
     ./graphics.nix
     ./networking.nix
@@ -20,6 +19,7 @@
     ./ssh.nix
     ./systemd.nix
     ./user.nix
+    ./virtualisation.nix
     ./xserver.nix
   ];
 

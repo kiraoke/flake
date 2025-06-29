@@ -9,6 +9,7 @@
       "video"
       "audio"
       "docker"
+      "libvirtd"
     ]; 
   };
 
