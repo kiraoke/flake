@@ -16,6 +16,7 @@
     supportedFilesystems = ["btrfs"];
 
     kernelParams = ["NVreg_UsePageAttributeTable=1"];
+    kernelModules = ["kvm-amd"];
 
     blacklistedKernelModules = ["nouveau"];
     kernel.sysctl = {
