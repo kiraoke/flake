@@ -19,8 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags.url = "github:aylur/ags";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = inputs @ {
@@ -30,6 +30,7 @@
     home-manager,
     nixvim,
     chaotic,
+    stylix,
     ...
   }: {
     # Please replace my-nixos with your hostname
@@ -73,6 +74,7 @@
           }
           inputs.minegrub-world-sel-theme.nixosModules.default
           chaotic.nixosModules.default
+          stylix.nixosModules.stylix
         ];
       };
     };

@@ -9,13 +9,13 @@
     ./devices.nix
     ./container.nix
     ./environment.nix
-    ./fonts.nix
     ./graphics.nix
     ./networking.nix
     ./packages.nix
     ./programs.nix
     ./sddm.nix
     # ./spicetify.nix
+    ./stylix.nix
     ./ssh.nix
     ./systemd.nix
     ./user.nix

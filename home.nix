@@ -11,7 +11,6 @@
     ./home/hyprland/init.nix
     ./home/btop.nix
     ./home/cava.nix
-    ./home/fonts.nix
     ./home/fzf.nix
     ./home/git.nix
     ./home/kitty.nix
@@ -21,7 +20,6 @@
     ./home/zsh.nix
     ./home/launcher.nix
     ./home/zellij.nix
-    inputs.ags.homeManagerModules.default
   ];
 
   home.username = username;
@@ -93,24 +91,11 @@
       networkmanagerapplet
       swww
 
-      inputs.ags.packages.${pkgs.system}.io
     ]
     ++ (with pkgs-stable; [
       kew
       deno
     ]);
-
-  programs.ags = {
-    enable = true;
-
-    configDir = ./ags;
-
-    # additional packages to add to gjs's runtime
-    extraPackages = with pkgs; [
-      inputs.ags.packages.${pkgs.system}.battery
-      fzf
-    ];
-  };
 
   home.stateVersion = "24.11";
 
