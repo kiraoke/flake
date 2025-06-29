@@ -29,7 +29,6 @@
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtsvg
 
-    libsForQt5.dolphin
     nautilus
     xclip
     wl-clipboard
