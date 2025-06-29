@@ -5,6 +5,7 @@
   imports = [
     ./audio.nix
     ./bluetooth.nix
+    ./locale.nix
     ./bootloader.nix
     ./devices.nix
     ./container.nix
@@ -36,7 +37,6 @@
 
   # -------------------- LOCALIZATION --------------------------
   time.timeZone = "Asia/Kolkata";
-  i18n.defaultLocale = "en_US.UTF-8";
   location.provider = "geoclue2";
   location.latitude = "52";
   location.longitude = "85";

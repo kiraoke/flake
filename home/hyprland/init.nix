@@ -20,6 +20,9 @@
       "QT_QPA_PLATFORMTHEME.qt6ct"
 
       "BRAVE_BROWSER, ${pkgs.brave}"
+      "GTK_IM_MODULE, fcitx"
+      "QT_IM_MODULE, fcitx"
+      "XMODIFIERS, @im=fcitx"
     ];
 
     settings.xwayland = {force_zero_scaling = true;};
@@ -32,6 +35,7 @@
       "easyeffects --gapplication-service"
       "swww-daemon"
       "swww img ~/flake/assets/wallpapers/bakane.jpg"
+      "fcitx5"
     ];
 
     settings."$terminal" = "kitty";
