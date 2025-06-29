@@ -110,6 +110,7 @@
     shellAliases = {
       saymyname = "echo Heisenberg";
       ama = "adb start-server &&";
+      vim = "nvim";
       timer = "sudo -E timeshift-gtk";
       img = "kitten icat";
       ls = "eza";
