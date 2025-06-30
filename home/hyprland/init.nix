@@ -23,6 +23,8 @@
       "GTK_IM_MODULE, fcitx"
       "QT_IM_MODULE, fcitx"
       "XMODIFIERS, @im=fcitx"
+      "MOZ_DISABLE_RDD_SANDBOX, 1"
+      "LIBVA_DRIVER_NAME, nvidia"
     ];
 
     settings.xwayland = {force_zero_scaling = true;};

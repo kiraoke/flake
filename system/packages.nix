@@ -17,6 +17,13 @@
     cpuid
   ];
 
+  vulkan = with pkgs;[
+    vulkan-tools
+    vulkan-headers
+    vulkan-loader
+    vulkan-validation-layers
+  ];
+
   dev = with pkgs; [
     git
     wget
@@ -47,5 +54,5 @@
     spice-protocol
   ];
 in {
-  environment.systemPackages = system ++ dev ++ apps ++ virt;
+  environment.systemPackages = system ++ vulkan ++ dev ++ apps ++ virt;
 }

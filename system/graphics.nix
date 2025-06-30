@@ -29,6 +29,20 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+
+    extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+      amdvlk
+    ];
+
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
+  };
+
   specialisation = {
     gaming-time.configuration = {
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
