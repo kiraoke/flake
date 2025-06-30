@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   pkgs-stable,
   ...
 }: {
@@ -10,6 +11,12 @@
       grub2 = pkgs-stable.grub2;
     })
   ];
+
+  specialisation = {
+    cachy.configuration = {
+      boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+    };
+  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -55,6 +62,15 @@
             {
               name = "nixos";
               lineTop = "NixOS (24/10/2024, 22:16)";
+              lineBottom = "Hardcore Mode, Cheats, Version: 25.05";
+              customImg = builtins.path {
+                path = ../assets/nixos-logo.png;
+                name = "nixos-img";
+              };
+            }
+            {
+              name = "cachy";
+              lineTop = "Cachy (24/10/2024, 22:16)";
               lineBottom = "Hardcore Mode, Cheats, Version: 25.05";
               customImg = builtins.path {
                 path = ../assets/nixos-logo.png;
