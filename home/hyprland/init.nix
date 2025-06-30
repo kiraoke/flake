@@ -41,7 +41,7 @@
     ];
 
     settings."$terminal" = "kitty";
-    settings."$browser" = "zen";
+    settings."$browser" = "nvidia-offload zen || zen";
     settings."$fileManager" = "nautilus";
     settings."$menu" = "rofi -show drun";
     settings."$clip" = "~/flake/dots/fuzzel/clipboard-fuzzel.sh";
