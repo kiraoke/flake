@@ -24,6 +24,7 @@
     windowrulev2 = opacity 1.0 override 0.85 override, class:yaak-app
     windowrulev2 = opacity 1.0 override 0.85 override, class:jetbrains-studio
     windowrulev2 = opacity 1.0 override 0.85 override, class:Anki
+    windowrulev2 = opacity 1.0 override 0.85 override, class:Ryujinx
 
 
     layerrule = blur, swaync-control-center

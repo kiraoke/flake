@@ -55,6 +55,7 @@
     vesktop
     upscayl
     hyprshot
+    ryujinx-greemdev
   ];
 
   dev = with pkgs; [
