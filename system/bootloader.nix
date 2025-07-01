@@ -13,13 +13,13 @@
   ];
 
   specialisation = {
-    cachy.configuration = {
-      boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+    latest.configuration = {
+      boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
     };
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     supportedFilesystems = ["btrfs"];
 
     kernelParams = ["NVreg_UsePageAttributeTable=1"];
