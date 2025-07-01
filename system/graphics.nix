@@ -44,7 +44,7 @@
   };
 
   specialisation = {
-    gaming-time.configuration = {
+    gaming-shit.configuration = {
       hardware.nvidia = {
         prime.sync.enable = lib.mkForce true;
         powerManagement.finegrained = lib.mkForce false;

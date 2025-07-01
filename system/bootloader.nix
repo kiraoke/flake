@@ -13,7 +13,7 @@
   ];
 
   specialisation = {
-    latest.configuration = {
+    latest-shit.configuration = {
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
     };
   };
