@@ -45,11 +45,6 @@
       # highlight man using nvim
                     vman() { nvim <(man $1); }
 
-          warper() {
-            sudo warp-svc
-              warp-cli connect
-          }
-
           wifer() {
             systemctl suspend
               ~/bits-login/login.sh
@@ -109,6 +104,7 @@
 
     shellAliases = {
       saymyname = "echo Heisenberg";
+      warper = "sudo true && sudo warp-svc & (sleep 3 && warp-cli connect) & wait";
       ama = "adb start-server &&";
       vim = "nvim";
       timer = "sudo -E timeshift-gtk";
