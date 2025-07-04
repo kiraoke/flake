@@ -13,7 +13,7 @@
         enable = true;
         package = pkgs.swi-prolog;
       };
-      ruff.enable = true;
+      ruff.enable = true; # this is python lsp written in rust
       html.enable = true;
       cssls.enable = true;
       jsonls.enable = true;
@@ -43,9 +43,9 @@
       formatting = {
         stylua.enable = true;
         prettier = {
-            enable = true;
-            disableTsServerFormatter = true;
-          };
+          enable = true;
+          disableTsServerFormatter = true;
+        };
         alejandra.enable = true;
       };
     };

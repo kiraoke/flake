@@ -66,6 +66,7 @@
     nodejs
     pnpm
     deno
+    rustup
   ];
 
   stable = with pkgs-stable; [
