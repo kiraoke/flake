@@ -29,7 +29,7 @@
     unzip
     fastfetch
     gpustat
-    ncdu
+    gdu
     mpv
     blueman
     brightnessctl
