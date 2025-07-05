@@ -9,11 +9,11 @@
     "$mod, E, exec, $fileManager"
     "$mod, V, togglefloating"
     "$mod, F, exec, $menu"
-    "$mod, C, exec, $clip"
     "$mod, P, pseudo" # dwindle
     "$mod, Space, togglesplit"
     "$mod, B, exec, $browser"
     "$mod, N, exec, $nbrowser"
+    "$mod, C, exec, ~/.config/rofi/assets/wifimenu --rofi -s"
     "$shiftMod, right, resizeactive, 100 0"
     "$shiftMod, left, resizeactive, -100 0"
     "$shiftMod, down, resizeactive, 0 100"
