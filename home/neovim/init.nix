@@ -21,6 +21,7 @@
     ./colorscheme.nix
     ./comment.nix
     ./copilot.nix
+    ./cord.nix
     ./harpoon.nix
     ./oil.nix
     ./keymaps.nix
