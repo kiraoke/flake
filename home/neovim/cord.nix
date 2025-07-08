@@ -5,8 +5,12 @@
     settings = {
       editor = {
         client = "vim";
-        tooltip = "God's Text Editor";
+        tooltip = "神のエヂタ";
       };
+
+      text = {
+          editing = "エヂ千ク゚ ";
+        };
     };
   };
 }
