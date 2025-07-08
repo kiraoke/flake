@@ -112,6 +112,7 @@
       ls = "eza";
       kewie = "cd ~/Music && kew \$(fzf)";
       fd = "cd ~ && cd \$(find . -type d | fzf)";
+      celld = "cd ~ && celluloid \$(find . -type d |fzf)/*";
       dvim = "cd ~ && cd \$(find * -type d | fzf) && nvim .";
       "177013" = "xdg-open https://nhentai.to/g/177013";
       "344322" = "xdg-open https://nhentai.net/g/344322";
