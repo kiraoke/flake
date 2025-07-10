@@ -17,7 +17,7 @@
     cpuid
   ];
 
-  vulkan = with pkgs;[
+  vulkan = with pkgs; [
     vulkan-tools
     vulkan-headers
     vulkan-loader
