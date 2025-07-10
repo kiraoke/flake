@@ -13,13 +13,13 @@
   ];
 
   specialisation = {
-    latest-shit.configuration = {
-      boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+    cachy-shit.configuration = {
+      boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
     };
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = ["btrfs"];
 
     kernelParams = ["NVreg_UsePageAttributeTable=1"];
