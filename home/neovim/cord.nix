@@ -9,14 +9,14 @@
       };
 
       text = {
-          editing = "エディティンク゚ ";
-          viewing = "ヴィユインク゚";
-          file_browser = "ブラウジンク゚ファイルスインー";
-          plugin_manager = "マンエギンク゚パルギンスインー";
-          lsp = "コンフィク゚リンク゚ LSP インー";
+          editing = "エディティング ";
+          viewing = "ヴィユイング";
+          file_browser = "ブラウジングファイルスインー";
+          plugin_manager = "マンエギングパルギンスインー";
+          lsp = "コンフィグリング LSP インー";
         };
 
-        idle.details = "アイドリンク゚";
+        idle.details = "アイドリング";
     };
   };
 }
