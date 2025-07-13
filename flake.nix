@@ -50,7 +50,7 @@
           };
 
           username = "kira";
-          userpath = "/home/kira/";
+          userpath = "/home/kira";
         };
         modules = [
           ./configuration.nix

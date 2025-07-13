@@ -34,7 +34,7 @@
     backup = false;
     wrap = false;
     undofile = true;
-    undodir = "${userpath}.vim/undodir";
+    undodir = "${userpath}/.vim/undodir";
 
 
     hlsearch = true;

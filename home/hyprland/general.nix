@@ -12,7 +12,7 @@
     afterFirst = str:
       builtins.substring 1 (builtins.stringLength str - 1) str;
 
-    color3 = readFileIfExists "${userpath}.cache/wal/colors.json";
+    color3 = readFileIfExists "${userpath}/.cache/wal/colors.json";
   in {
     gaps_in = 5;
     gaps_out = 6;

@@ -111,7 +111,7 @@
           notification = false;
         }
         {
-          command = "feh --bg-scale ${userpath}flake/assets/wallpapers/lainer.png";
+          command = "feh --bg-scale ${userpath}/flake/assets/wallpapers/lainer.png";
           always = true;
           notification = false;
         }
@@ -120,7 +120,7 @@
       bars = [
         {
           position = "bottom";
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${userpath}flake/dots/i3status-rust.toml";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${userpath}/flake/dots/i3status-rust.toml";
           fonts = {
             size = 16.0;
           };

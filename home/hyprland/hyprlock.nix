@@ -10,7 +10,7 @@ in {
       background = [
         {
           monitor = "";
-          path = "${userpath}flake/assets/evangelion2x.png";
+          path = "${userpath}/flake/assets/evangelion2x.png";
 
           blur_passes = 0;
           blur_size = 2;
