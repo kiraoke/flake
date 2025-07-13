@@ -6,6 +6,9 @@
     nixvim.enable = false;
     kitty.enable = false;
     fzf.enable = false;
+    dunst.enable = false;
+    i3.enable = false;
+    feh.enable = false;
   };
 
   home.file.".local/share/fonts/DIN" = {

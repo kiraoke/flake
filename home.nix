@@ -69,6 +69,23 @@
     rustup
   ];
 
+  i3 = with pkgs; [
+    # Essential i3 packages
+    i3lock
+    i3status-rust
+    rofi
+    dunst
+    picom
+    feh
+
+    # System utilities
+    xss-lock
+    scrot
+
+    # bb
+    firefox
+  ];
+
   stable = with pkgs-stable; [
     kew
   ];
@@ -77,6 +94,7 @@ in {
     ./home/neovim/init.nix
     ./home/tmux/init.nix
     ./home/hyprland/init.nix
+    ./home/i3/init.nix
     ./home/btop.nix
     ./home/cava.nix
     ./home/fzf.nix
@@ -93,7 +111,7 @@ in {
   home.username = username;
   home.homeDirectory = ''/home/${username}'';
 
-  home.packages = systemPackages ++ utils ++ apps ++ dev ++ stable ;
+  home.packages = systemPackages ++ utils ++ apps ++ dev ++ i3 ++ stable;
 
   home.stateVersion = "24.11";
 
