@@ -74,10 +74,6 @@
         outer = 5;
       };
 
-      fonts = {
-        size = 13.0;
-      };
-
       window = {
         titlebar = true;
         border = 3;
