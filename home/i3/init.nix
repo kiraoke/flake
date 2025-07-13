@@ -1,4 +1,8 @@
-{userpath, pkgs, ...}: {
+{
+  userpath,
+  pkgs,
+  ...
+}: {
   imports = [
     ./colors.nix
     ./keybinds.nix
@@ -25,6 +29,40 @@
     };
   };
 
+  services.picom = {
+    enable = true;
+
+    # Shadow settings
+    shadow = true;
+    shadowOffsets = [(-5) (-5)];
+    shadowOpacity = 1;
+
+    activeOpacity = 0.90;
+    inactiveOpacity = 0.85;
+
+    backend = "glx";
+    vSync = true;
+
+    settings = {
+      shadow-exclude = [
+        "name = 'Notification'"
+        "class_g = 'Conky'"
+        "class_g ?= 'Notfiy-osd'"
+        "_GTK_FRAME_EXTENTS@:c"
+      ];
+
+      wintypes = {
+        tooltip = {
+          fade = true;
+          shadow = false;
+          focus = true;
+        };
+        dock = {shadow = false;};
+        dnd = {shadow = false;};
+      };
+    };
+  };
+
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -34,6 +72,10 @@
       gaps = {
         inner = 10;
         outer = 5;
+      };
+
+      fonts = {
+        size = 13.0;
       };
 
       window = {
@@ -54,6 +96,11 @@
           command = "nm-applet";
         }
         {
+          command = "setxkbmap -option caps:swapescape";
+          always = true;
+          notification = false;
+        }
+        {
           command = "blueman-applet";
           always = false;
           notification = false;
@@ -64,50 +111,51 @@
           notification = false;
         }
         {
-          command = "feh --bg-scale ${userpath}flake/assets/wallpapers/laind.png";
+          command = "feh --bg-scale ${userpath}flake/assets/wallpapers/lainer.png";
           always = true;
           notification = false;
         }
       ];
 
-      # bars = [
-      #   {
-      #     position = "top";
-      #     statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
-      #     colors = {
-      #       background = "#282828";
-      #       statusline = "#ebdbb2";
-      #       separator = "#689d6a";
-      #       focusedWorkspace = {
-      #         background = "#689d6a";
-      #         border = "#689d6a";
-      #         text = "#282828";
-      #       };
-      #       activeWorkspace = {
-      #         background = "#3c3836";
-      #         border = "#3c3836";
-      #         text = "#ebdbb2";
-      #       };
-      #       inactiveWorkspace = {
-      #         background = "#282828";
-      #         border = "#282828";
-      #         text = "#a89984";
-      #       };
-      #       urgentWorkspace = {
-      #         background = "#cc241d";
-      #         border = "#cc241d";
-      #         text = "#ebdbb2";
-      #       };
-      #       bindingMode = {
-      #         background = "#d79921";
-      #         border = "#d79921";
-      #         text = "#282828";
-      #       };
-      #     };
-      #   }
-      # ];
-
-
+      bars = [
+        {
+          position = "bottom";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${userpath}flake/dots/i3status-rust.toml";
+          fonts = {
+            size = 16.0;
+          };
+          colors = {
+            background = "#cba882";
+            statusline = "#ebdbb2";
+            separator = "#689d6a";
+            focusedWorkspace = {
+              background = "#6b2c25";
+              border = "#6b2c25";
+              text = "#ebdbb2";
+            };
+            activeWorkspace = {
+              background = "#3c3836";
+              border = "#3c3836";
+              text = "#ebdbb2";
+            };
+            inactiveWorkspace = {
+              background = "#cba882";
+              border = "#cba882";
+              text = "#6b2c25";
+            };
+            urgentWorkspace = {
+              background = "#cc241d";
+              border = "#cc241d";
+              text = "#ebdbb2";
+            };
+            bindingMode = {
+              background = "#d79921";
+              border = "#d79921";
+              text = "#282828";
+            };
+          };
+        }
+      ];
     };
   };
 }

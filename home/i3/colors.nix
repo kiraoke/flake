@@ -2,11 +2,11 @@
   xsession.windowManager.i3.config.colors = lib.mkForce {
     background = "#282828";
     focused = {
-      background = "#689d6a";
-      border = "#689d6a";
-      childBorder = "#689d6a";
+      background = "#cba882";
+      border = "#cba882";
+      childBorder = "#cba882";
       indicator = "#fe8019";
-      text = "#282828";
+      text = "#62150d";
     };
     focusedInactive = {
       background = "#3c3836";
@@ -16,11 +16,11 @@
       text = "#ebdbb2";
     };
     unfocused = {
-      background = "#32302f";
-      border = "#32302f";
-      childBorder = "#32302f";
-      indicator = "#282828";
-      text = "#a89984";
+      background = "#280000";
+      border = "#280000";
+      childBorder = "#280000";
+      indicator = "#280000";
+      text = "#62150d";
     };
     urgent = {
       background = "#cc241d";

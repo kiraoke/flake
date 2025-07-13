@@ -1,0 +1,18 @@
+# i3status-rust configuration
+# Theme and icons
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents "
+warning_mem = 80.0
+critical_mem = 95.0
+
+[[block]]
+block = "cpu"
+interval = 1
+format = " $icon $barchart $utilization "
+
+[[block]]
+block = "backlight"
+device = "intel_backlight"  # Check /sys/class/backlight/ for your device
+format = " $icon $brightness "
