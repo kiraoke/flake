@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  pkgs-stable,
   ...
 }: let
   system = with pkgs; [
@@ -44,7 +45,7 @@
     cloudflare-warp
   ];
 
-  virt = with pkgs; [
+  virt = with pkgs-stable; [
     distrobox
     qemu
     virt-manager
