@@ -3,6 +3,7 @@
 
   programs.nixvim.extraConfigLuaPost = ''
      local nvim_lsp = require('lspconfig')
+     vim.g.rust_recommended_style = 0
 
      nvim_lsp.denols.setup ({
          on_attach = on_attach,
