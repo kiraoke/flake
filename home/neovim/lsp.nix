@@ -19,7 +19,6 @@
       jsonls.enable = true;
       ts_ls.enable = true;
       denols.enable = true;
-      harper_ls.enable = true; # this is for spell checking
     };
 
     keymaps = {
