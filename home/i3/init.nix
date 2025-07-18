@@ -31,6 +31,11 @@
 
   services.picom = {
     enable = true;
+    opacityRules = [
+      "100:class_g = 'Brave-browser'"
+      "100:class_g = 'brave-browser'"
+      "100:class_g = 'brave'"
+    ];
 
     # Shadow settings
     shadow = true;
