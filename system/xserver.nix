@@ -2,7 +2,7 @@
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    xkbOptions = "caps:swapescape";
+    xkb.options = "caps:swapescape";
 
     windowManager.i3.enable = true;
   };
