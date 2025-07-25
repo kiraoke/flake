@@ -115,6 +115,7 @@
       celld = "cd ~ && celluloid \$(find . -type d |fzf)/*";
       dvim = "cd ~ && cd \$(find * -type d | fzf) && nvim .";
       "177013" = "xdg-open https://nhentai.to/g/177013";
+      "へんたい" = "xdg-open https://nhentai.to/g/177013";
       "344322" = "xdg-open https://nhentai.net/g/344322";
       wifilogin = "~/bits-login/login.sh";
       # Basic git commands
