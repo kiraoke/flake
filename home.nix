@@ -17,6 +17,7 @@
     tree
     git-lfs
     gnome-power-manager
+    powertop
   ];
 
   utils = with pkgs; [

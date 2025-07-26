@@ -22,7 +22,11 @@
     kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = ["btrfs"];
 
-    kernelParams = ["NVreg_UsePageAttributeTable=1"];
+    kernelParams = [
+      "NVreg_UsePageAttributeTable=1"
+      "NVreg_DynamicPowerManagement=0x02"
+      "NVreg_PreserveVideoMemoryAllocations=1"
+    ];
     kernelModules = ["kvm-amd"];
 
     blacklistedKernelModules = ["nouveau"];
