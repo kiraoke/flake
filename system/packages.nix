@@ -57,5 +57,6 @@
   ];
 in {
   services.tlp.enable = true;
+  services.upower.enable = true;
   environment.systemPackages = system ++ vulkan ++ dev ++ apps ++ virt;
 }
