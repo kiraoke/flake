@@ -56,5 +56,6 @@
     spice-protocol
   ];
 in {
+  services.tlp.enable = true;
   environment.systemPackages = system ++ vulkan ++ dev ++ apps ++ virt;
 }

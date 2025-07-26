@@ -16,6 +16,7 @@
     file
     tree
     git-lfs
+    gnome-power-manager
   ];
 
   utils = with pkgs; [
