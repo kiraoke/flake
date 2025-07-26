@@ -13,6 +13,7 @@
     ./networking.nix
     ./packages.nix
     ./programs.nix
+    ./power.nix
     ./sddm.nix
     # ./spicetify.nix
     ./stylix.nix
