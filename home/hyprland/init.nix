@@ -40,7 +40,7 @@
       "fcitx5"
     ];
 
-    settings."$terminal" = "ghostty";
+    settings."$terminal" = "kitty";
     settings."$browser" = "zen";
     settings."$nbrowser" = "nvidia-offload zen || zen";
     settings."$fileManager" = "nautilus";
