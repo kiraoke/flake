@@ -95,7 +95,6 @@
 in {
   imports = [
     ./home/neovim/init.nix
-    ./home/tmux/init.nix
     ./home/hyprland/init.nix
     ./home/i3/init.nix
     ./home/btop.nix
