@@ -11,7 +11,7 @@
     windowrulev2 = opacity 1.0 override 0.85 override, class:org.telegram.desktop
     windowrulev2 = opacity 1.0 override 0.85 override, class:org.nicotine_plus.Nicotine
     windowrulev2 = opacity 0.9 override 0.8 override, class:kitty
-    windowrulev2 = opacity 0.65 override 0.63 override, class:com.mitchellh.ghostty
+    windowrulev2 = opacity 0.9 override 0.8 override, class:com.mitchellh.ghostty
     windowrulev2 = opacity 0.9 override 0.85 override, class:webstorm
     windowrulev2 = opacity 1.0 override 1.0 override, title:Spotify
     windowrulev2 = opacity 1.0 override 1.0 override, class:io.github.celluloid_player.Celluloid

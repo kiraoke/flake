@@ -63,6 +63,7 @@
   dev = with pkgs; [
     go
     podman-desktop
+    ghostty
     yaak
     nasm
     nodejs
