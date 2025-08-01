@@ -39,6 +39,7 @@
     steam-run-free
     yt-dlp
     ffmpeg
+    protonvpn-gui
   ];
 
   apps = with pkgs; [
