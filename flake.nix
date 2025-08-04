@@ -58,7 +58,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.sharedModules = [nixvim.homeManagerModules.nixvim];
+            home-manager.sharedModules = [nixvim.homeModules.nixvim];
             home-manager.users.kira = import ./home.nix;
             home-manager.extraSpecialArgs = {
               pkgs-stable = import nixpkgs-stable {
