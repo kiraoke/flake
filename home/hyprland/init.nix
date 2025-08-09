@@ -34,7 +34,7 @@
       "hypridle"
       "nm-applet"
       "swaync"
-      "easyeffects --gapplication-service"
+      # "easyeffects --gapplication-service"
       "swww-daemon"
       "swww img ~/flake/assets/wallpapers/akabya.png"
       "fcitx5"
