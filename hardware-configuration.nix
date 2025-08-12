@@ -8,50 +8,50 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b75c1243-2b59-42b3-a4f9-e8522a930183";
+    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
       fsType = "btrfs";
       options = [ "subvol=@" "compress=zstd" "noatime"];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/b75c1243-2b59-42b3-a4f9-e8522a930183";
+    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
       fsType = "btrfs";
       options = [ "subvol=@home" "compress=zstd" "noatime"];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/b75c1243-2b59-42b3-a4f9-e8522a930183";
+    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
       fsType = "btrfs";
       options = [ "subvol=@nix" "compress=zstd" "noatime"];
     };
 
   fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/b75c1243-2b59-42b3-a4f9-e8522a930183";
+    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
       fsType = "btrfs";
       options = [ "subvol=@persist" "compress=zstd" "noatime"];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/b75c1243-2b59-42b3-a4f9-e8522a930183";
+    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
       fsType = "btrfs";
       options = [ "subvol=@log" "compress=zstd" "noatime"];
       neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5068-1011";
+    { device = "/dev/disk/by-uuid/EC4F-11CC";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/9e0d0a84-b5e5-4f9e-873a-034e70eae1f3"; }
+    [ { device = "/dev/disk/by-uuid/901ba0b0-515d-4d2b-87a6-31b1e73f5cea"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
