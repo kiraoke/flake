@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
   programs.nixvim.plugins.lsp = {
     enable = true;
     inlayHints = true;
@@ -51,5 +55,8 @@
     };
   };
 
-  programs.nixvim.plugins.rustaceanvim.enable = true;
+  programs.nixvim.plugins.rustaceanvim = {
+    enable = true;
+    package = pkgs-stable.vimPlugins.rustaceanvim;
+  };
 }
