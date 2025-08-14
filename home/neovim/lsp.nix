@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-stable,
   ...
 }: {
   programs.nixvim.plugins.lsp = {
@@ -55,8 +54,5 @@
     };
   };
 
-  programs.nixvim.plugins.rustaceanvim = {
-    enable = true;
-    package = pkgs-stable.vimPlugins.rustaceanvim;
-  };
+  programs.nixvim.plugins.rustaceanvim.enable = true; 
 }
