@@ -71,6 +71,7 @@
     pnpm
     deno
     rustup
+    jetbrains.rust-rover
   ];
 
   i3 = with pkgs; [
