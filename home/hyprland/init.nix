@@ -36,7 +36,7 @@
       "swaync"
       # "easyeffects --gapplication-service"
       "swww-daemon"
-      "swww img ~/flake/assets/wallpapers/akabya.png"
+      "swww img ~/flake/assets/wallpapers/name.jpg"
       "fcitx5"
     ];
 
