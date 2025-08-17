@@ -40,6 +40,7 @@
     yt-dlp
     ffmpeg
     protonvpn-gui
+    syncthing
   ];
 
   apps = with pkgs; [
