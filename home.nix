@@ -37,7 +37,7 @@
     brightnessctl
     pavucontrol
     steam-run-free
-    yt-dlp
+    yt-dlp_git
     ffmpeg
     protonvpn-gui
     syncthing
