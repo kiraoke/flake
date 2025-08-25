@@ -71,6 +71,14 @@
               cd "$(dirname "$file")" || return
           }
 
+          fd() {
+            cd ~
+            local dir
+            dir="$(find . -type d 2>/dev/null | fzf)"
+            [ -n "$dir" ] && cd "$dir"
+          }
+
+
           fvim() {
             local file
               file=$(fzf --query="$1") || return
@@ -111,7 +119,6 @@
       img = "kitten icat";
       ls = "eza";
       kewie = "cd ~/Music && kew \$(fzf)";
-      fd = "cd ~ && cd \$(find . -type d | fzf)";
       celld = "cd ~ && celluloid \$(find . -type d |fzf)/*";
       dvim = "cd ~ && cd \$(find * -type d | fzf) && nvim .";
       "177013" = "xdg-open https://nhentai.to/g/177013";
