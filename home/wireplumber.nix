@@ -1,4 +1,7 @@
 {...}: {
+  # for pipewire
+  home.file.".config/pipewire/pipewire.conf.d/hires.conf".source = ../dots/pipewire.conf;
+
   home.file.".config/wireplumber/wireplumber.conf.d/50-also-config.conf".text = ''
     	monitor.alsa.rules = [
       {
