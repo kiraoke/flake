@@ -45,6 +45,7 @@
 
   apps = with pkgs; [
     easyeffects
+    strawberry
     songrec
     peaclock
     lazygit
