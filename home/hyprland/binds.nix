@@ -62,6 +62,9 @@
     "$shiftMod, 8, movetoworkspace, 8"
     "$shiftMod, 9, movetoworkspace, 9"
     "$shiftMod, 0, movetoworkspace, 0"
+
+    # space bar busted
+    ", Alt_R, exec, wtype \" \""
   ];
 
   wayland.windowManager.hyprland.settings.bindm = ["$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow"];

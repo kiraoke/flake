@@ -18,6 +18,7 @@
     git-lfs
     gnome-power-manager
     powertop
+    wtype
   ];
 
   utils = with pkgs; [
