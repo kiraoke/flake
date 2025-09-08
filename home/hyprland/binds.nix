@@ -14,10 +14,14 @@
     "$mod, B, exec, $browser"
     "$mod, N, exec, $nbrowser"
     "$mod, C, exec, ~/.config/rofi/assets/wifimenu --rofi -s"
-    "$shiftMod, right, resizeactive, 100 0"
-    "$shiftMod, left, resizeactive, -100 0"
-    "$shiftMod, down, resizeactive, 0 100"
-    "$shiftMod, up, resizeactive, 0 -100"
+    "$shiftMod, right, resizeactive, 100 0" # right
+    "$shiftMod, left, resizeactive, -100 0" # left
+    "$shiftMod, down, resizeactive, 0 100" # down
+    "$shiftMod, up, resizeactive, 0 -100" # up
+    "$shiftMod, slash, resizeactive, 100 0" # right
+    "$shiftMod, M, resizeactive, -100 0" # left
+    "$shiftMod, comma, resizeactive, 0 100" # down
+    "$shiftMod, L, resizeactive, 0 -100" # up
     "$mod, L, exec, pkill waybar || waybar"
     "$mod, T, fullscreen, 1"
     "$mod, Y, fullscreen, 0"
@@ -34,6 +38,10 @@
     "$mod, right, movefocus, r"
     "$mod, up, movefocus, u"
     "$mod, down, movefocus, d"
+    "$mod, M, movefocus, l"
+    "$mod, slash, movefocus, r"
+    "$mod, L, movefocus, u"
+    "$mod, comma, movefocus, d"
 
     # alt tab
     "ALT, Tab, cyclenext"
