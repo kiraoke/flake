@@ -18,30 +18,30 @@
     "$shiftMod, left, resizeactive, -100 0" # left
     "$shiftMod, down, resizeactive, 0 100" # down
     "$shiftMod, up, resizeactive, 0 -100" # up
-    "$shiftMod, slash, resizeactive, 100 0" # right
-    "$shiftMod, M, resizeactive, -100 0" # left
-    "$shiftMod, comma, resizeactive, 0 100" # down
-    "$shiftMod, L, resizeactive, 0 -100" # up
+    "$shiftMod, D, resizeactive, 100 0" # right
+    "$shiftMod, A, resizeactive, -100 0" # left
+    "$shiftMod, S, resizeactive, 0 100" # down
+    "$shiftMod, W, resizeactive, 0 -100" # up
     "$mod, L, exec, pkill waybar || waybar"
     "$mod, T, fullscreen, 1"
     "$mod, Y, fullscreen, 0"
     "$mod, S, exec, hyprshot -m output"
 
     # move windows
-    "$shiftMod, A, movewindow, l"
-    "$shiftMod, D, movewindow, r"
-    "$shiftMod, W, movewindow, u"
-    "$shiftMod, S, movewindow, d"
+    "$shiftMod, H, movewindow, l"
+    "$shiftMod, L, movewindow, r"
+    "$shiftMod, K, movewindow, u"
+    "$shiftMod, J, movewindow, d"
 
     # move focus of windows
     "$mod, left, movefocus, l"
     "$mod, right, movefocus, r"
     "$mod, up, movefocus, u"
     "$mod, down, movefocus, d"
-    "$mod, M, movefocus, l"
-    "$mod, slash, movefocus, r"
-    "$mod, L, movefocus, u"
-    "$mod, comma, movefocus, d"
+    "$mod, H, movefocus, l"
+    "$mod, L, movefocus, r"
+    "$mod, K, movefocus, u"
+    "$mod, J, movefocus, d"
 
     # alt tab
     "ALT, Tab, cyclenext"
