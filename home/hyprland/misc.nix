@@ -22,6 +22,4 @@
 
     touchpad = {natural_scroll = true;};
   };
-
-  wayland.windowManager.hyprland.settings.gestures = {workspace_swipe = true;};
 }

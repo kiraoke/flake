@@ -31,5 +31,7 @@
 
     layerrule = blur, swaync-control-center
     layerrule = blur, swaync-notification-window
+
+    gesture = 3, horizontal, workspace
   '';
 }
