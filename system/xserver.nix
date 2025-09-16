@@ -7,6 +7,20 @@
     windowManager.i3.enable = true;
   };
 
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = ["*"];
+        settings = {
+          main = {
+            rightalt = "rightcontrol";
+          };
+        };
+      };
+    };
+  };
+
   services.libinput = {
     enable = true;
     touchpad = {
