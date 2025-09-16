@@ -42,6 +42,7 @@
     ffmpeg
     protonvpn-gui
     syncthing
+    mpvpaper
   ];
 
   apps = with pkgs; [
