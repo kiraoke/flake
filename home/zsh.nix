@@ -25,6 +25,10 @@
     initContent = ''
             fastfetch
 
+      # LESS SYNTAX HIGHLIGHT
+            export LESSOPEN="| ${pkgs.sourceHighlight}/bin/src-hilities-lesspipe.sh %s"
+            export LESS=" -R "
+
       # Enable Powerlevel10k instant prompt
             if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
               source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"

@@ -43,6 +43,7 @@
     protonvpn-gui
     syncthing
     mpvpaper
+    sourceHighlight
   ];
 
   apps = with pkgs; [
