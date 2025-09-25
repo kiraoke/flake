@@ -31,6 +31,7 @@
     gcc
     gnumake
     gdb
+    SDL2
   ];
 
   apps = with pkgs; [
