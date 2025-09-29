@@ -44,6 +44,7 @@
     syncthing
     mpvpaper
     sourceHighlight
+    openssl
   ];
 
   apps = with pkgs; [
@@ -76,6 +77,7 @@
     deno
     rustup
     jetbrains.rust-rover
+    jq # json processor
   ];
 
   i3 = with pkgs; [
