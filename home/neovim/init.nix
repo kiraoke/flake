@@ -2,18 +2,19 @@
   programs.nixvim.enable = true;
 
   programs.nixvim.extraConfigLuaPost = ''
-     local nvim_lsp = require('lspconfig')
-     vim.g.rust_recommended_style = 0
+      vim.g.rust_recommended_style = 0
 
-     nvim_lsp.denols.setup ({
-         on_attach = on_attach,
-         root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
-         })
+      vim.lsp.config('denols', {
+          cmd = { 'deno', 'lsp' },
+          root_dir = vim.fs.root(0, { 'deno.json', 'deno.jsonc' }),
+          on_attach = on_attach,
+      })
 
-    nvim_lsp.ts_ls.setup ({
-       on_attach = on_attach,
-       root_dir = nvim_lsp.util.root_pattern("package.json"),
-       single_file_support = false
+      vim.lsp.config('ts_ls', {
+          cmd = { 'typescript-language-server', '--stdio' },
+          root_dir = vim.fs.root(0, { 'package.json' }),
+          single_file_support = false,
+          on_attach = on_attach,
        })
   '';
 
