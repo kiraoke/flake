@@ -15,6 +15,7 @@
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtsvg
+    kdePackages.qt5compat
     cpuid
   ];
 
@@ -55,6 +56,21 @@
     spice-gtk
     spice-protocol
   ];
+
+  evadm = pkgs.stdenv.mkDerivation {
+    name = "evadm";
+    src = ../dots/evadm;
+    installPhase = ''
+      mkdir -p $out/share/sddm/themes/evadm
+      cp -r * $out/share/sddm/themes/evadm
+    '';
+  };
 in {
-  environment.systemPackages = system ++ vulkan ++ dev ++ apps ++ virt;
+  environment.systemPackages =
+    system
+    ++ vulkan
+    ++ dev
+    ++ apps
+    ++ virt
+    ++ [evadm];
 }

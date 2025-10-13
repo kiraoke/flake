@@ -1,0 +1,10 @@
+[SddmGreeterTheme]
+Name=evadm
+Description=Neon Genesis Evangelion Inspired Theme
+Author=4amgae
+Type=sddm-theme
+Version=1.0
+Website=https://github.com/kiraoke/evadm
+MainScript=Main.qml
+ConfigFile=theme.conf
+QtVersion=6
