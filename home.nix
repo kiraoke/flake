@@ -76,7 +76,6 @@
     pnpm
     deno
     rustup
-    jetbrains.rust-rover
     jq # json processor
   ];
 
