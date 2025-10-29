@@ -15,6 +15,8 @@
         settings = {
           main = {
             rightalt = "rightcontrol";
+            esc = "grave";
+            S-esc = "asciitilde";
           };
         };
       };
