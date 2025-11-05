@@ -32,6 +32,7 @@
     gcc
     gnumake
     gdb
+    docker-compose
   ];
 
   apps = with pkgs; [
