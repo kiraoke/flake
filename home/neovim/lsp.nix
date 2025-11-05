@@ -10,6 +10,7 @@
       bashls.enable = true;
       clangd.enable = true;
       gopls.enable = true;
+      yamlls.enable = true;
       lua_ls.enable = true;
       nixd.enable = true;
       prolog_ls = {
