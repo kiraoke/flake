@@ -45,6 +45,7 @@
     mpvpaper
     sourceHighlight
     openssl
+    sox
   ];
 
   apps = with pkgs; [
