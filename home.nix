@@ -7,7 +7,7 @@
 }: let
   systemPackages = with pkgs; [
     dconf
-    qt6ct
+    qt6Packages.qt6ct
     qt6.qtwayland
     clang
     networkmanagerapplet
@@ -40,7 +40,6 @@
     steam-run-free
     yt-dlp_git
     ffmpeg
-    protonvpn-gui
     syncthing
     mpvpaper
     sourceHighlight
@@ -64,7 +63,7 @@
     vesktop
     upscayl
     hyprshot
-    ryujinx-greemdev
+    ryubing
   ];
 
   dev = with pkgs; [
