@@ -122,6 +122,8 @@ in {
 
   home.packages = systemPackages ++ utils ++ apps ++ dev ++ i3 ++ stable;
 
+  home.file.".config/yt-dlp/config".source = ./dots/yt-dlp.config;
+
   home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
