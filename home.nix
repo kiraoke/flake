@@ -45,6 +45,7 @@
     sourceHighlight
     openssl
     sox
+    protonvpn-gui
   ];
 
   apps = with pkgs; [
