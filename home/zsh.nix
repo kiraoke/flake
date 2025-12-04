@@ -123,7 +123,7 @@
       img = "kitten icat";
       ls = "eza";
       kewie = "cd ~/Music && kew \$(fzf)";
-      celld = "cd ~ && celluloid \$(find . -type d |fzf)/*";
+      celld = "celluloid \$(find . -type d |fzf)/*";
       dvim = "cd ~ && cd \$(find * -type d | fzf) && nvim .";
       "177013" = "xdg-open https://nhentai.to/g/177013";
       "へんたい" = "xdg-open https://nhentai.to/g/177013";
