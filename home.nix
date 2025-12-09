@@ -102,6 +102,7 @@
   ];
 in {
   imports = [
+    inputs.zen-browser.homeModules.twilight
     ./home/neovim/init.nix
     ./home/hyprland/init.nix
     ./home/i3/init.nix
@@ -117,6 +118,8 @@ in {
     ./home/launcher.nix
     ./home/zellij.nix
   ];
+
+  programs.zen-browser.enable = true;
 
   home.username = username;
   home.homeDirectory = ''/home/${username}'';

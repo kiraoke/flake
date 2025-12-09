@@ -39,7 +39,6 @@
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     }))
-    inputs.zen-browser.packages."${pkgs.system}".default
     nautilus
     xclip
     wl-clipboard
