@@ -10,6 +10,7 @@
     i3.enable = false;
     feh.enable = false;
     zen-browser.enable = false;
+    gdu.enable = false;
   };
 
   home.file.".local/share/fonts/DIN" = {
