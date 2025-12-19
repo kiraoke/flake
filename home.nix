@@ -17,6 +17,7 @@
     ./home/packages.nix
     ./home/theme.nix
     ./home/wireplumber.nix
+    ./home/zen.nix
     ./home/zsh.nix
     ./home/launcher.nix
     ./home/zellij.nix

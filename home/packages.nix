@@ -96,7 +96,5 @@
     kew
   ];
 in {
-  programs.zen-browser.enable = true;
-
   home.packages = systemPackages ++ utils ++ apps ++ dev ++ i3 ++ stable;
 }
