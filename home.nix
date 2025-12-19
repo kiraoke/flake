@@ -16,8 +16,6 @@
     file
     tree
     git-lfs
-    gnome-power-manager
-    powertop
     wtype
   ];
 
@@ -40,11 +38,9 @@
     steam-run-free
     yt-dlp_git
     ffmpeg
-    syncthing
     mpvpaper
     sourceHighlight
     openssl
-    sox
     protonvpn-gui
   ];
 
@@ -65,7 +61,6 @@
     vesktop
     upscayl
     hyprshot
-    ryubing
   ];
 
   dev = with pkgs; [
