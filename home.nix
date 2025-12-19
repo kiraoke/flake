@@ -56,6 +56,7 @@
     nicotine-plus
     galaxy-buds-client
     celluloid
+    vlc
     anki-bin
     brave
     telegram-desktop
