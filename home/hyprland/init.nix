@@ -24,7 +24,7 @@
       "QT_QPA_PLATFORMTHEME.qt6ct"
 
       "BRAVE_BROWSER, ${pkgs.brave}"
-      "HYPRSHOT_DIR, ${userpath}/Pictures/ss"
+      "HYPRSHOT_DIR, ${userpath}/Pictures/Screenshots"
       "GTK_IM_MODULE, fcitx"
       "QT_IM_MODULE, fcitx"
       "XMODIFIERS, @im=fcitx"
