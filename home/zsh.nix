@@ -121,7 +121,6 @@
       vim = "nvim";
       timer = "sudo -E timeshift-gtk";
       img = "kitten icat";
-      ls = "eza";
       kewie = "cd ~/Music && kew \$(fzf)";
       celld = "celluloid \$(find . -type d |fzf)/*";
       dvim = "cd ~ && cd \$(find * -type d | fzf) && nvim .";

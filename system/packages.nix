@@ -42,7 +42,6 @@
     nautilus
     xclip
     wl-clipboard
-    eza
     cloudflare-warp
   ];
 
