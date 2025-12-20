@@ -89,6 +89,14 @@
               nvim "$file" || return
           }
 
+          standwal() {
+            cd
+              mkdir .flakewal
+              wal -i ~/flake/assets/wallpapers/bakane.jpg
+              rsync -a ~/.cache/wal/ ~/.flakewal
+              wal -i ~/flake/assets/wallpapers/fireflychi.png
+          }
+
           waller() {
             cd
               mkdir .flakewal
