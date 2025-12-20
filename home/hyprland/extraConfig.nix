@@ -5,6 +5,7 @@
     monitor = , preferred, auto, 1, mirror, eDP-2
 
     windowrulev2 = opacity 1.0 override 0.85 override, class:zen-beta
+    windowrulev2 = opacity 1.0 override 0.85 override, class:zen-twilight
     windowrulev2 = opacity 1.0 override 0.85 override, class:zen
     windowrulev2 = size 800 600, class:zen,title:Save Image
     windowrulev2 = opacity 1.0 override 0.85 override, class:brave-browser
