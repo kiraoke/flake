@@ -39,8 +39,6 @@
   };
 
   specialisation.gaming-shit.configuration = {
-    boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
-
     hardware.nvidia = {
       prime.sync.enable = lib.mkForce true;
       powerManagement.finegrained = lib.mkForce false;

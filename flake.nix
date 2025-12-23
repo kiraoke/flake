@@ -18,7 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     stylix.url = "github:danth/stylix";
   };
 
@@ -28,7 +27,6 @@
     nixpkgs-stable,
     home-manager,
     nixvim,
-    chaotic,
     stylix,
     ...
   }: {
@@ -72,7 +70,6 @@
             };
           }
           inputs.minegrub-world-sel-theme.nixosModules.default
-          chaotic.nixosModules.default
           stylix.nixosModules.stylix
         ];
       };

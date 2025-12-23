@@ -35,7 +35,7 @@
     brightnessctl
     pavucontrol
     steam-run-free
-    yt-dlp_git
+    yt-dlp
     ffmpeg
     mpvpaper
     sourceHighlight
