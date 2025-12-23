@@ -38,18 +38,16 @@
     ];
   };
 
-  specialisation = {
-    gaming-shit.configuration = {
-      boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+  specialisation.gaming-shit.configuration = {
+    boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
-      hardware.nvidia = {
-        prime.sync.enable = lib.mkForce true;
-        powerManagement.finegrained = lib.mkForce false;
+    hardware.nvidia = {
+      prime.sync.enable = lib.mkForce true;
+      powerManagement.finegrained = lib.mkForce false;
 
-        prime.offload = {
-          enable = lib.mkForce false;
-          enableOffloadCmd = lib.mkForce false;
-        };
+      prime.offload = {
+        enable = lib.mkForce false;
+        enableOffloadCmd = lib.mkForce false;
       };
     };
   };
