@@ -20,9 +20,10 @@
       ruff.enable = true; # this is python lsp written in rust
       html.enable = true;
       cssls.enable = true;
+      tailwindcss.enable = true;
       jsonls.enable = true;
-      ts_ls.enable = true;
-      # denols.enable = true;
+      # ts_ls.enable = true;
+      denols.enable = true;
     };
 
     keymaps = {
