@@ -22,8 +22,8 @@
       cssls.enable = true;
       tailwindcss.enable = true;
       jsonls.enable = true;
-      # ts_ls.enable = true;
-      denols.enable = true;
+      ts_ls.enable = true;
+      # denols.enable = true;
     };
 
     keymaps = {
