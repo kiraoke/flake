@@ -208,7 +208,7 @@
     }
     {
       mode = "n";
-      key = "<leader>r";
+      key = "<leader>o";
       action.__raw = "function() require'harpoon':list():select(4) end";
     }
     # center page when control d
