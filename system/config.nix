@@ -15,7 +15,6 @@
     ./programs.nix
     ./power.nix
     ./sddm.nix
-    # ./spicetify.nix
     ./stylix.nix
     ./ssh.nix
     ./systemd.nix
