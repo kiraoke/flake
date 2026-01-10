@@ -5,7 +5,7 @@
     AddKeysToAgent yes
     Host github.com
       User git
-      IdentityFile /home/kira/kirakey
+      IdentityFile /home/zenzawa/zenkey
     '' ;
   };
 }
