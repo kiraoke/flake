@@ -66,7 +66,7 @@
 
           rebuild() {
             sudo mount /dev/nvme0n1p4 /boot
-              sudo nixos-rebuild switch --flake ~/flake#kage --impure
+              sudo nixos-rebuild switch --flake ~/flake#senzawa --impure
           }
 
           ff() {

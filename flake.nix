@@ -32,7 +32,7 @@
   }: {
     # Please replace my-nixos with your hostname
     nixosConfigurations = {
-      kage = nixpkgs.lib.nixosSystem rec {
+      senzawa = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = {
           inherit inputs;
@@ -46,8 +46,8 @@
             config.allowUnfree = true;
           };
 
-          username = "kira";
-          userpath = "/home/kira";
+          username = "zenzawa";
+          userpath = "/home/zenzawa";
         };
         modules = [
           ./configuration.nix
@@ -56,15 +56,15 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [nixvim.homeModules.nixvim];
-            home-manager.users.kira = import ./home.nix;
+            home-manager.users.zenzawa = import ./home.nix;
             home-manager.extraSpecialArgs = {
               pkgs-stable = import nixpkgs-stable {
                 inherit system;
                 config.allowUnfree = true;
               };
 
-              username = "kira";
-              userpath = "/home/kira/";
+              username = "zenzawa";
+              userpath = "/home/zenzawa/";
 
               inherit inputs;
             };

@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       user.name = "zenzawa";
-      user.email = "kiraokeku@gmail.com";
+      user.email = "madhavkage@gmail.com";
     };
   };
 }

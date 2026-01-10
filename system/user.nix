@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  users.users.kira = {
+  users.users.zenzawa = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
