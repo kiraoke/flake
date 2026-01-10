@@ -8,59 +8,50 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
+    { device = "/dev/disk/by-uuid/86e603a3-dbc9-461b-95e3-9f8764ea72c8";
       fsType = "btrfs";
       options = [ "subvol=@" "compress=zstd" "noatime"];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
+    { device = "/dev/disk/by-uuid/86e603a3-dbc9-461b-95e3-9f8764ea72c8";
       fsType = "btrfs";
       options = [ "subvol=@home" "compress=zstd" "noatime"];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
+    { device = "/dev/disk/by-uuid/86e603a3-dbc9-461b-95e3-9f8764ea72c8";
       fsType = "btrfs";
       options = [ "subvol=@nix" "compress=zstd" "noatime"];
     };
 
   fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
+    { device = "/dev/disk/by-uuid/86e603a3-dbc9-461b-95e3-9f8764ea72c8";
       fsType = "btrfs";
       options = [ "subvol=@persist" "compress=zstd" "noatime"];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/18253365-8f99-45e0-9731-2e6868277edc";
+    { device = "/dev/disk/by-uuid/86e603a3-dbc9-461b-95e3-9f8764ea72c8";
       fsType = "btrfs";
       options = [ "subvol=@log" "compress=zstd" "noatime"];
-      neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/EC4F-11CC";
+    { device = "/dev/disk/by-uuid/93FB-8B15";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/901ba0b0-515d-4d2b-87a6-31b1e73f5cea"; }
+    [ { device = "/dev/disk/by-uuid/46435d9d-87b2-4076-a9ef-8f7bea6bb9d5"; }
     ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp2s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
