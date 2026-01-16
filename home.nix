@@ -27,6 +27,7 @@
   home.homeDirectory = ''/home/${username}'';
 
   home.file.".config/yt-dlp/config".source = ./dots/yt-dlp.config;
+  home.file.".config/yazi/yazi.toml".source = ./dots/yazi.toml;
 
   home.stateVersion = "24.11";
 

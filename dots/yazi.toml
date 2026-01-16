@@ -1,0 +1,13 @@
+[opener]
+play = [
+  {run = 'vlc "$@"', desc = "VLC", orphan = true},
+]
+
+[open]
+rules = [
+  # Video files → use the "play" opener (which now runs VLC)
+  { mime = "video/*", use = ["play", "reveal"] },
+
+  # Audio files (including FLAC) → same "play" opener
+  { mime = "audio/*",   use = ["play", "reveal"] },
+]
