@@ -24,6 +24,13 @@
     }
 
     windowrule {
+      name = windowrule-3
+      opacity = 1.0 override 0.85 override
+      match:class = code
+    }
+
+
+    windowrule {
       name = windowrule-4
       size = 800 600
       match:class = zen
