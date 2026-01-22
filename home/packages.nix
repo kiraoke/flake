@@ -73,6 +73,7 @@
     deno
     rustup
     jq # json processor
+    vscode
   ];
 
   i3 = with pkgs; [
