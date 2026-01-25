@@ -6,7 +6,7 @@
     "${modifier}+w" = "kill";
     "${modifier}+f" = "exec ${config.xsession.windowManager.i3.config.menu}";
     "${modifier}+b" = "exec brave";
-    "${modifier}+x" = "exec --no-startup-id scrot  ~/Pictures/i3shot_%Y%m%d_%H%M%S.png && notify-send 'Screenshot saved'";
+    "${modifier}+x" = "exec --no-startup-id scrot  ~/Pictures/Screenshots/i3shot_%Y%m%d_%H%M%S.png && notify-send 'Screenshot saved'";
 
     # Focus
     "${modifier}+a" = "focus left";
