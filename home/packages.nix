@@ -74,6 +74,7 @@
     rustup
     jq # json processor
     vscode
+    octave
   ];
 
   i3 = with pkgs; [
